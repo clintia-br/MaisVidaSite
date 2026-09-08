@@ -30,7 +30,11 @@ Abrir o `index.html` com duplo clique também funciona.
 sem build command, output = raiz. O `vercel.json` já está pronto.
 
 **GitHub Pages:** _Settings → Pages → Source: GitHub Actions_. O workflow
-`.github/workflows/deploy-pages.yml` publica a cada push na `main`.
+`.github/workflows/deploy-pages.yml` publica a cada push.
+
+> O repositório foi criado vazio, então o GitHub marcou `claude/clinica-mais-vida-site-g9zarc`
+> como branch padrão. Vale renomear para `main` em _Settings → Branches_ (e aí simplificar
+> a lista `branches:` do workflow).
 
 > Ao apontar o domínio para cá, atualize o `canonical`, o `og:url` e o `sitemap.xml`
 > se o endereço final não for `https://www.clinicamaisvida.com/`.

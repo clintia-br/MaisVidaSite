@@ -2,7 +2,9 @@ name: Deploy GitHub Pages
 
 on:
   push:
-    branches: [main]
+    # o GitHub definiu a branch claude/... como default (repo criado vazio).
+    # Se renomear para main, pode remover a segunda linha.
+    branches: [main, claude/clinica-mais-vida-site-g9zarc]
   workflow_dispatch:
 
 permissions:
