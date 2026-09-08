@@ -1,0 +1,2 @@
+As imagens ainda são carregadas do WordPress (www.clinicamaisvida.com/wp-content/uploads/).
+Rode `bash scripts/baixar-imagens.sh` para trazê-las para esta pasta e deixar o site 100% autossuficiente.
