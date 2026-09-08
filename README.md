@@ -68,10 +68,12 @@ git add assets/img index.html && git commit -m "imagens locais" && git push
 atuais em `www.clinicamaisvida.com` — nada quebra, mas o visitante sai deste site.
 Manda o HTML dessas páginas que eu converto do mesmo jeito.
 
-**3. Estilo aproximado em alguns pontos.** O CSS do Elementor não pôde ser baixado
-(mesma restrição de rede — a URL era um hash do LiteSpeed, que muda a cada limpeza de cache).
-O layout foi remontado a partir da estrutura do HTML. Confirmado do original: rosa `#E61A67`.
-Os demais tons (azul `#123B6B`, cinzas) são aproximações — ajuste em `:root` no `style.css`.
+**3. Estilo remontado à mão.** O CSS do Elementor não pôde ser baixado (mesma restrição de
+rede — a URL era um hash do LiteSpeed, que muda a cada limpeza de cache), então o layout foi
+refeito a partir da estrutura do HTML e calibrado por captura de tela do site no ar:
+teal `#14707D` + rosa `#E61A67`, faixa rosa de diferenciais, faixa verde do "Associe-se",
+rodapé teal com os cards de agenda em branco. Tons finos podem ser ajustados em `:root`
+no `style.css`.
 
 **4. Foto da unidade KM 32.** A URL não estava no HTML enviado, então o card usa
 um fundo na cor da marca. Coloque a foto em `assets/img/` e troque
