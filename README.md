@@ -157,6 +157,21 @@ tirar os preços do FAQ e deixar tudo numa fonte só.
 A página original tem três faixas de imagem em tela cheia entre as seções. As URLs não
 aparecem no HTML (são fundo de seção do Elementor). Mande os arquivos se quiser recuperá-las.
 
+## Logo
+
+A logo (símbolo + "clínica mais vida") é **SVG inline**, não imagem — usa o vetor oficial da
+marca (a cruz interligada, teal + rosa) com o nome em Poppins. Vantagem: nítida em qualquer
+tela, sem depender do WordPress. Está no cabeçalho (`.brand`) e no rodapé (`.brand--light`,
+versão branca sobre o teal), definida uma vez no `index.html` e copiada às demais páginas
+pelo gerador.
+
+Se preferirem usar o **arquivo oficial** de vocês em vez do SVG reconstruído: coloquem o
+arquivo em `assets/img/` e me avisem, ou troquem o bloco `<a class="brand">` por um `<img>`
+apontando para ele. As cores do SVG saem de `--teal` e `--pink` no `:root`.
+
+O favicon e a imagem de compartilhamento (og:image) ainda usam os arquivos do WordPress
+(só aparecem na aba do navegador e ao compartilhar o link, não na página).
+
 ## Página "videx"
 
 Convertida do WordPress: hero, quatro vantagens, os três planos (3, 4 e 5 pessoas), o selo
