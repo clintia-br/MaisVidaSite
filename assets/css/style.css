@@ -236,7 +236,7 @@ svg{fill:currentColor}
 .reviews__link:hover{color:var(--pink)}
 
 /* cards (direita) */
-.reviews__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;align-items:start}
+.reviews__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}  /* stretch: cards de altura igual */
 .review{margin:0;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:10px}
 .review__head{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:10px}
 .review__avatar{
@@ -253,10 +253,10 @@ svg{fill:currentColor}
 .review .stars svg{width:15px;height:15px}
 .review__text{
   margin:0;color:var(--ink);font-size:14px;line-height:1.55;
-  display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:7;line-clamp:7;overflow:hidden;
+  display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:5;line-clamp:5;overflow:hidden;
 }
 .review__text.is-expanded{display:block;-webkit-line-clamp:unset;line-clamp:unset}
-.review__more{align-self:flex-start;font-size:13px;font-weight:600;color:var(--teal);text-decoration:underline;text-underline-offset:3px}
+.review__more{align-self:flex-start;margin-bottom:auto;font-size:13px;font-weight:600;color:var(--teal);text-decoration:underline;text-underline-offset:3px}
 .review__more:hover{color:var(--pink)}
 .reviews__cta{text-align:center;margin-top:28px}
 
