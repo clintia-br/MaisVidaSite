@@ -433,6 +433,16 @@ svg{fill:currentColor}
   .pilar--invertido .pilar__grid>*:first-child{order:2}
 }
 
+/* ------------------------- Página "nossos serviços" ------------------------ */
+.servicos{padding:clamp(38px,5vw,64px) 0;scroll-margin-top:calc(var(--header-h) + 10px)}
+.servicos--alt{background:linear-gradient(180deg,var(--mint-2) 0%,#fff 100%)}
+.servicos h1,.servicos h2{font-size:clamp(28px,3.8vw,44px);color:var(--teal);margin-bottom:.6em}
+.servicos .rule{margin-bottom:16px}
+.lista-servicos{display:grid;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));gap:10px 22px;margin-bottom:22px}
+.lista-servicos li{position:relative;padding:9px 0 9px 26px;color:var(--ink);font-size:16px;border-bottom:1px solid var(--line)}
+.lista-servicos li::before{content:"";position:absolute;left:2px;top:1.05em;width:8px;height:8px;border-radius:50%;background:var(--pink)}
+.servicos__nota{margin:0;color:var(--muted);font-size:15px;max-width:66ch}
+
 /* --------------------------- Cookies + WhatsApp ---------------------------- */
 .cookie-bar{
   position:fixed;left:16px;right:16px;bottom:16px;z-index:200;

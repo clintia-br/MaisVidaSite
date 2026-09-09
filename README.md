@@ -10,6 +10,7 @@ assets/css/style.css        todo o CSS do site
 assets/js/main.js           carrossel, slideshows, menu mobile, aviso de cookies
 assets/img/                 vazio hoje — ver "Imagens" abaixo
 clinica/                    página "a clínica" (conteúdo + equipe)
+servicos/                   página "nossos serviços"
 artigos/                    blog: index gerado + páginas dos artigos
 artigos/_conteudo/          texto dos artigos (é isto que se edita)
 artigos/artigos.json        título, resumo, tag e data de cada artigo
@@ -121,6 +122,39 @@ DPV, "Corpo clínico"), preencha e rode o gerador.
 - **Correções de digitação** aplicadas ao texto original: "negocio" → "negócio",
   "Socio-ambiental" → "socioambiental", "Psquiatra" → "Psiquiatra", "Neuropsicologa" →
   "Neuropsicóloga", "Psicologa" → "Psicóloga".
+
+## Página "nossos serviços"
+
+Convertida do WordPress: especialidades médicas, exames e especialidades não médicas.
+Texto em `servicos/conteudo.html`; `servicos/index.html` é gerado.
+
+O menu e o botão "saiba mais" da home apontam para cá. **O botão apontava para
+`/especialidades`**, que não é a URL da página de serviços no WordPress
+(`/nossos-servicos/`) — se aquele endereço existia, era outra página; agora vai para a
+página certa.
+
+A âncora `#exames` foi preservada: `servicos/#exames` cai direto na lista de exames, como
+no site atual.
+
+### Duas alterações em relação ao original
+
+1. **Um "Associe-se" em vez de três.** A página original repete a mesma faixa verde depois
+   de cada lista. O DPV posiciona o plano como **oferta secundária** ("não é o foco das
+   campanhas, é apresentado na etapa de qualificação"), então ficou uma faixa só, no fim.
+   Para voltar ao original, é copiar o bloco `<section class="join">` do
+   `servicos/conteudo.html` depois de cada lista.
+2. **Aviso sobre a grade do KM 32** na primeira lista. Sem ele, a página anuncia 18
+   especialidades sem dizer que a unidade nova opera com duas — que é o caso de propaganda
+   enganosa que o DPV manda evitar.
+
+Não colocamos preço aqui. Os valores já estão no FAQ da home; repetir criaria dois lugares
+para atualizar. O DPV pede uma **página de exames** dedicada — quando ela for feita, vale
+tirar os preços do FAQ e deixar tudo numa fonte só.
+
+### Faixas de imagem não reproduzidas
+
+A página original tem três faixas de imagem em tela cheia entre as seções. As URLs não
+aparecem no HTML (são fundo de seção do Elementor). Mande os arquivos se quiser recuperá-las.
 
 ## Artigos e FAQ
 

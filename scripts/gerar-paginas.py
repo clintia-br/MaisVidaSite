@@ -37,6 +37,7 @@ def para_subpasta(frag: str) -> str:
     frag = frag.replace('href="./"', 'href="../"')
     frag = frag.replace('href="artigos/"', 'href="../artigos/"')
     frag = frag.replace('href="clinica/"', 'href="../clinica/"')
+    frag = frag.replace('href="servicos/"', 'href="../servicos/"')
     return frag
 
 
@@ -295,6 +296,28 @@ def main():
     )
     (RAIZ / "clinica" / "index.html").write_text(pagina, encoding="utf-8")
     print("gerado clinica/index.html")
+
+    # -------------------------------------------------- página de serviços
+    corpo_serv = (RAIZ / "servicos" / "conteudo.html").read_text(encoding="utf-8")
+    url_serv = f"{SITE}/servicos/"
+    desc_serv = ("Especialidades médicas e não médicas, exames de imagem, cardiológicos e "
+                 "laboratoriais na Clínica Mais Vida, em Nova Iguaçu (RJ).")
+    ld_serv = json.dumps({
+        "@context": "https://schema.org", "@type": "CollectionPage",
+        "name": "Nossos serviços", "description": desc_serv, "inLanguage": "pt-BR",
+        "mainEntityOfPage": url_serv,
+    }, ensure_ascii=False, indent=2)
+
+    pagina_serv = (
+        cabeca("Nossos serviços", desc_serv, url_serv,
+               f'<script type="application/ld+json">\n{ld_serv}\n</script>\n')
+        + marca_ativo(cabecalho, "../servicos/")
+        + f'\n<main id="conteudo">\n{corpo_serv.rstrip()}\n</main>\n'
+        + rodape
+        + RODAPE_EXTRA
+    )
+    (RAIZ / "servicos" / "index.html").write_text(pagina_serv, encoding="utf-8")
+    print("gerado servicos/index.html")
 
 
 if __name__ == "__main__":
