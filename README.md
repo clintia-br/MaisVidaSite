@@ -9,11 +9,12 @@ index.html                  home completa (header, hero, unidades, avaliações,
 assets/css/style.css        todo o CSS do site
 assets/js/main.js           carrossel, slideshows, menu mobile, aviso de cookies
 assets/img/                 vazio hoje — ver "Imagens" abaixo
+clinica/                    página "a clínica" (conteúdo + equipe)
 artigos/                    blog: index gerado + páginas dos artigos
 artigos/_conteudo/          texto dos artigos (é isto que se edita)
 artigos/artigos.json        título, resumo, tag e data de cada artigo
 scripts/baixar-imagens.sh   traz as imagens do WordPress para assets/img/
-scripts/gerar-artigos.py    monta as páginas de artigo a partir do conteúdo
+scripts/gerar-paginas.py    monta as páginas internas (artigos e clínica)
 vercel.json                 cache dos assets + headers de segurança
 .github/workflows/          deploy automático no GitHub Pages
 robots.txt / sitemap.xml    SEO básico
@@ -85,6 +86,42 @@ um fundo na cor da marca. Coloque a foto em `assets/img/` e troque
 
 **5. Créditos "Desenvolvido por GeDê"** foram mantidos como no site atual — remover é decisão de vocês.
 
+## Página "a clínica"
+
+Convertida da página do WordPress. Fica em `clinica/`, com o mesmo cabeçalho e rodapé das
+demais — o item "clínica" do menu já aponta para cá, não mais para o WordPress.
+
+```
+clinica/conteudo.html    texto: apresentação, missão, visão e valores
+clinica/equipe.json      lista de profissionais
+clinica/index.html       página pronta — GERADA, não edite à mão
+```
+
+Rode `python3 scripts/gerar-paginas.py` depois de editar qualquer um dos dois primeiros.
+
+### Registro profissional da equipe — pendência de conformidade
+
+A checagem do DPV exige: *"Todo médico que aparece no conteúdo está identificado com nome e
+registro profissional."* A tabela do site atual traz só nome e especialidade. O
+`equipe.json` já tem o campo `registro` em cada profissional, hoje preenchido apenas para o
+Dr. Camilo Rodrigues (CRM 52880299, que consta no rodapé).
+
+**A coluna "Registro" só aparece na página quando todos os 22 estiverem preenchidos** — meia
+tabela vazia passa impressão de descuido. Peça a lista ao cliente (é item pendente no próprio
+DPV, "Corpo clínico"), preencha e rode o gerador.
+
+### Outras observações sobre o conteúdo
+
+- **A visão está vencida.** O texto diz "aumento de clientes fidelizados em 100% **até 2023**".
+  Mantivemos literal, mas publicar uma meta de três anos atrás pega mal — peça a versão
+  atualizada antes de subir.
+- **Faltou uma imagem.** A página original tem uma faixa de imagem entre "valores" e a equipe.
+  A URL não aparecia no HTML (era fundo de seção do Elementor), então a faixa não foi
+  reproduzida. Se quiser recuperá-la, mande o arquivo.
+- **Correções de digitação** aplicadas ao texto original: "negocio" → "negócio",
+  "Socio-ambiental" → "socioambiental", "Psquiatra" → "Psiquiatra", "Neuropsicologa" →
+  "Neuropsicóloga", "Psicologa" → "Psicóloga".
+
 ## Artigos e FAQ
 
 **FAQ** fica na home, acima das avaliações, em `<section class="faq">`. São 8 perguntas em
@@ -104,7 +141,7 @@ Para publicar ou alterar um artigo:
 ```bash
 # 1. edite artigos/_conteudo/<slug>.html e/ou artigos/artigos.json
 # 2. regenere as páginas
-python3 scripts/gerar-artigos.py
+python3 scripts/gerar-paginas.py
 # 3. acrescente a URL nova ao sitemap.xml e faça commit
 ```
 

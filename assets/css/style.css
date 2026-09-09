@@ -391,6 +391,48 @@ svg{fill:currentColor}
   .post-list{grid-template-columns:1fr}
 }
 
+/* --------------------------- Página "a clínica" ---------------------------- */
+.sobre{background:linear-gradient(150deg,var(--mint-1) 0%,var(--mint-2) 55%,#fff 100%);padding:clamp(40px,6vw,78px) 0}
+.sobre__grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(26px,5vw,60px);align-items:center}
+.rule--sobre{width:64px;margin-bottom:18px}
+.sobre__texto h1{font-size:clamp(32px,4.4vw,52px);color:var(--teal);margin-bottom:.5em;text-wrap:balance}
+.sobre__texto p{color:var(--muted);font-size:16px;line-height:1.75;max-width:58ch}
+.sobre__media img{width:100%;border-radius:var(--radius-lg);box-shadow:var(--shadow-lg);object-fit:cover;aspect-ratio:1/1;background:var(--teal-light)}
+
+.pilar{padding:clamp(30px,4.5vw,54px) 0}
+.pilar__grid{display:grid;grid-template-columns:minmax(160px,1fr) 2fr;gap:clamp(20px,4vw,50px);align-items:center}
+.pilar__titulo{margin:0;font-size:clamp(28px,3.6vw,44px);color:var(--teal);line-height:1}
+.pilar__texto{margin:0;border-left:3px solid var(--teal);padding-left:clamp(18px,3vw,30px)}
+.pilar__texto p{margin:0;color:var(--muted);font-size:16.5px;line-height:1.75}
+.pilar__lista{display:grid;gap:8px;padding-left:clamp(18px,3vw,30px);border-left:3px solid var(--teal)}
+.pilar__lista li{position:relative;padding-left:18px;color:var(--muted);font-size:16.5px}
+.pilar__lista li::before{content:"";position:absolute;left:0;top:.62em;width:7px;height:7px;border-radius:50%;background:var(--pink)}
+.pilar--invertido{background:var(--teal);color:#fff}
+.pilar--invertido .pilar__titulo{color:#fff;text-align:right}
+.pilar--invertido .pilar__texto{border-left-color:rgba(255,255,255,.55)}
+.pilar--invertido .pilar__texto p{color:rgba(255,255,255,.95)}
+
+.equipe{padding:clamp(40px,5.5vw,72px) 0}
+.equipe h2{font-size:clamp(26px,3.4vw,40px);color:var(--teal);margin-bottom:clamp(20px,3vw,32px);line-height:1.2}
+.equipe .rule{margin-bottom:18px}
+.tabela-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+.tabela-equipe{width:100%;border-collapse:collapse;font-size:15px;background:#fff;min-width:520px}
+.tabela-equipe th{background:var(--mint-2);color:var(--teal);text-align:left;padding:14px 18px;font-size:12px;text-transform:uppercase;letter-spacing:.1em}
+.tabela-equipe td{padding:13px 18px;border-top:1px solid var(--line);color:var(--muted)}
+.tabela-equipe td:first-child{color:var(--ink);font-weight:500}
+.tabela-equipe tbody tr:nth-child(even){background:#fbfdfd}
+
+.main-nav a.is-active{color:var(--pink)}
+.main-nav a.is-active::after{transform:scaleX(1)}
+
+@media (max-width:900px){
+  .sobre__grid{grid-template-columns:1fr}
+  .sobre__media{order:-1}
+  .pilar__grid{grid-template-columns:1fr;gap:14px}
+  .pilar--invertido .pilar__titulo{text-align:left}
+  .pilar--invertido .pilar__grid>*:first-child{order:2}
+}
+
 /* --------------------------- Cookies + WhatsApp ---------------------------- */
 .cookie-bar{
   position:fixed;left:16px;right:16px;bottom:16px;z-index:200;

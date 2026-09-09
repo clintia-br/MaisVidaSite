@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Gera as páginas de artigo a partir do conteúdo em artigos/_conteudo/.
+"""Gera as páginas internas do site (artigos e a página da clínica).
 
 Cabeçalho e rodapé são extraídos do index.html, então mudar telefone, menu ou
 endereço na home propaga para todos os artigos: basta rodar este script de novo.
 
-    python3 scripts/gerar-artigos.py
+    python3 scripts/gerar-paginas.py
 
 Edite o TEXTO dos artigos em artigos/_conteudo/<slug>.html e os METADADOS em
 artigos/artigos.json. Não edite artigos/<slug>.html à mão: é gerado e será
@@ -35,8 +35,14 @@ def para_subpasta(frag: str) -> str:
     frag = frag.replace('href="assets/', 'href="../assets/')
     frag = frag.replace('src="assets/', 'src="../assets/')
     frag = frag.replace('href="./"', 'href="../"')
-    frag = frag.replace('href="artigos/"', 'href="./"')
+    frag = frag.replace('href="artigos/"', 'href="../artigos/"')
+    frag = frag.replace('href="clinica/"', 'href="../clinica/"')
     return frag
+
+
+def marca_ativo(frag: str, href: str) -> str:
+    """Marca o item de menu da página atual."""
+    return frag.replace(f'<a href="{href}">', f'<a href="{href}" aria-current="page" class="is-active">')
 
 
 def escapa(txt: str) -> str:
@@ -231,8 +237,64 @@ def main():
         + rodape
         + RODAPE_EXTRA
     )
-    (RAIZ / "artigos" / "index.html").write_text(listagem, encoding="utf-8")
+    (RAIZ / "artigos" / "index.html").write_text(
+        listagem.replace('href="../artigos/"', 'href="./"'), encoding="utf-8")
     print("gerado artigos/index.html")
+
+    # ---------------------------------------------------- página da clínica
+    corpo = (RAIZ / "clinica" / "conteudo.html").read_text(encoding="utf-8")
+    equipe = json.loads((RAIZ / "clinica" / "equipe.json").read_text(encoding="utf-8"))
+
+    # a coluna de registro só aparece quando TODOS estiverem preenchidos:
+    # meia tabela vazia passa a impressão de descuido — ver README
+    com_registro = all(m.get("registro") for m in equipe)
+    cab_reg = "<th>Registro</th>" if com_registro else ""
+    linhas = "\n".join(
+        f"""            <tr><td>{m['nome']}</td><td>{m['especialidade']}</td>"""
+        + (f"<td>{m['registro']}</td>" if com_registro else "")
+        + "</tr>"
+        for m in equipe)
+
+    url_clinica = f"{SITE}/clinica/"
+    desc = ("Conheça a Clínica Mais Vida: missão, visão, valores e a equipe de profissionais "
+            "que atende nas unidades Cabuçu e KM 32, em Nova Iguaçu (RJ).")
+    ld = json.dumps({
+        "@context": "https://schema.org", "@type": "AboutPage",
+        "name": "A clínica", "description": desc, "inLanguage": "pt-BR",
+        "mainEntityOfPage": url_clinica,
+    }, ensure_ascii=False, indent=2)
+
+    pagina = (
+        cabeca("A clínica", desc, url_clinica,
+               f'<script type="application/ld+json">\n{ld}\n</script>\n')
+        + marca_ativo(cabecalho, "../clinica/")
+        + f"""
+<main id="conteudo">
+{corpo.rstrip()}
+
+  <section class="equipe">
+    <div class="container">
+      <span class="rule"></span>
+      <h2>conheça alguns médicos<br>de nossa equipe</h2>
+      <div class="tabela-wrap">
+        <table class="tabela-equipe">
+          <thead>
+            <tr><th>Profissional</th><th>Especialidade</th>{{cab_reg}}</tr>
+          </thead>
+          <tbody>
+{{linhas}}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+</main>
+""".replace("{cab_reg}", cab_reg).replace("{linhas}", linhas)
+        + rodape
+        + RODAPE_EXTRA
+    )
+    (RAIZ / "clinica" / "index.html").write_text(pagina, encoding="utf-8")
+    print("gerado clinica/index.html")
 
 
 if __name__ == "__main__":
