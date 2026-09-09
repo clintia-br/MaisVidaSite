@@ -11,6 +11,7 @@ assets/js/main.js           carrossel, slideshows, menu mobile, aviso de cookies
 assets/img/                 vazio hoje — ver "Imagens" abaixo
 clinica/                    página "a clínica" (conteúdo + equipe)
 servicos/                   página "nossos serviços"
+videx/                      página do plano Videx (planos + parceiros)
 artigos/                    blog: index gerado + páginas dos artigos
 artigos/_conteudo/          texto dos artigos (é isto que se edita)
 artigos/artigos.json        título, resumo, tag e data de cada artigo
@@ -155,6 +156,39 @@ tirar os preços do FAQ e deixar tudo numa fonte só.
 
 A página original tem três faixas de imagem em tela cheia entre as seções. As URLs não
 aparecem no HTML (são fundo de seção do Elementor). Mande os arquivos se quiser recuperá-las.
+
+## Página "videx"
+
+Convertida do WordPress: hero, quatro vantagens, os três planos (3, 4 e 5 pessoas), o selo
+"Associado Vida" e a rede de parceiros. Texto em `videx/conteudo.html`; `videx/index.html` é
+gerado. O menu e o slide "Cuidado contínuo" da home apontam para cá.
+
+⚠️ **PENDÊNCIAS DE CONFORMIDADE E DADOS — não publicar antes de resolver:**
+
+1. **Preço do plano ainda não confirmado.** Os valores (R$ 199,90 / 224,90 / 249,90 e taxa de
+   R$ 39,70) são os que já estão no site e no Instagram, mas o DPV lista os valores do plano
+   como "a confirmar". Bater com o Daniel antes de tratar como definitivo.
+
+2. **Drogasil × Drogasmil — provável erro no site atual.** A tabela de planos diz
+   "40% de desconto em medicamentos genéricos na **Drogasil**", mas o logo de parceiro na
+   mesma página é da **Drogasmil** (drogasmil.com.br) — são redes diferentes. Reproduzi
+   **exatamente como está no site de vocês** para não inventar, mas quase certamente uma das
+   duas está errada. Confirmar qual é a farmácia parceira e corrigir nos dois lugares
+   (`videx/conteudo.html`).
+
+3. **"Consultas gratuitas".** O card usa o termo do site atual. Para um plano de saúde/cartão
+   de descontos, "gratuitas" pode gerar questionamento — o mais seguro é "consultas incluídas".
+   Decisão do cliente / responsável técnico.
+
+4. **Como o plano se posiciona.** O DPV trata o Videx como **oferta secundária**, apresentada
+   na qualificação, não como foco de campanha. A página existe e está no menu (ok), mas evite
+   empurrar o Videx como chamada principal nos anúncios.
+
+### Faixa de imagem do hero
+
+O hero do Videx original tem uma foto de família ao fundo (fundo de seção do Elementor, sem
+URL no HTML). Usei provisoriamente a foto de fisioterapia. Mande a foto certa da família para
+trocar em `videx/conteudo.html` (`.videx-hero__bg`).
 
 ## Artigos e FAQ
 

@@ -38,6 +38,7 @@ def para_subpasta(frag: str) -> str:
     frag = frag.replace('href="artigos/"', 'href="../artigos/"')
     frag = frag.replace('href="clinica/"', 'href="../clinica/"')
     frag = frag.replace('href="servicos/"', 'href="../servicos/"')
+    frag = frag.replace('href="videx/"', 'href="../videx/"')
     return frag
 
 
@@ -318,6 +319,27 @@ def main():
     )
     (RAIZ / "servicos" / "index.html").write_text(pagina_serv, encoding="utf-8")
     print("gerado servicos/index.html")
+
+    # -------------------------------------------------- página videx
+    corpo_videx = (RAIZ / "videx" / "conteudo.html").read_text(encoding="utf-8")
+    url_videx = f"{SITE}/videx/"
+    desc_videx = ("Videx: planos de benefícios para 3, 4 ou 5 pessoas, com consultas, descontos "
+                  "em exames, terapias e medicamentos na Clínica Mais Vida, em Nova Iguaçu (RJ).")
+    ld_videx = json.dumps({
+        "@context": "https://schema.org", "@type": "WebPage",
+        "name": "Videx", "description": desc_videx, "inLanguage": "pt-BR",
+        "mainEntityOfPage": url_videx,
+    }, ensure_ascii=False, indent=2)
+    pagina_videx = (
+        cabeca("Videx", desc_videx, url_videx,
+               f'<script type="application/ld+json">\n{ld_videx}\n</script>\n')
+        + marca_ativo(cabecalho, "../videx/")
+        + f'\n<main id="conteudo">\n{corpo_videx.rstrip()}\n</main>\n'
+        + rodape
+        + RODAPE_EXTRA
+    )
+    (RAIZ / "videx" / "index.html").write_text(pagina_videx, encoding="utf-8")
+    print("gerado videx/index.html")
 
 
 if __name__ == "__main__":
