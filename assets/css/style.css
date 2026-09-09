@@ -95,7 +95,7 @@ svg{fill:currentColor}
 
 .main-nav{margin-inline:auto}
 .main-nav ul{display:flex;align-items:center;gap:30px}
-.main-nav a{position:relative;font-size:15px;font-weight:500;color:var(--teal);padding:6px 0;text-transform:lowercase}
+.main-nav a{position:relative;font-size:15px;font-weight:500;color:var(--teal);padding:6px 0}
 .main-nav a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--pink);transform:scaleX(0);transform-origin:left;transition:transform .22s ease}
 .main-nav a:hover{color:var(--pink)}
 .main-nav a:hover::after{transform:scaleX(1)}

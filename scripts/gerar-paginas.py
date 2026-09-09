@@ -310,7 +310,7 @@ def main():
     }, ensure_ascii=False, indent=2)
 
     pagina_serv = (
-        cabeca("Nossos serviços", desc_serv, url_serv,
+        cabeca("Exames e Serviços", desc_serv, url_serv,
                f'<script type="application/ld+json">\n{ld_serv}\n</script>\n')
         + marca_ativo(cabecalho, "../servicos/")
         + f'\n<main id="conteudo">\n{corpo_serv.rstrip()}\n</main>\n'
