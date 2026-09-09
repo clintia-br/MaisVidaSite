@@ -19,6 +19,8 @@ SITE = "https://www.clinicamaisvida.com"
 RT = "Camilo Rodrigues Junior"
 CRM = "52880299"
 WA = "https://wa.me/5521983564045"
+MARCA_INI = "<!-- artigos:inicio -->"
+MARCA_FIM = "<!-- artigos:fim -->"
 
 
 def bloco(html: str, tag: str) -> str:
@@ -164,13 +166,45 @@ def main():
         destino.write_text(pagina, encoding="utf-8")
         print("gerado", destino.relative_to(RAIZ))
 
-    # ----------------------------------------------------------------- índice
-    cards = "\n".join(f"""      <a class="post-card" href="{a['slug']}.html">
-        <span class="post-card__tag">{a['tag']}</span>
-        <h2>{a['titulo']}</h2>
-        <p>{a['resumo']}</p>
-        <span class="post-card__more">Ler artigo &rarr;</span>
-      </a>""" for a in artigos)
+    # ------------------------------------------------- cards (home e listagem)
+    def card(a, prefixo="", nivel="h2", recuo=6):
+        i = " " * recuo
+        return f"""{i}<a class="post-card" href="{prefixo}{a['slug']}.html">
+{i}  <span class="post-card__cover">
+{i}    <img src="{a['imagem']}" alt="{a['imagem_alt']}" loading="lazy" width="600" height="380">
+{i}  </span>
+{i}  <span class="post-card__body">
+{i}    <span class="post-card__tag">{a['tag']}</span>
+{i}    <{nivel}>{a['titulo']}</{nivel}>
+{i}    <p>{a['resumo']}</p>
+{i}    <span class="post-card__more">Ler artigo &rarr;</span>
+{i}  </span>
+{i}</a>"""
+
+    cards = "\n".join(card(a) for a in artigos)
+
+    # --------------------------------- seção de artigos na home (entre marcas)
+    indice_txt = (RAIZ / "index.html").read_text(encoding="utf-8")
+    ini = indice_txt.index(MARCA_INI) + len(MARCA_INI)
+    fim = indice_txt.index(MARCA_FIM)
+    home_cards = "\n".join(card(a, prefixo="artigos/", nivel="h3", recuo=8) for a in artigos[:4])
+    secao_home = f"""
+  <section class="posts" aria-labelledby="posts-title">
+    <div class="container">
+      <div class="section-divider"><span id="posts-title">Artigos e dicas de saúde</span></div>
+
+      <div class="post-list">
+{home_cards}
+      </div>
+
+      <div class="units__cta">
+        <a class="btn btn-ghost" href="artigos/">Ver todos os artigos</a>
+      </div>
+    </div>
+  </section>
+  """
+    (RAIZ / "index.html").write_text(indice_txt[:ini] + secao_home + indice_txt[fim:], encoding="utf-8")
+    print("atualizada a seção de artigos em index.html")
 
     descricao = ("Conteúdo sobre saúde, exames e especialidades da Clínica Mais Vida, "
                  "clínica popular da família em Nova Iguaçu (RJ).")

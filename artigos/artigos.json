@@ -6,7 +6,9 @@
     "data": "2026-09-09",
     "data_legivel": "9 de setembro de 2026",
     "resumo": "O que costuma estar por trás de uma queda, o que ajustar dentro de casa e como funciona o acompanhamento contínuo de osteoporose na clínica.",
-    "leitura": "5 min"
+    "leitura": "5 min",
+    "imagem": "https://www.clinicamaisvida.com/wp-content/uploads/2026/07/senior-woman-with-stretch-band-being-assist-by-female-physiotherapist.webp",
+    "imagem_alt": "Idosa em sessão de fisioterapia com faixa elástica, acompanhada por fisioterapeuta"
   },
   {
     "slug": "ecocardiograma-quando-e-indicado",
@@ -15,7 +17,9 @@
     "data": "2026-09-09",
     "data_legivel": "9 de setembro de 2026",
     "resumo": "O que o ecocardiograma mostra, o que ele permite avaliar e em que situações o cardiologista costuma solicitar o exame.",
-    "leitura": "4 min"
+    "leitura": "4 min",
+    "imagem": "https://www.clinicamaisvida.com/wp-content/uploads/2024/08/mais-vida-001.jpeg",
+    "imagem_alt": "Ambiente interno da Clínica Mais Vida"
   },
   {
     "slug": "check-up-e-prevencao",
@@ -24,7 +28,9 @@
     "data": "2026-09-09",
     "data_legivel": "9 de setembro de 2026",
     "resumo": "Acompanhar a saúde com regularidade também é cuidado. Como funciona uma avaliação periódica e por que ela não precisa começar por um sintoma.",
-    "leitura": "4 min"
+    "leitura": "4 min",
+    "imagem": "https://www.clinicamaisvida.com/wp-content/uploads/2024/06/recepcao-mais-vidas-004.jpg",
+    "imagem_alt": "Recepção da Clínica Mais Vida com pacientes aguardando atendimento"
   },
   {
     "slug": "qual-especialista-procurar",
@@ -33,6 +39,8 @@
     "data": "2026-09-09",
     "data_legivel": "9 de setembro de 2026",
     "resumo": "Endocrinologista, ortopedista, dermatologista, neurologista, ginecologista: o que cada um acompanha e como se orientar quando a dúvida aparece.",
-    "leitura": "5 min"
+    "leitura": "5 min",
+    "imagem": "https://www.clinicamaisvida.com/wp-content/uploads/2024/08/mais-vida-002.jpeg",
+    "imagem_alt": "Corredor de consultórios da Clínica Mais Vida"
   }
 ]

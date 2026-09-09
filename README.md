@@ -94,7 +94,7 @@ um fundo na cor da marca. Coloque a foto em `assets/img/` e troque
 **Artigos** ficam em `artigos/`, com um mini-sistema sem dependência nenhuma:
 
 ```
-artigos/artigos.json        metadados (título, resumo, tag, data, tempo de leitura)
+artigos/artigos.json        metadados (título, resumo, tag, data, leitura, capa)
 artigos/_conteudo/*.html    o texto de cada artigo — só o miolo, sem cabeçalho
 artigos/*.html              páginas prontas — GERADAS, não edite à mão
 ```
@@ -109,7 +109,23 @@ python3 scripts/gerar-artigos.py
 ```
 
 O gerador copia o cabeçalho e o rodapé do `index.html`, então **mudou o telefone ou o menu
-na home, rode o script de novo** e todas as páginas acompanham. Cada artigo sai com JSON-LD
+na home, rode o script de novo** e todas as páginas acompanham. Ele também reescreve a seção
+"Artigos e dicas de saúde" da home, entre as marcas `<!-- artigos:inicio -->` e
+`<!-- artigos:fim -->` — não edite esse trecho à mão.
+
+### Capas dos artigos
+
+Cada artigo tem `imagem` e `imagem_alt` no `artigos.json`. Para trocar, aponte para o arquivo
+novo e rode o gerador.
+
+⚠️ **As capas atuais são provisórias.** Não consegui obter fotos novas, então reaproveitei
+fotos que a clínica já tem no WordPress — e três delas **já aparecem em outras seções da home**
+(o bloco de fisioterapia e os cards de unidade). Fica repetido. Peça ao cliente 4 capas
+próprias, ou fotos do acervo da clínica que ainda não estejam no site.
+
+Ao escolher, siga o DPV: *"Imagens de procedimento não são utilizadas. Registro de ambiente e
+de equipe é o recurso visual padrão."* Ou seja: ambiente da clínica e equipe, não banco de
+imagens genérico de procedimento médico. Cada artigo sai com JSON-LD
 `Article`, breadcrumb, CTA de WhatsApp e o aviso de que o conteúdo não substitui consulta.
 
 ### De onde veio esse conteúdo
