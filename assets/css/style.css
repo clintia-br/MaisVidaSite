@@ -1,7 +1,7 @@
 /* ==========================================================================
    Mais Vida - Clínica Popular da Família
    CSS único do site estático. Paleta baseada no site no ar:
-   teal #14707D + rosa #E61A67 + verde WhatsApp na faixa "Associe-se".
+   teal #14707D + rosa #E61A67.
    ========================================================================== */
 
 :root{
@@ -202,17 +202,6 @@ svg{fill:currentColor}
 .units__cta{text-align:center;margin-top:clamp(24px,3.5vw,36px)}
 .units__cta .btn{padding:9px 26px;font-size:14px}
 
-/* -------------------------------- Associe-se ------------------------------- */
-.join{background:linear-gradient(90deg,var(--green-1) 0%,var(--green-2) 100%);color:#fff;padding:clamp(24px,3.4vw,38px) 0}
-.join__inner{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:clamp(20px,5vw,80px)}
-.join__inner h2{margin:0;font-size:clamp(21px,2.5vw,30px)}
-.join__cta{
-  display:inline-flex;align-items:center;gap:14px;font-size:clamp(16px,2vw,21px);font-weight:600;
-  background:rgba(255,255,255,.16);border:2px solid rgba(255,255,255,.5);
-  border-radius:999px;padding:8px 30px 8px 10px;transition:background .2s ease,transform .2s ease;
-}
-.join__cta:hover{background:rgba(255,255,255,.26);transform:translateY(-2px)}
-.join__icon{display:grid;place-items:center;width:46px;height:46px;border-radius:50%;background:#fff;color:var(--green-2);font-size:24px;flex:none}
 
 /* -------------------------------- Avaliações ------------------------------- */
 .reviews{padding:clamp(40px,5vw,68px) 0}
