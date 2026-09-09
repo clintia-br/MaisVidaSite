@@ -9,7 +9,7 @@ arraste as imagens já renomeadas e faça commit. Pronto — o site usa automati
 | Arquivo (nome exato)        | Onde aparece                                  | Já conectado no código? |
 |-----------------------------|-----------------------------------------------|-------------------------|
 | hero-casal-parque.jpg       | Hero da home (1º slide) — casal no parque     | Sim                     |
-| videx-familia.jpg           | Hero da página Videx — família no sofá        | aguardando confirmação  |
+| videx-familia.jpg           | Hero da página Videx — família no sofá        | Sim                     |
 | cabucu-1.jpg                | Card da unidade Cabuçu (home)                 | aguardando confirmação  |
 | mais-vida-4.jpg             | (a definir — seção da home?)                  | aguardando confirmação  |
 | mais-vida-5.jpg             | (a definir — seção da home?)                  | aguardando confirmação  |
