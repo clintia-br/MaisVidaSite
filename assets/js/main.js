@@ -192,15 +192,23 @@
     var stored = null;
     try { stored = window.localStorage.getItem(KEY); } catch (err) { stored = 'skip'; }
 
-    if (!stored) {
+    // display inline garante o sumiço mesmo se um CSS antigo estiver em cache
+    function hideBar() {
+      bar.hidden = true;
+      bar.style.display = 'none';
+      document.body.classList.remove('cookie-open');
+    }
+    function showBar() {
       bar.hidden = false;
+      bar.style.display = '';
       document.body.classList.add('cookie-open');
     }
 
+    if (stored) { hideBar(); } else { showBar(); }
+
     accept.addEventListener('click', function () {
       try { window.localStorage.setItem(KEY, 'accepted'); } catch (err) { /* modo privado */ }
-      bar.hidden = true;
-      document.body.classList.remove('cookie-open');
+      hideBar();
     });
   }
 })();
