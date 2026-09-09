@@ -9,7 +9,11 @@ index.html                  home completa (header, hero, unidades, avaliações,
 assets/css/style.css        todo o CSS do site
 assets/js/main.js           carrossel, slideshows, menu mobile, aviso de cookies
 assets/img/                 vazio hoje — ver "Imagens" abaixo
+artigos/                    blog: index gerado + páginas dos artigos
+artigos/_conteudo/          texto dos artigos (é isto que se edita)
+artigos/artigos.json        título, resumo, tag e data de cada artigo
 scripts/baixar-imagens.sh   traz as imagens do WordPress para assets/img/
+scripts/gerar-artigos.py    monta as páginas de artigo a partir do conteúdo
 vercel.json                 cache dos assets + headers de segurança
 .github/workflows/          deploy automático no GitHub Pages
 robots.txt / sitemap.xml    SEO básico
@@ -81,6 +85,53 @@ um fundo na cor da marca. Coloque a foto em `assets/img/` e troque
 
 **5. Créditos "Desenvolvido por GeDê"** foram mantidos como no site atual — remover é decisão de vocês.
 
+## Artigos e FAQ
+
+**FAQ** fica na home, acima das avaliações, em `<section class="faq">`. São 8 perguntas em
+`<details>` nativo — abre e fecha sem JavaScript. O mesmo conteúdo está marcado como
+`FAQPage` no JSON-LD, o que ajuda o Google a entender as respostas.
+
+**Artigos** ficam em `artigos/`, com um mini-sistema sem dependência nenhuma:
+
+```
+artigos/artigos.json        metadados (título, resumo, tag, data, tempo de leitura)
+artigos/_conteudo/*.html    o texto de cada artigo — só o miolo, sem cabeçalho
+artigos/*.html              páginas prontas — GERADAS, não edite à mão
+```
+
+Para publicar ou alterar um artigo:
+
+```bash
+# 1. edite artigos/_conteudo/<slug>.html e/ou artigos/artigos.json
+# 2. regenere as páginas
+python3 scripts/gerar-artigos.py
+# 3. acrescente a URL nova ao sitemap.xml e faça commit
+```
+
+O gerador copia o cabeçalho e o rodapé do `index.html`, então **mudou o telefone ou o menu
+na home, rode o script de novo** e todas as páginas acompanham. Cada artigo sai com JSON-LD
+`Article`, breadcrumb, CTA de WhatsApp e o aviso de que o conteúdo não substitui consulta.
+
+### De onde veio esse conteúdo
+
+Os três artigos e o FAQ foram escritos a partir do **plano de conteúdo de setembro/2026 da
+Clínica Mais Vida** (Google Drive, pasta "22. Clínica Mais Vida"), que já usa linguagem
+adequada para conteúdo médico: fala em "pode ajudar o médico a avaliar", nunca promete
+resultado nem sugere autodiagnóstico. Mantenha esse registro ao escrever os próximos.
+
+Nada aqui saiu de um DPV da Mais Vida: a task `[Fase 1] DPV` está concluída no ClickUp, mas o
+documento não está anexado. Quando ele aparecer, vale revisar os ângulos dos artigos.
+
+### Perguntas que faltam no FAQ
+
+Não incluímos o que não dá para responder com fonte. Peça as respostas ao Daniel e acrescente:
+
+- atende por convênio ou plano de saúde? quais?
+- exame precisa de pedido médico? em quais casos?
+- formas de pagamento e parcelamento
+- prazo de entrega dos resultados de exames (aparece como crítica numa avaliação do Google)
+- precisa de agendamento ou tem atendimento por ordem de chegada?
+
 ## Avaliações do Google
 
 O site antigo usava o widget da Trustindex (JS externo, puxava as avaliações ao vivo).
@@ -99,6 +150,21 @@ de terceiros, nada para carregar.
 ⚠️ **CFM 2336/2023:** depoimento de paciente em site de clínica precisa de validação do
 responsável técnico (Dr. Camilo Rodrigues Junior, CRM 52880299) antes de publicar — mesmo
 já estando no ar hoje. Para tirar, apague o bloco `<section class="reviews">` do `index.html`.
+
+A nota (4,7) e o total (1.565) são estáticos. Revise de tempos em tempos ou combine com o
+cliente uma frase que não envelheça ("mais de 1.500 avaliações").
+
+## Antes de publicar: revisão CFM
+
+Todo o conteúdo novo — os 3 artigos e o FAQ — é **paciente-facing** e precisa do aval do
+responsável técnico antes de ir ao ar. Dois pontos merecem atenção específica:
+
+1. **Preço do Videx** ("a partir de R$ 199,90/mês") aparece no FAQ. O cliente já divulga isso
+   no Instagram, mas divulgação de preço por clínica médica tem restrição na CFM 2336/2023 —
+   confirme com o Dr. Camilo se fica ou sai.
+2. **Os três artigos** falam de exame e de sintoma. Foram escritos sem prometer resultado,
+   sem sugerir autodiagnóstico e sempre remetendo à avaliação profissional, mas quem assina
+   é o responsável técnico.
 
 ## Ajustes rápidos
 
