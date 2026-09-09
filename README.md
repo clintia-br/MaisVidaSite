@@ -81,13 +81,24 @@ um fundo na cor da marca. Coloque a foto em `assets/img/` e troque
 
 **5. Créditos "Desenvolvido por GeDê"** foram mantidos como no site atual — remover é decisão de vocês.
 
-## Avaliações e CFM 2336/2023
+## Avaliações do Google
 
-A seção "O que nossos pacientes dizem" reproduz avaliações públicas do Google que **já estão
-publicadas no site atual** (widget Trustindex). Conteúdo com depoimento de paciente em site
-de clínica precisa de validação sob a **Resolução CFM 2336/2023** antes de ir ao ar —
-valide com o responsável técnico (Dr. Camilo Rodrigues Junior, CRM 52880299) antes de publicar.
-Para tirar do ar, apague o bloco `<section class="reviews">` do `index.html`.
+O site antigo usava o widget da Trustindex (JS externo, puxava as avaliações ao vivo).
+Aqui elas são **estáticas**, com a marca do Google reproduzida em SVG/CSS — nada de script
+de terceiros, nada para carregar.
+
+- **O texto é literal**, exatamente como está publicado no Google, inclusive a ressalva sobre
+  demora nos resultados de exames. Não edite nem recorte avaliação de paciente: além de
+  enganoso, é o tipo de coisa que derruba a credibilidade do bloco.
+- **As datas se calculam sozinhas** ("há 2 meses") a partir do `datetime` de cada `<time>`;
+  sem JS, aparece a data absoluta. Não precisa mexer com o tempo passando.
+- **Para atualizar:** edite os `<blockquote class="review">` no `index.html` — nome, `datetime`,
+  texto e a URL da foto em `--photo`. Atualize também o total em `.reviews__count` e no botão.
+- **"Leia mais"** aparece sozinho só quando o texto foi cortado.
+
+⚠️ **CFM 2336/2023:** depoimento de paciente em site de clínica precisa de validação do
+responsável técnico (Dr. Camilo Rodrigues Junior, CRM 52880299) antes de publicar — mesmo
+já estando no ar hoje. Para tirar, apague o bloco `<section class="reviews">` do `index.html`.
 
 ## Ajustes rápidos
 

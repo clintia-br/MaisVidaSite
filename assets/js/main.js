@@ -144,6 +144,45 @@
     }, interval);
   });
 
+  /* ------------------------- Avaliações do Google -------------------------- */
+
+  // Data relativa ("há 2 meses"). Sem JS, fica a data absoluta que está no HTML.
+  var rtf = null;
+  try {
+    rtf = new Intl.RelativeTimeFormat('pt-BR', { numeric: 'auto' });
+  } catch (err) { rtf = null; }
+
+  if (rtf) {
+    Array.prototype.forEach.call(document.querySelectorAll('.review__date[datetime]'), function (el) {
+      var d = new Date(el.getAttribute('datetime'));
+      if (isNaN(d)) return;
+      var dias = Math.round((d - Date.now()) / 86400000);
+      var texto;
+      if (dias > -30) {
+        texto = rtf.format(Math.min(dias, -1), 'day');
+      } else if (dias > -365) {
+        texto = rtf.format(Math.round(dias / 30), 'month');
+      } else {
+        texto = rtf.format(Math.round(dias / 365), 'year');
+      }
+      el.textContent = texto;
+    });
+  }
+
+  // "Leia mais" só aparece quando o texto realmente foi cortado
+  Array.prototype.forEach.call(document.querySelectorAll('.review'), function (card) {
+    var texto = card.querySelector('.review__text');
+    var botao = card.querySelector('.review__more');
+    if (!texto || !botao) return;
+
+    if (texto.scrollHeight - texto.clientHeight > 4) botao.hidden = false;
+
+    botao.addEventListener('click', function () {
+      var aberto = texto.classList.toggle('is-expanded');
+      botao.textContent = aberto ? 'Esconder' : 'Leia mais';
+    });
+  });
+
   /* ---------------------------- Aviso de cookies -------------------------- */
   var bar = document.getElementById('cookie-bar');
   var accept = document.getElementById('cookie-accept');
