@@ -16,12 +16,21 @@ e o canonical é {SITE}/artigos/<slug>/.
 import json
 import re
 from pathlib import Path
+from urllib.parse import quote
 
 RAIZ = Path(__file__).resolve().parent.parent
 SITE = "https://www.clinicamaisvida.com"
 RT = "Camilo Rodrigues Junior"
 CRM = "52880299"
 WA = "https://wa.me/5521983564045"
+
+
+def wa_link(msg: str) -> str:
+    """Monta o link do WhatsApp com mensagem já preenchida (personalizada por botão)."""
+    return f"{WA}?text=" + quote(msg, safe="")
+
+
+WA_INFO = wa_link("Olá! Vim pelo site da Clínica Mais Vida e gostaria de mais informações.")
 MARCA_INI = "<!-- artigos:inicio -->"
 MARCA_FIM = "<!-- artigos:fim -->"
 
@@ -49,7 +58,7 @@ def para_subpasta(frag: str, up: str = "../") -> str:
     frag = frag.replace('href="assets/', f'href="{up}assets/')
     frag = frag.replace('src="assets/', f'src="{up}assets/')
     frag = frag.replace('href="./"', f'href="{up}"')
-    for p in ("artigos", "clinica", "servicos", "videx"):
+    for p in ("artigos", "clinica", "servicos", "videx", "politica-de-privacidade"):
         frag = frag.replace(f'href="{p}/"', f'href="{up}{p}/"')
     return frag
 
@@ -140,7 +149,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 def rodape_extra(up: str = "../") -> str:
     return f"""
-<a class="wa-float" href="{WA}" target="_blank" rel="noopener nofollow" aria-label="Falar com a clínica pelo WhatsApp">
+<div class="cookie-bar" id="cookie-bar" hidden>
+  <p>Usamos cookies para melhorar sua experiência e entender como o site é usado. Ao continuar navegando, você concorda com o uso de cookies.
+    <a href="{up}politica-de-privacidade/">Leia mais</a>.</p>
+  <button type="button" class="btn btn-primary btn-sm" id="cookie-accept">Aceitar</button>
+</div>
+<a class="wa-float" href="{WA_INFO}" target="_blank" rel="noopener nofollow" aria-label="Falar com a clínica pelo WhatsApp">
   <svg viewBox="0 0 448 512" aria-hidden="true"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
 </a>
 <script src="{up}assets/js/main.js?v=2" defer></script>
@@ -186,6 +200,10 @@ def main():
             ("Artigos", f"{SITE}/artigos/"),
             (a["titulo"], url),
         ])
+        # mensagem do WhatsApp específica do artigo
+        cta_wa = wa_link(
+            f"Olá! Li o artigo “{a['titulo']}” no site da Clínica Mais Vida "
+            "e gostaria de agendar um atendimento.")
 
         pagina = (
             cabeca(a["titulo"], a["resumo"], url, lds=[artigo_ld, crumbs_ld],
@@ -217,7 +235,7 @@ def main():
         <div class="post__cta">
           <h2>Precisa de atendimento?</h2>
           <p>Consultas, exames e 19 especialidades nas unidades Cabuçu e KM 32, em Nova Iguaçu.</p>
-          <a class="btn btn-primary" href="{WA}" target="_blank" rel="noopener nofollow">Agendar pelo WhatsApp</a>
+          <a class="btn btn-primary" href="{cta_wa}" target="_blank" rel="noopener nofollow">Agendar pelo WhatsApp</a>
         </div>
 
         <div class="disclaimer">
@@ -414,6 +432,27 @@ def main():
     )
     (RAIZ / "videx" / "index.html").write_text(pagina_videx, encoding="utf-8")
     print("gerado videx/index.html")
+
+    # ------------------------------------------ página de política de privacidade
+    corpo_pp = (RAIZ / "politica-de-privacidade" / "conteudo.html").read_text(encoding="utf-8")
+    url_pp = f"{SITE}/politica-de-privacidade/"
+    desc_pp = ("Como a Clínica Mais Vida coleta, usa e protege seus dados pessoais, "
+               "conforme a LGPD (Lei nº 13.709/2018).")
+    pp_ld = {
+        "@context": "https://schema.org", "@type": "WebPage",
+        "name": "Política de Privacidade", "description": desc_pp, "inLanguage": "pt-BR",
+        "mainEntityOfPage": url_pp,
+    }
+    crumbs_pp = breadcrumb([("Início", f"{SITE}/"), ("Política de Privacidade", url_pp)])
+    pagina_pp = (
+        cabeca("Política de Privacidade", desc_pp, url_pp, lds=[pp_ld, crumbs_pp])
+        + cab_dir
+        + f'\n<main id="conteudo">\n{corpo_pp.rstrip()}\n</main>\n'
+        + rod_dir
+        + rodape_extra("../")
+    )
+    (RAIZ / "politica-de-privacidade" / "index.html").write_text(pagina_pp, encoding="utf-8")
+    print("gerado politica-de-privacidade/index.html")
 
 
 if __name__ == "__main__":
