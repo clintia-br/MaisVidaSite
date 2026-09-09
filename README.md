@@ -114,23 +114,48 @@ na home, rode o script de novo** e todas as páginas acompanham. Cada artigo sai
 
 ### De onde veio esse conteúdo
 
-Os três artigos e o FAQ foram escritos a partir do **plano de conteúdo de setembro/2026 da
-Clínica Mais Vida** (Google Drive, pasta "22. Clínica Mais Vida"), que já usa linguagem
-adequada para conteúdo médico: fala em "pode ajudar o médico a avaliar", nunca promete
-resultado nem sugere autodiagnóstico. Mantenha esse registro ao escrever os próximos.
+Fonte principal: o **DPV — Dossiê de Posicionamento e Vendas da Clínica Mais Vida**
+(versão 2.0, agosto/2026, `dpvmaisvida.vercel.app`). Dele saíram os preços, a grade de
+especialidades por unidade, o vocabulário permitido, a checagem de conformidade e as pautas.
+O plano de conteúdo de setembro/2026 (Drive, pasta "22. Clínica Mais Vida") complementou o
+registro de escrita.
 
-Nada aqui saiu de um DPV da Mais Vida: a task `[Fase 1] DPV` está concluída no ClickUp, mas o
-documento não está anexado. Quando ele aparecer, vale revisar os ângulos dos artigos.
+O que o DPV determina e está aplicado aqui:
 
-### Perguntas que faltam no FAQ
+- **Preço aparece.** "A clínica é favorável à transparência de preço." A regra é informar o
+  valor sem comparar com terceiros e sem apelo promocional.
+- **Vocabulário.** Use: "consulta a partir de R$ 120", "sem plano de saúde", "aqui no bairro",
+  "exame na própria clínica", "resultado pelo WhatsApp", "para toda a família", "acompanhamento".
+  Nunca use: "cura garantida", "o melhor médico", "único da cidade", "mais barato que a
+  concorrência", "antes e depois", "sem dor", "promoção".
+- **Nunca anuncie especialidade indisponível numa unidade.** O DPV é explícito: isso é
+  propaganda enganosa, faz o paciente se deslocar à toa e gera avaliação negativa numa ficha
+  do Google que ainda não tem histórico para absorver.
 
-Não incluímos o que não dá para responder com fonte. Peça as respostas ao Daniel e acrescente:
+### Valores que NÃO devem ser publicados ainda
 
-- atende por convênio ou plano de saúde? quais?
-- exame precisa de pedido médico? em quais casos?
-- formas de pagamento e parcelamento
-- prazo de entrega dos resultados de exames (aparece como crítica numa avaliação do Google)
-- precisa de agendamento ou tem atendimento por ordem de chegada?
+O próprio DPV marca como pendente de confirmação — por isso ficaram fora do FAQ:
+
+- **Pilates** (R$ 105 e R$ 170): falta confirmar se é mensal ou por sessão.
+- **RPG**: o pacote de 5 sessões (R$ 400) está acima de 5 sessões avulsas (R$ 375).
+- **Plano da clínica / Videx**: valor individual, familiar, cobertura, dependentes e carências
+  estão listados como "a confirmar". O Instagram publica "a partir de R$ 199,90/mês", mas o
+  DPV não confirma — por isso o FAQ cita o plano sem preço.
+
+### Divergências encontradas — alguém precisa decidir
+
+- **Horário de sábado.** O site diz 7h30–12h; o DPV diz 7h–12h nas duas unidades. Mantivemos
+  7h30 (o que já estava publicado). Confirme qual é o certo: errar isso faz o paciente chegar
+  na porta fechada.
+- **WhatsApp do KM 32.** O DPV registra que a unidade só tem telefone fixo e que é preciso
+  habilitar um número móvel antes das campanhas. Enquanto isso, o FAQ manda o KM 32 para o
+  telefone, não para o WhatsApp.
+
+### Ainda faltam respostas do cliente
+
+- formas de pagamento e condições de parcelamento
+- política de retorno (está incluso? em qual prazo?)
+- prazo de entrega dos resultados de exame — aparece como crítica numa avaliação do Google
 
 ## Avaliações do Google
 
@@ -154,17 +179,34 @@ já estando no ar hoje. Para tirar, apague o bloco `<section class="reviews">` d
 A nota (4,7) e o total (1.565) são estáticos. Revise de tempos em tempos ou combine com o
 cliente uma frase que não envelheça ("mais de 1.500 avaliações").
 
-## Antes de publicar: revisão CFM
+## Antes de publicar: aprovação
 
-Todo o conteúdo novo — os 3 artigos e o FAQ — é **paciente-facing** e precisa do aval do
-responsável técnico antes de ir ao ar. Dois pontos merecem atenção específica:
+**Cássia é a responsável única pela aprovação de todo material de marketing**, site incluído
+(definido no DPV). O conteúdo médico passa também pelo responsável técnico, Dr. Camilo
+Rodrigues Junior (CRM 52880299).
 
-1. **Preço do Videx** ("a partir de R$ 199,90/mês") aparece no FAQ. O cliente já divulga isso
-   no Instagram, mas divulgação de preço por clínica médica tem restrição na CFM 2336/2023 —
-   confirme com o Dr. Camilo se fica ou sai.
-2. **Os três artigos** falam de exame e de sintoma. Foram escritos sem prometer resultado,
-   sem sugerir autodiagnóstico e sempre remetendo à avaliação profissional, mas quem assina
-   é o responsável técnico.
+A checagem do DPV, aplicada a tudo que está aqui:
+
+- [x] sem promessa de cura, de resultado ou de superioridade
+- [x] sem antes e depois
+- [x] sem linguagem sensacionalista, superlativo absoluto ou escassez artificial
+- [x] preço em caráter informativo, sem comparação e sem apelo promocional
+- [x] depoimentos tratam de experiência de atendimento, nunca de resultado de tratamento
+- [x] especialidades anunciadas correspondem ao que cada unidade atende
+- [ ] **autorização registrada** para as avaliações de paciente exibidas na home — pendente
+
+### Sugestões do DPV que ainda não estão no site
+
+O DPV pede que o site tenha, além do que já existe:
+
+1. **Páginas por unidade**, com endereço e mapa.
+2. **Páginas por especialidade**, com preço informativo.
+3. **Página de exames.**
+
+E aponta três diferenciais que os pacientes citam sozinhos nas avaliações e que **não estão em
+nenhuma peça atual**: o resultado de exame enviado por WhatsApp, o cafezinho de cortesia na
+recepção e o fato de a clínica atender a família inteira. O primeiro já entrou no FAQ; os
+outros dois valem uma passada na home.
 
 ## Ajustes rápidos
 
