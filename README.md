@@ -168,6 +168,14 @@ duas para `assets/img/` junto com o resto. Para trocar por outro arquivo, é só
 `<img>` do `.brand` (header) e do `.footer-logo` (rodapé) no `index.html`.
 
 
+
+### Foto do hero da home
+
+O primeiro slide da home usa `assets/img/hero-casal-parque.jpg` (foto do casal no parque).
+**Falta subir esse arquivo** — foi combinado com o cliente mas a imagem chegou colada no chat,
+sem virar arquivo. Salve a foto nesse caminho exato e faça commit. Sem ela, o hero mostra um
+fundo teal com o texto branco legível (degradação proposital). Ver `assets/img/LEIA-hero.txt`.
+
 ## Página "videx"
 
 Convertida do WordPress: hero, quatro vantagens, os três planos (3, 4 e 5 pessoas), o selo

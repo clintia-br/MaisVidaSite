@@ -1,0 +1,5 @@
+Coloque aqui a foto do hero com o nome EXATO:  hero-casal-parque.jpg
+
+É a foto do casal caminhando no parque, usada como fundo do primeiro slide da home.
+Formato: JPG, proporção paisagem (~16:9), largura ideal 1920px, peso < 400 KB.
+Enquanto o arquivo não estiver aqui, o hero mostra um fundo teal (o texto continua legível).
