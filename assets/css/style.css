@@ -76,22 +76,10 @@ svg{fill:currentColor}
 .site-header{position:sticky;top:0;z-index:100;background:#fff;box-shadow:0 1px 0 var(--line);transition:box-shadow .25s ease}
 .site-header.is-stuck{box-shadow:0 6px 22px rgba(20,112,125,.13)}
 .header-inner{max-width:var(--max);margin:0 auto;padding:8px 22px;display:flex;align-items:center;gap:20px;min-height:var(--header-h)}
-.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
-.brand__mark{width:46px;height:46px;flex:none}
-.brand__mark .mk-a{fill:var(--teal)}
-.brand__mark .mk-b{fill:var(--pink)}
-.brand__word{display:flex;flex-direction:column;line-height:1;letter-spacing:-.01em}
-.brand__sub{font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:lowercase;color:var(--teal);margin-bottom:3px}
-.brand__name{display:inline-flex;gap:.26em;font-size:25px;font-weight:700;color:var(--teal);text-transform:lowercase}
-.brand__vida{color:var(--pink)}
-/* variante clara para o rodapé (fundo teal) */
-.brand--light .mk-a{fill:#fff}
-.brand--light .brand__sub{color:rgba(255,255,255,.85)}
-.brand--light .brand__name{color:#fff}
-.brand--light .brand__vida{color:var(--pink)}
-.footer-brand{justify-content:center}
-.footer-brand .brand__mark{width:54px;height:54px}
-.footer-brand .brand__name{font-size:30px}
+.brand{display:flex;align-items:center;text-decoration:none}
+.brand img{width:190px;height:auto}
+.footer-logo{display:inline-block}
+.footer-logo img{width:210px;height:auto}
 
 .main-nav{margin-inline:auto}
 .main-nav ul{display:flex;align-items:center;gap:30px}
@@ -554,8 +542,7 @@ body.cookie-open .wa-float{bottom:120px}
 
 @media (max-width:900px){
   .header-inner{gap:12px}
-  .brand__mark{width:40px;height:40px}
-  .brand__name{font-size:21px}
+  .brand img{width:156px}
   .nav-toggle{display:grid}
   .social--header{display:none}
   .header-cta{margin-left:auto;padding:7px 14px}
@@ -574,6 +561,7 @@ body.cookie-open .wa-float{bottom:120px}
   .main-nav a{display:block;padding:14px 4px;font-size:17px}
   .main-nav a::after{display:none}
   .nav-extra{display:block;margin-top:16px}
+  .nav-extra .btn-wa{color:#fff}
   .nav-extra .btn{width:100%}
 
   .slide__card--right{text-align:left;margin-left:0}
@@ -587,9 +575,7 @@ body.cookie-open .wa-float{bottom:120px}
 }
 
 @media (max-width:620px){
-  .brand__mark{width:36px;height:36px}
-  .brand__name{font-size:19px}
-  .brand__sub{font-size:10px}
+  .brand img{width:140px}
   .usp{padding:22px 0}
   .usp__grid{grid-template-columns:1fr;gap:14px}
   .specialties{flex-direction:column;align-items:flex-start;gap:14px}

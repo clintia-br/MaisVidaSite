@@ -159,18 +159,14 @@ aparecem no HTML (são fundo de seção do Elementor). Mande os arquivos se quis
 
 ## Logo
 
-A logo (símbolo + "clínica mais vida") é **SVG inline**, não imagem — usa o vetor oficial da
-marca (a cruz interligada, teal + rosa) com o nome em Poppins. Vantagem: nítida em qualquer
-tela, sem depender do WordPress. Está no cabeçalho (`.brand`) e no rodapé (`.brand--light`,
-versão branca sobre o teal), definida uma vez no `index.html` e copiada às demais páginas
-pelo gerador.
+A logo (header e rodapé) usa o **arquivo oficial da clínica**:
+- Header: `2026/07/logo-clinica-mais-vida.webp` (versão colorida)
+- Rodapé: `2021/06/logo-maisvida-br.png` (versão branca, para o fundo teal)
 
-Se preferirem usar o **arquivo oficial** de vocês em vez do SVG reconstruído: coloquem o
-arquivo em `assets/img/` e me avisem, ou troquem o bloco `<a class="brand">` por um `<img>`
-apontando para ele. As cores do SVG saem de `--teal` e `--pink` no `:root`.
+Hoje carregam do WordPress, como as demais imagens; o `scripts/baixar-imagens.sh` baixa as
+duas para `assets/img/` junto com o resto. Para trocar por outro arquivo, é só apontar o
+`<img>` do `.brand` (header) e do `.footer-logo` (rodapé) no `index.html`.
 
-O favicon e a imagem de compartilhamento (og:image) ainda usam os arquivos do WordPress
-(só aparecem na aba do navegador e ao compartilhar o link, não na página).
 
 ## Página "videx"
 
