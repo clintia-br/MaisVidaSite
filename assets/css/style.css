@@ -31,6 +31,7 @@
 }
 
 *,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important} /* atributo hidden sempre vence layout (corrige barra de cookies que não sumia) */
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{
   margin:0;font-family:var(--font);font-size:16px;line-height:1.65;
@@ -530,13 +531,20 @@ body.cookie-open .wa-float{bottom:120px}
 }
 
 @media (max-width:900px){
+  :root{--header-h:72px}
   .header-inner{gap:12px}
   .brand img{width:156px}
-  .nav-toggle{display:grid}
+  .nav-toggle{display:grid;flex:none}
   .social--header{display:none}
-  .header-cta{margin-left:auto;padding:7px 14px}
+  /* número não cabe no header do celular -> vira botão redondo do WhatsApp */
+  .header-cta{margin-left:auto;flex:none;width:46px;height:46px;padding:0;border-radius:50%;justify-content:center;gap:0}
   .header-cta__label{display:none}
-  .header-phone{font-size:14px}
+  .header-phone{gap:0}
+  .header-phone span{display:none}
+  .header-phone .ico{width:24px;height:24px;padding:0;background:transparent;color:#fff}
+
+  /* texto do hero fica à esquerda no mobile -> escurece a esquerda p/ leitura */
+  .slide--photo::after{background:linear-gradient(90deg,rgba(0,0,0,.55) 0%,rgba(0,0,0,.32) 55%,rgba(0,0,0,.12) 100%)}
 
   .main-nav{
     position:fixed;inset:var(--header-h) 0 auto;margin:0;background:#fff;
