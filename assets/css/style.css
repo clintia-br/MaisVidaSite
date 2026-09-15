@@ -10,9 +10,11 @@
   --teal-light:#e3f2f4;
   --mint-1:#cfe9ec;
   --mint-2:#eef8f9;
-  --pink:#e61a67;
-  --pink-dark:#c4155a;
-  --pink-soft:#fdeef4;
+  /* Marketing pediu a cor da LOGO (teal/petróleo) como predominante e o mínimo de
+     rosa. O rosa foi aposentado: as variáveis --pink* viram apelido do teal da logo. */
+  --pink:var(--teal);
+  --pink-dark:var(--teal-dark);
+  --pink-soft:var(--teal-light);
   --green-1:#63bb46;
   --green-2:#3da33f;
   --wa:#25d366;
@@ -63,9 +65,9 @@ svg{fill:currentColor}
 .btn:hover{transform:translateY(-2px)}
 .btn .ico{font-size:1.2em}
 .btn-sm{padding:10px 20px;font-size:14px}
-.btn-primary{background:var(--pink);color:#fff;box-shadow:0 8px 20px rgba(230,26,103,.28)}
+.btn-primary{background:var(--pink);color:#fff;box-shadow:0 8px 20px rgba(20,112,125,.28)}
 .btn-primary:hover{background:var(--pink-dark)}
-.btn-wa{background:var(--pink);color:#fff;box-shadow:0 8px 20px rgba(230,26,103,.28)}
+.btn-wa{background:var(--pink);color:#fff;box-shadow:0 8px 20px rgba(20,112,125,.28)}
 .btn-wa .ico{color:#fff}
 .btn-wa:hover{background:var(--pink-dark)}
 .btn-outline{background:#fff;color:var(--teal);border:2px solid var(--teal)}
@@ -94,7 +96,7 @@ svg{fill:currentColor}
 .header-cta{
   display:flex;flex-direction:column;align-items:center;gap:1px;
   padding:8px 22px;background:var(--pink);border-radius:999px;color:#fff;
-  box-shadow:0 8px 20px rgba(230,26,103,.26);
+  box-shadow:0 8px 20px rgba(20,112,125,.26);
 }
 .header-cta__label{font-size:13px;font-weight:600;line-height:1.3}
 .header-phone{display:flex;align-items:center;gap:8px;font-weight:600;font-size:15px;color:#fff}
@@ -122,7 +124,7 @@ svg{fill:currentColor}
 .slide--photo::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,0) 35%,rgba(0,0,0,.18) 70%,rgba(0,0,0,.32) 100%)}
 .slide--light{background:linear-gradient(115deg,#fff 0%,#fff 45%,var(--mint-2) 100%)}
 .slide--videx{background:linear-gradient(120deg,var(--teal) 0%,var(--teal-dark) 60%,var(--pink) 140%)}
-.slide--videx::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,rgba(15,90,101,.9) 0%,rgba(15,90,101,.66) 50%,rgba(196,21,90,.42) 120%)}
+.slide--videx::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,rgba(15,90,101,.9) 0%,rgba(15,90,101,.66) 50%,rgba(15,90,101,.42) 120%)}
 .slide--videx .slide__card{text-shadow:0 2px 14px rgba(0,0,0,.28)}
 .slide__inner{position:relative;z-index:2;width:100%;padding-block:clamp(44px,6vw,80px);display:block}
 .slide__link{display:block}
