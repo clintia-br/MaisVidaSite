@@ -35,9 +35,9 @@ MARCA_INI = "<!-- artigos:inicio -->"
 MARCA_FIM = "<!-- artigos:fim -->"
 
 # SEO / social padrão
-OG_IMG = f"{SITE}/assets/img/hero-casal-parque.jpg"
-OG_IMG_W = "2752"
-OG_IMG_H = "1536"
+OG_IMG = f"{SITE}/assets/img/hero-casal-parque.webp"
+OG_IMG_W = "1600"
+OG_IMG_H = "893"
 OG_IMG_ALT = "Clínica Mais Vida – Clínica Popular da Família em Nova Iguaçu (RJ)"
 LOGO = f"{SITE}/wp-content/uploads/2021/06/logo-maisvida-br.png"
 
