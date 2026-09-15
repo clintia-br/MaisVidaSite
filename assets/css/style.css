@@ -508,7 +508,15 @@ svg{fill:currentColor}
 .vantagens__intro h2{font-size:clamp(28px,3.6vw,44px);color:var(--teal);margin-bottom:.4em}
 .vantagens__intro p{color:var(--muted);font-size:16.5px;max-width:52ch}
 .vantagens__badge{justify-self:center}
-.vantagens__badge img{width:min(300px,80%);filter:drop-shadow(0 16px 34px rgba(20,112,125,.22))}
+/* cartão de benefícios (elemento decorativo, 100% local) */
+.videx-card{width:min(330px,90%);aspect-ratio:1.6/1;box-sizing:border-box;
+  background:linear-gradient(140deg,var(--teal) 0%,var(--teal-dark) 65%,#093f48 100%);
+  border-radius:20px;box-shadow:0 22px 44px rgba(15,90,101,.34);
+  padding:clamp(18px,2.6vw,26px);display:flex;flex-direction:column;gap:7px;color:#fff;text-align:left}
+.videx-card__logo{width:118px;height:auto;margin-bottom:auto}
+.videx-card__brand{font-size:clamp(28px,3.6vw,38px);font-weight:700;letter-spacing:.16em;line-height:1}
+.videx-card__desc{font-size:12.5px;line-height:1.5;color:rgba(255,255,255,.9);margin:0;max-width:26ch}
+.videx-card__foot{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.72)}
 .vantagens__cards{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
 .vantagem{background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:28px 24px;text-align:center;transition:transform .22s ease,box-shadow .22s ease}
 .vantagem:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
