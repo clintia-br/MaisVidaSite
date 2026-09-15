@@ -587,6 +587,8 @@ body.cookie-open .wa-float{bottom:120px}
 
   /* texto do hero fica à esquerda no mobile -> escurece a esquerda p/ leitura */
   .slide--photo::after{background:linear-gradient(90deg,rgba(0,0,0,.55) 0%,rgba(0,0,0,.32) 55%,rgba(0,0,0,.12) 100%)}
+  /* o casal fica na metade esquerda da foto -> desloca o corte p/ centralizá-lo no mobile */
+  .slide--photo .slide__bg{background-position:26% center}
 
   .main-nav{
     position:fixed;inset:var(--header-h) 0 auto;margin:0;background:#fff;
