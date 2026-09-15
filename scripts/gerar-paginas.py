@@ -39,7 +39,7 @@ OG_IMG = f"{SITE}/assets/img/hero-casal-parque.webp"
 OG_IMG_W = "1600"
 OG_IMG_H = "893"
 OG_IMG_ALT = "Clínica Mais Vida – Clínica Popular da Família em Nova Iguaçu (RJ)"
-LOGO = f"{SITE}/wp-content/uploads/2021/06/logo-maisvida-br.png"
+LOGO = f"{SITE}/assets/img/logo-clinica-mais-vida.webp"
 
 
 def bloco(html: str, tag: str) -> str:
@@ -127,9 +127,9 @@ def cabeca(titulo, descricao, canonical, lds=None, og_type="website",
 <meta name="twitter:title" content="{escapa(titulo)}">
 <meta name="twitter:description" content="{escapa(descricao)}">
 <meta name="twitter:image" content="{img}">
-<link rel="icon" href="{SITE}/wp-content/uploads/2021/06/mais-vida-icone-150x150.png" sizes="32x32">
-<link rel="icon" href="{SITE}/wp-content/uploads/2021/06/mais-vida-icone-300x300.png" sizes="192x192">
-<link rel="apple-touch-icon" href="{SITE}/wp-content/uploads/2021/06/mais-vida-icone-300x300.png">
+<link rel="icon" href="{up}assets/img/mais-vida-icone-150x150.png" sizes="32x32">
+<link rel="icon" href="{up}assets/img/mais-vida-icone-300x300.png" sizes="192x192">
+<link rel="apple-touch-icon" href="{up}assets/img/mais-vida-icone-300x300.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
