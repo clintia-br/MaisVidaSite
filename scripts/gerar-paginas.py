@@ -191,12 +191,14 @@ def main():
     for a in artigos:
         corpo = (RAIZ / "artigos" / "_conteudo" / f"{a['slug']}.html").read_text(encoding="utf-8")
         url = f"{SITE}/artigos/{a['slug']}/"
+        # imagem local (/assets/...) vira URL absoluta para og:image e JSON-LD
+        img_abs = a["imagem"] if a["imagem"].startswith("http") else SITE + a["imagem"]
         artigo_ld = {
             "@context": "https://schema.org",
             "@type": "Article",
             "headline": a["titulo"],
             "description": a["resumo"],
-            "image": a["imagem"],
+            "image": img_abs,
             "datePublished": a["data"],
             "dateModified": a["data"],
             "inLanguage": "pt-BR",
@@ -220,7 +222,7 @@ def main():
 
         pagina = (
             cabeca(a["titulo"], a["resumo"], url, lds=[artigo_ld, crumbs_ld],
-                   og_type="article", og_image=a["imagem"], og_image_alt=a["imagem_alt"],
+                   og_type="article", og_image=img_abs, og_image_alt=a["imagem_alt"],
                    up="../../")
             + cab_art
             + f"""
