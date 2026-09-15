@@ -133,7 +133,7 @@ def cabeca(titulo, descricao, canonical, lds=None, og_type="website",
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
-<link rel="stylesheet" href="{up}assets/css/style.css?v=3">
+<link rel="stylesheet" href="{up}assets/css/style.css?v=4">
 <script>(function(w,d,s,l,i){{w[l]=w[l]||[];w[l].push({{'gtm.start':
 new Date().getTime(),event:'gtm.js'}});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
@@ -170,7 +170,7 @@ def rodape_extra(up: str = "../") -> str:
   acc.addEventListener('click',function(){{try{{localStorage.setItem(KEY,'accepted');}}catch(e){{}}hide();}});
 }}catch(e){{}}}})();
 </script>
-<script src="{up}assets/js/main.js?v=3" defer></script>
+<script src="{up}assets/js/main.js?v=4" defer></script>
 </body>
 </html>
 """
@@ -380,8 +380,8 @@ def main():
     com_registro = all(m.get("registro") for m in equipe)
     cab_reg = "<th>Registro</th>" if com_registro else ""
     linhas = "\n".join(
-        f"""            <tr><td>{m['nome']}</td><td>{m['especialidade']}</td>"""
-        + (f"<td>{m['registro']}</td>" if com_registro else "")
+        f"""            <tr><td data-rotulo="Profissional">{m['nome']}</td><td data-rotulo="Especialidade">{m['especialidade']}</td>"""
+        + (f'<td data-rotulo="Registro">{m["registro"]}</td>' if com_registro else "")
         + "</tr>"
         for m in equipe)
 

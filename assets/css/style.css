@@ -434,6 +434,19 @@ svg{fill:currentColor}
 .tabela-equipe td:first-child{color:var(--ink);font-weight:500}
 .tabela-equipe tbody tr:nth-child(even){background:#fbfdfd}
 
+/* No celular a tabela vira cartões empilhados (sem rolagem horizontal) */
+@media (max-width:620px){
+  .tabela-wrap{overflow:visible;border:0;border-radius:0;box-shadow:none;background:transparent}
+  .tabela-equipe{min-width:0;font-size:15px;background:transparent}
+  .tabela-equipe thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  .tabela-equipe tbody tr{display:block;background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:14px 16px;margin-bottom:12px}
+  .tabela-equipe tbody tr:nth-child(even){background:#fff}
+  .tabela-equipe td{display:block;border:0;padding:0}
+  .tabela-equipe td:first-child{font-size:16.5px;font-weight:600;color:var(--ink);margin-bottom:2px}
+  .tabela-equipe td:not(:first-child){color:var(--muted)}
+  .tabela-equipe td:not(:first-child)::before{content:attr(data-rotulo) ": ";color:var(--teal);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.06em}
+}
+
 .main-nav a.is-active{color:var(--pink)}
 .main-nav a.is-active::after{transform:scaleX(1)}
 
