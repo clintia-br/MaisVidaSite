@@ -8,6 +8,9 @@
   --teal:#14707d;
   --teal-dark:#0f5a65;
   --teal-light:#e3f2f4;
+  /* botões de ação: teal mais escuro p/ destacar sem sair da cor da marca */
+  --btn:#0f5a65;
+  --btn-hover:#093f48;
   --mint-1:#cfe9ec;
   --mint-2:#eef8f9;
   /* Marketing pediu a cor da LOGO (teal/petróleo) como predominante e o mínimo de
@@ -65,11 +68,11 @@ svg{fill:currentColor}
 .btn:hover{transform:translateY(-2px)}
 .btn .ico{font-size:1.2em}
 .btn-sm{padding:10px 20px;font-size:14px}
-.btn-primary{background:var(--pink);color:#fff;box-shadow:0 8px 20px rgba(20,112,125,.28)}
-.btn-primary:hover{background:var(--pink-dark)}
-.btn-wa{background:var(--pink);color:#fff;box-shadow:0 8px 20px rgba(20,112,125,.28)}
+.btn-primary{background:var(--btn);color:#fff;box-shadow:0 8px 20px rgba(15,90,101,.32)}
+.btn-primary:hover{background:var(--btn-hover)}
+.btn-wa{background:var(--btn);color:#fff;box-shadow:0 8px 20px rgba(15,90,101,.32)}
 .btn-wa .ico{color:#fff}
-.btn-wa:hover{background:var(--pink-dark)}
+.btn-wa:hover{background:var(--btn-hover)}
 .btn-outline{background:#fff;color:var(--teal);border:2px solid var(--teal)}
 .btn-outline:hover{background:var(--teal);color:#fff}
 .btn-ghost{background:transparent;color:var(--teal);border:2px solid var(--teal-light)}
@@ -95,8 +98,8 @@ svg{fill:currentColor}
 /* pílula rosa de agendamento */
 .header-cta{
   display:flex;flex-direction:column;align-items:center;gap:1px;
-  padding:8px 22px;background:var(--pink);border-radius:999px;color:#fff;
-  box-shadow:0 8px 20px rgba(20,112,125,.26);
+  padding:8px 22px;background:var(--btn);border-radius:999px;color:#fff;
+  box-shadow:0 8px 20px rgba(15,90,101,.28);
 }
 .header-cta__label{font-size:13px;font-weight:600;line-height:1.3}
 .header-phone{display:flex;align-items:center;gap:8px;font-weight:600;font-size:15px;color:#fff}
