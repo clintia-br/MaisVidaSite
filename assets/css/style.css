@@ -334,6 +334,21 @@ svg{fill:currentColor}
 .crumbs a{color:var(--teal);text-decoration:underline;text-underline-offset:3px}
 .crumbs a:hover{color:var(--pink)}
 
+/* -------- Artigo: cabeçalho (hero) + capa + relacionados -------- */
+.artigo-hero{background:linear-gradient(125deg,var(--teal) 0%,var(--teal-dark) 100%);color:#fff;padding:clamp(30px,5vw,56px) 0 clamp(56px,7vw,88px)}
+.artigo-hero .crumbs{color:rgba(255,255,255,.82);margin-bottom:16px}
+.artigo-hero .crumbs a{color:#fff}
+.artigo-hero .crumbs a:hover{color:#fff;opacity:.85}
+.artigo-hero__tag{display:inline-block;background:rgba(255,255,255,.16);color:#fff;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:5px 15px;border-radius:999px;margin-bottom:16px}
+.artigo-hero h1{color:#fff;font-size:clamp(27px,4vw,44px);max-width:22ch;margin:0 0 .4em;text-wrap:balance}
+.artigo-hero__resumo{font-size:clamp(16px,1.9vw,20px);color:rgba(255,255,255,.92);max-width:62ch;margin:0 0 22px}
+.artigo-hero__meta{display:flex;flex-wrap:wrap;align-items:center;gap:6px 26px;font-size:14px;color:rgba(255,255,255,.85)}
+.artigo-hero__meta>*+*{position:relative}
+.artigo-hero__meta>*+*::before{content:"•";position:absolute;left:-15px;opacity:.55}
+.artigo-capa img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:var(--radius-lg);box-shadow:var(--shadow-lg);margin-top:clamp(-52px,-5vw,-34px)}
+.relacionados{padding:clamp(38px,5vw,64px) 0;background:var(--mint-2)}
+.relacionados .section-divider{margin-bottom:clamp(22px,3vw,32px)}
+
 .posts{padding:clamp(40px,5vw,68px) 0;background:linear-gradient(180deg,var(--mint-2) 0%,#fff 100%)}
 .posts .post-list{padding:0}
 .post-list{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;padding:clamp(36px,5vw,64px) 0}

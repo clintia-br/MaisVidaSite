@@ -176,6 +176,22 @@ def rodape_extra(up: str = "../") -> str:
 """
 
 
+def card(a, prefixo="", nivel="h2", recuo=6):
+    """Card de artigo reutilizado na home, na listagem e nos relacionados."""
+    i = " " * recuo
+    return f"""{i}<a class="post-card" href="{prefixo}{a['slug']}/">
+{i}  <span class="post-card__cover">
+{i}    <img src="{a['imagem']}" alt="{a['imagem_alt']}" loading="lazy" width="600" height="380">
+{i}  </span>
+{i}  <span class="post-card__body">
+{i}    <span class="post-card__tag">{a['tag']}</span>
+{i}    <{nivel}>{a['titulo']}</{nivel}>
+{i}    <p>{a['resumo']}</p>
+{i}    <span class="post-card__more">Ler artigo &rarr;</span>
+{i}  </span>
+{i}</a>"""
+
+
 def main():
     indice = (RAIZ / "index.html").read_text(encoding="utf-8")
     header_raw = bloco(indice, "header")
@@ -219,6 +235,10 @@ def main():
         cta_wa = wa_link(
             f"Olá! Li o artigo “{a['titulo']}” no site da Clínica Mais Vida "
             "e gostaria de agendar um atendimento.")
+        # "Outros conteúdos" — os demais artigos como cards (links irmãos ../slug/)
+        relacionados_cards = "\n".join(
+            card(o, prefixo="../", nivel="h3", recuo=8)
+            for o in artigos if o["slug"] != a["slug"])
 
         pagina = (
             cabeca(a["titulo"], a["resumo"], url, lds=[artigo_ld, crumbs_ld],
@@ -227,24 +247,31 @@ def main():
             + cab_art
             + f"""
 <main id="conteudo">
-  <div class="page-head">
+  <header class="artigo-hero">
     <div class="container">
       <nav class="crumbs" aria-label="Você está aqui">
         <a href="../../">Início</a> &rsaquo; <a href="../">Artigos</a>
       </nav>
+      <span class="artigo-hero__tag">{a['tag']}</span>
       <h1>{a['titulo']}</h1>
+      <p class="artigo-hero__resumo">{a['resumo']}</p>
+      <div class="artigo-hero__meta">
+        <span>Por Equipe Clínica Mais Vida</span>
+        <time datetime="{a['data']}">{a['data_legivel']}</time>
+        <span>{a['leitura']} de leitura</span>
+      </div>
     </div>
-  </div>
+  </header>
+
+  <figure class="artigo-capa">
+    <div class="container">
+      <img src="{a['imagem']}" alt="{a['imagem_alt']}" width="1200" height="675">
+    </div>
+  </figure>
 
   <article class="post">
     <div class="container">
       <div class="post__body">
-        <div class="post__meta">
-          <span>{a['tag']}</span>
-          <time datetime="{a['data']}">{a['data_legivel']}</time>
-          <span>{a['leitura']} de leitura</span>
-        </div>
-
 {corpo.rstrip()}
 
         <div class="post__cta">
@@ -262,9 +289,17 @@ def main():
     </div>
   </article>
 
-  <div class="post-nav">
-    <a class="btn btn-ghost" href="../">Ver todos os artigos</a>
-  </div>
+  <section class="relacionados" aria-labelledby="relacionados-title">
+    <div class="container">
+      <div class="section-divider"><span id="relacionados-title">Outros conteúdos que podem te ajudar</span></div>
+      <div class="post-list">
+{relacionados_cards}
+      </div>
+      <div class="units__cta">
+        <a class="btn btn-ghost" href="../">Ver todos os artigos</a>
+      </div>
+    </div>
+  </section>
 </main>
 """
             + rod_art
@@ -280,20 +315,6 @@ def main():
         print("gerado", (pasta / "index.html").relative_to(RAIZ))
 
     # ------------------------------------------------- cards (home e listagem)
-    def card(a, prefixo="", nivel="h2", recuo=6):
-        i = " " * recuo
-        return f"""{i}<a class="post-card" href="{prefixo}{a['slug']}/">
-{i}  <span class="post-card__cover">
-{i}    <img src="{a['imagem']}" alt="{a['imagem_alt']}" loading="lazy" width="600" height="380">
-{i}  </span>
-{i}  <span class="post-card__body">
-{i}    <span class="post-card__tag">{a['tag']}</span>
-{i}    <{nivel}>{a['titulo']}</{nivel}>
-{i}    <p>{a['resumo']}</p>
-{i}    <span class="post-card__more">Ler artigo &rarr;</span>
-{i}  </span>
-{i}</a>"""
-
     cards = "\n".join(card(a) for a in artigos)
 
     # --------------------------------- seção de artigos na home (entre marcas)
