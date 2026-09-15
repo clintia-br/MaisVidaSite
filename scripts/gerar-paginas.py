@@ -15,6 +15,7 @@ e o canonical é {SITE}/artigos/<slug>/.
 """
 import json
 import re
+import unicodedata
 from pathlib import Path
 from urllib.parse import quote
 
@@ -76,6 +77,34 @@ def limpa(txt: str) -> str:
     return re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", txt)).strip()
 
 
+def _id_secao(txt: str) -> str:
+    """Gera um id-âncora a partir do texto de um título (sem acentos)."""
+    base = unicodedata.normalize("NFKD", limpa(txt).lower()).encode("ascii", "ignore").decode("ascii")
+    base = re.sub(r"[^a-z0-9]+", "-", base).strip("-")
+    return base or "secao"
+
+
+def indice_e_ancoras(corpo: str):
+    """Adiciona id aos <h2> do corpo e devolve (corpo, [(id, título)]) p/ o índice lateral."""
+    itens = []
+    usados = set()
+
+    def repl(m):
+        attrs, texto = m.group(1), m.group(2)
+        sid = _id_secao(texto)
+        if sid in usados:
+            n = 2
+            while f"{sid}-{n}" in usados:
+                n += 1
+            sid = f"{sid}-{n}"
+        usados.add(sid)
+        itens.append((sid, limpa(texto)))
+        return f'<h2 id="{sid}"{attrs}>{texto}</h2>'
+
+    corpo = re.sub(r"<h2([^>]*)>(.*?)</h2>", repl, corpo, flags=re.S)
+    return corpo, itens
+
+
 def breadcrumb(itens):
     """itens: lista de (nome, url) — o último costuma ser a própria página."""
     return {
@@ -133,7 +162,7 @@ def cabeca(titulo, descricao, canonical, lds=None, og_type="website",
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
-<link rel="stylesheet" href="{up}assets/css/style.css?v=4">
+<link rel="stylesheet" href="{up}assets/css/style.css?v=5">
 <script>(function(w,d,s,l,i){{w[l]=w[l]||[];w[l].push({{'gtm.start':
 new Date().getTime(),event:'gtm.js'}});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
@@ -170,7 +199,7 @@ def rodape_extra(up: str = "../") -> str:
   acc.addEventListener('click',function(){{try{{localStorage.setItem(KEY,'accepted');}}catch(e){{}}hide();}});
 }}catch(e){{}}}})();
 </script>
-<script src="{up}assets/js/main.js?v=4" defer></script>
+<script src="{up}assets/js/main.js?v=5" defer></script>
 </body>
 </html>
 """
@@ -206,6 +235,21 @@ def main():
     # ----------------------------------------------------------- páginas de artigo
     for a in artigos:
         corpo = (RAIZ / "artigos" / "_conteudo" / f"{a['slug']}.html").read_text(encoding="utf-8")
+        corpo, toc_itens = indice_e_ancoras(corpo)
+        # índice lateral "Neste artigo" (só quando há seções suficientes)
+        if len(toc_itens) >= 2:
+            toc_links = "\n".join(
+                f'          <li><a href="#{sid}">{escapa(titulo)}</a></li>'
+                for sid, titulo in toc_itens)
+            toc_aside = f"""      <aside class="artigo-toc" aria-label="Neste artigo">
+        <p class="artigo-toc__title">Neste artigo</p>
+        <nav><ol>
+{toc_links}
+        </ol></nav>
+      </aside>
+"""
+        else:
+            toc_aside = ""
         url = f"{SITE}/artigos/{a['slug']}/"
         # imagem local (/assets/...) vira URL absoluta para og:image e JSON-LD
         img_abs = a["imagem"] if a["imagem"].startswith("http") else SITE + a["imagem"]
@@ -247,6 +291,10 @@ def main():
             + cab_art
             + f"""
 <main id="conteudo">
+  <figure class="artigo-banner">
+    <img src="{a['imagem']}" alt="{a['imagem_alt']}" width="1600" height="600">
+  </figure>
+
   <header class="artigo-hero">
     <div class="container">
       <nav class="crumbs" aria-label="Você está aqui">
@@ -263,14 +311,8 @@ def main():
     </div>
   </header>
 
-  <figure class="artigo-capa">
-    <div class="container">
-      <img src="{a['imagem']}" alt="{a['imagem_alt']}" width="1200" height="675">
-    </div>
-  </figure>
-
-  <article class="post">
-    <div class="container">
+  <div class="artigo-wrap container">
+{toc_aside}      <article class="post">
       <div class="post__body">
 {corpo.rstrip()}
 
@@ -286,8 +328,8 @@ def main():
           Responsável técnico: {RT} &ndash; CRM {CRM}.</p>
         </div>
       </div>
-    </div>
-  </article>
+    </article>
+  </div>
 
   <section class="relacionados" aria-labelledby="relacionados-title">
     <div class="container">

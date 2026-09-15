@@ -335,7 +335,7 @@ svg{fill:currentColor}
 .crumbs a:hover{color:var(--pink)}
 
 /* -------- Artigo: cabeçalho (hero) + capa + relacionados -------- */
-.artigo-hero{background:linear-gradient(125deg,var(--teal) 0%,var(--teal-dark) 100%);color:#fff;padding:clamp(30px,5vw,56px) 0 clamp(56px,7vw,88px)}
+.artigo-hero{background:linear-gradient(125deg,var(--teal) 0%,var(--teal-dark) 100%);color:#fff;padding:clamp(26px,4vw,48px) 0}
 .artigo-hero .crumbs{color:rgba(255,255,255,.82);margin-bottom:16px}
 .artigo-hero .crumbs a{color:#fff}
 .artigo-hero .crumbs a:hover{color:#fff;opacity:.85}
@@ -345,7 +345,21 @@ svg{fill:currentColor}
 .artigo-hero__meta{display:flex;flex-wrap:wrap;align-items:center;gap:6px 26px;font-size:14px;color:rgba(255,255,255,.85)}
 .artigo-hero__meta>*+*{position:relative}
 .artigo-hero__meta>*+*::before{content:"•";position:absolute;left:-15px;opacity:.55}
-.artigo-capa img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:var(--radius-lg);box-shadow:var(--shadow-lg);margin-top:clamp(-52px,-5vw,-34px)}
+/* banner de topo, largura total (estilo revista) */
+.artigo-banner{margin:0}
+.artigo-banner img{display:block;width:100%;height:clamp(200px,30vw,400px);object-fit:cover}
+
+/* layout de duas colunas: índice fixo à esquerda + corpo à direita */
+.artigo-wrap{display:grid;grid-template-columns:236px minmax(0,1fr);gap:clamp(28px,4vw,58px);
+  align-items:start;padding-top:clamp(30px,4vw,52px);padding-bottom:clamp(30px,4vw,52px)}
+.artigo-toc{position:sticky;top:calc(var(--header-h) + 18px);align-self:start;font-size:14px}
+.artigo-toc__title{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);margin:0 0 12px}
+.artigo-toc ol{list-style:none;margin:0;padding:0;display:grid;gap:1px;border-left:2px solid var(--line)}
+.artigo-toc a{display:block;padding:7px 0 7px 15px;margin-left:-2px;border-left:2px solid transparent;
+  color:var(--muted);text-decoration:none;line-height:1.4;transition:color .18s ease,border-color .18s ease}
+.artigo-toc a:hover{color:var(--teal)}
+.artigo-toc a.is-current{color:var(--teal);font-weight:600;border-left-color:var(--teal)}
+
 .relacionados{padding:clamp(38px,5vw,64px) 0;background:var(--mint-2)}
 .relacionados .section-divider{margin-bottom:clamp(22px,3vw,32px)}
 
@@ -366,11 +380,12 @@ svg{fill:currentColor}
 .post-card p{margin:0;color:var(--muted);font-size:14px;line-height:1.6}
 .post-card__more{margin-top:auto;padding-top:8px;font-size:14px;font-weight:600;color:var(--pink)}
 
-.post{padding:clamp(32px,4.5vw,56px) 0}
-.post__body{max-width:68ch;margin:0 auto}
+.post{padding:0;min-width:0}
+.post__body{max-width:72ch;margin:0}
 .post__meta{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:13px;color:var(--muted);margin-bottom:26px;
   padding-bottom:18px;border-bottom:1px solid var(--line)}
-.post__body h2{font-size:clamp(21px,2.4vw,27px);color:var(--teal);margin:1.7em 0 .5em;text-wrap:balance}
+.post__body h2{font-size:clamp(21px,2.4vw,27px);color:var(--teal);margin:1.7em 0 .5em;text-wrap:balance;scroll-margin-top:calc(var(--header-h) + 16px)}
+.post__body>h2:first-child,.post__body .post__lead+h2{margin-top:.2em}
 .post__body h3{font-size:18px;color:var(--ink);margin:1.4em 0 .4em}
 .post__body p{color:var(--ink);font-size:16.5px;line-height:1.75;margin:0 0 1.1em}
 .post__body ul{margin:0 0 1.3em;padding-left:22px;list-style:disc;display:grid;gap:8px}
@@ -398,6 +413,16 @@ svg{fill:currentColor}
 
 @media (max-width:1080px){
   .post-list{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:900px){
+  /* índice deixa de ser coluna fixa e vira um cartão de "atalho" acima do texto */
+  .artigo-wrap{grid-template-columns:1fr;gap:22px}
+  .artigo-toc{position:static;top:auto;background:var(--mint-2);border:1px solid var(--line);
+    border-radius:var(--radius);padding:16px 18px}
+  .artigo-toc ol{border-left:0;gap:0}
+  .artigo-toc a{padding:8px 0;margin-left:0;border-left:0;border-bottom:1px solid var(--line)}
+  .artigo-toc li:last-child a{border-bottom:0}
+  .artigo-toc a.is-current{border-left:0}
 }
 @media (max-width:620px){
   .post-list{grid-template-columns:1fr}

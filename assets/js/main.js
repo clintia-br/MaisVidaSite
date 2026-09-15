@@ -183,6 +183,31 @@
     });
   });
 
+  /* --------------------- Índice do artigo (scrollspy) --------------------- */
+  var toc = document.querySelector('.artigo-toc');
+  if (toc && 'IntersectionObserver' in window) {
+    var tocLinks = {};
+    Array.prototype.forEach.call(toc.querySelectorAll('a[href^="#"]'), function (a) {
+      tocLinks[decodeURIComponent(a.getAttribute('href').slice(1))] = a;
+    });
+    var alvos = Object.keys(tocLinks)
+      .map(function (id) { return document.getElementById(id); })
+      .filter(Boolean);
+
+    var atual = null;
+    var spy = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          if (atual) atual.classList.remove('is-current');
+          atual = tocLinks[e.target.id];
+          if (atual) atual.classList.add('is-current');
+        }
+      });
+    }, { rootMargin: '-18% 0px -72% 0px', threshold: 0 });
+
+    alvos.forEach(function (h) { spy.observe(h); });
+  }
+
   /* Aviso de cookies: tratado por um <script> inline no HTML, isolado deste
      arquivo (assim funciona mesmo se algo aqui falhar ou se o JS estiver em
      cache antigo). */
