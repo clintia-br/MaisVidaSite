@@ -541,6 +541,9 @@ svg{fill:currentColor}
 .plano__lista li::before{content:"";position:absolute;left:0;top:1px;width:18px;height:18px;border-radius:50%;background:var(--teal-light);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' fill='%2314707d'%3E%3Cpath d='M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm-42 350l-98-98 30-30 68 68 146-146 30 30z'/%3E%3C/svg%3E");background-size:14px;background-repeat:no-repeat;background-position:center}
 .plano__cta{width:100%}
 .planos__taxa{text-align:center;margin:clamp(24px,3vw,34px) 0 0;color:var(--pink);font-size:16px}
+.videx-aviso{max-width:860px;margin:clamp(18px,2.4vw,26px) auto 0;padding:16px 20px;background:var(--mint-2);
+  border:1px solid var(--line);border-radius:var(--radius);font-size:13.5px;line-height:1.62;color:var(--muted);text-align:left}
+.videx-aviso strong{color:var(--ink)}
 
 .associado{padding:clamp(38px,5vw,64px) 0;background:var(--mint-2)}
 .associado .container{display:grid;justify-items:center;gap:14px;text-align:center}
