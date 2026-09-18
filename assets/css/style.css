@@ -601,18 +601,29 @@ body.cookie-open .wa-float{bottom:120px}
 .legal li{margin-bottom:.45em}
 .legal__update{padding:12px 16px;background:var(--mint-2);border-radius:10px}
 
-/* -------- Página de solicitação de exames (widget WorkLab embarcado) -------- */
-.exames{padding:clamp(30px,5vw,56px) 0 clamp(40px,6vw,72px);display:grid;gap:clamp(22px,3vw,34px);justify-items:center}
-.exames__card{width:100%;max-width:560px;background:#fff;border:1px solid var(--line);border-radius:var(--radius-lg);
-  box-shadow:var(--shadow);padding:clamp(22px,4vw,36px);text-align:center}
-.exames__titulo{color:var(--teal);font-size:clamp(20px,2.4vw,26px);margin:0 0 .4em}
-.exames__lead{color:var(--muted);font-size:15.5px;line-height:1.6;margin:0 auto 20px;max-width:46ch}
-/* iframe fica no tamanho nativo (450px); no celular o cartão rola na horizontal só o widget, sem estourar a página */
-.exames-embed{max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
-.exames-embed iframe{display:block;border:0;width:450px;height:135px;margin:0 auto}
+/* -------- Página de Resultado de Exames (widget WorkLab embarcado) -------- */
+.exames{padding:clamp(30px,5vw,56px) 0 clamp(40px,6vw,72px);display:grid;gap:clamp(20px,3vw,30px);justify-items:center}
+.exames__card{width:100%;max-width:600px;background:#fff;border:1px solid var(--line);border-radius:var(--radius-lg);
+  box-shadow:var(--shadow-lg);padding:clamp(26px,4vw,42px) clamp(20px,4vw,40px);text-align:center}
+.exames__icon{display:grid;place-items:center;width:62px;height:62px;margin:0 auto 16px;border-radius:50%;
+  background:var(--teal-light);color:var(--teal)}
+.exames__icon svg{width:28px;height:28px;fill:currentColor}
+.exames__titulo{color:var(--teal);font-size:clamp(21px,2.4vw,27px);margin:0 0 .4em}
+.exames__lead{color:var(--muted);font-size:15.5px;line-height:1.65;margin:0 auto 22px;max-width:42ch}
+.exames__lead strong{color:var(--ink)}
+/* moldura do widget: painel enquadrado; iframe no tamanho nativo (450px),
+   no celular rola só o widget na horizontal, sem estourar a página */
+.exames-embed{max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;
+  background:var(--mint-2);border:1px solid var(--line);border-radius:var(--radius);padding:14px}
+.exames-embed iframe{display:block;border:0;width:450px;height:215px;margin:0 auto;
+  background:#fff;border-radius:8px}
 .exames__fallback{margin:18px 0 0;font-size:13.5px;color:var(--muted)}
 .exames__fallback a{color:var(--teal);font-weight:600;text-decoration:underline;text-underline-offset:3px}
-.exames__ajuda{display:grid;gap:12px;justify-items:center;text-align:center}
+.exames__pontos{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 22px;margin:0;padding:0;list-style:none}
+.exames__pontos li{position:relative;padding-left:24px;color:var(--muted);font-size:14px}
+.exames__pontos li::before{content:"";position:absolute;left:0;top:1px;width:17px;height:17px;border-radius:50%;
+  background:var(--teal-light);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' fill='%2314707d'%3E%3Cpath d='M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm-42 350l-98-98 30-30 68 68 146-146 30 30z'/%3E%3C/svg%3E");background-size:13px;background-repeat:no-repeat;background-position:center}
+.exames__ajuda{display:grid;gap:12px;justify-items:center;text-align:center;margin-top:6px}
 .exames__ajuda p{margin:0;color:var(--muted);font-size:15.5px}
 
 /* -------------------------------- Responsivo ------------------------------- */
