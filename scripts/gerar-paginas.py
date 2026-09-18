@@ -59,7 +59,7 @@ def para_subpasta(frag: str, up: str = "../") -> str:
     frag = frag.replace('href="assets/', f'href="{up}assets/')
     frag = frag.replace('src="assets/', f'src="{up}assets/')
     frag = frag.replace('href="./"', f'href="{up}"')
-    for p in ("artigos", "clinica", "servicos", "videx", "solicitacao-de-exames", "politica-de-privacidade"):
+    for p in ("artigos", "clinica", "servicos", "videx", "resultado-de-exames", "politica-de-privacidade"):
         frag = frag.replace(f'href="{p}/"', f'href="{up}{p}/"')
     return frag
 
@@ -512,25 +512,25 @@ def main():
     print("gerado videx/index.html")
 
     # ---------------------------------------- página de solicitação de exames
-    corpo_ex = (RAIZ / "solicitacao-de-exames" / "conteudo.html").read_text(encoding="utf-8")
-    url_ex = f"{SITE}/solicitacao-de-exames/"
+    corpo_ex = (RAIZ / "resultado-de-exames" / "conteudo.html").read_text(encoding="utf-8")
+    url_ex = f"{SITE}/resultado-de-exames/"
     desc_ex = ("Acesse a solicitação e os resultados dos seus exames da Clínica Mais Vida "
                "pelo portal on-line, de forma rápida e segura.")
     ex_ld = {
         "@context": "https://schema.org", "@type": "WebPage",
-        "name": "Solicitação de Exames", "description": desc_ex, "inLanguage": "pt-BR",
+        "name": "Resultado de Exames", "description": desc_ex, "inLanguage": "pt-BR",
         "mainEntityOfPage": url_ex,
     }
-    crumbs_ex = breadcrumb([("Início", f"{SITE}/"), ("Solicitação de Exames", url_ex)])
+    crumbs_ex = breadcrumb([("Início", f"{SITE}/"), ("Resultado de Exames", url_ex)])
     pagina_ex = (
-        cabeca("Solicitação de Exames", desc_ex, url_ex, lds=[ex_ld, crumbs_ex])
-        + marca_ativo(cab_dir, "../solicitacao-de-exames/")
+        cabeca("Resultado de Exames", desc_ex, url_ex, lds=[ex_ld, crumbs_ex])
+        + marca_ativo(cab_dir, "../resultado-de-exames/")
         + f'\n<main id="conteudo">\n{corpo_ex.rstrip()}\n</main>\n'
         + rod_dir
         + rodape_extra("../")
     )
-    (RAIZ / "solicitacao-de-exames" / "index.html").write_text(pagina_ex, encoding="utf-8")
-    print("gerado solicitacao-de-exames/index.html")
+    (RAIZ / "resultado-de-exames" / "index.html").write_text(pagina_ex, encoding="utf-8")
+    print("gerado resultado-de-exames/index.html")
 
     # ------------------------------------------ página de política de privacidade
     corpo_pp = (RAIZ / "politica-de-privacidade" / "conteudo.html").read_text(encoding="utf-8")
