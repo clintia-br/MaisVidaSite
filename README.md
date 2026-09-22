@@ -51,7 +51,7 @@ sem build command, output = raiz. O `vercel.json` já está pronto.
 - Carrossel do topo com 3 slides (autoplay 5s, setas, bolinhas, swipe no celular, pausa no hover).
 - Slideshows de fundo (fisioterapia e unidade Cabuçu) com pré-carregamento das imagens.
 - Menu mobile, header sticky, botão flutuante de WhatsApp.
-- GTM `GTM-WPVR7Z23` (container novo, em todas as páginas) + GTM `GTM-KC25B9J` e GA4 `GT-NCLXB4J8` herdados do site antigo.
+- GTM `GTM-WPVR7Z23` em todas as páginas (o container antigo `GTM-KC25B9J` e o gtag `GT-NCLXB4J8` do WordPress foram removidos).
 - Verificação de domínio da Meta mantida (`facebook-domain-verification`).
 - Aviso de cookies simples (LGPD), com escolha guardada no `localStorage`.
 - Dados estruturados `MedicalClinic` (JSON-LD) para as duas unidades — endereço,
