@@ -208,6 +208,19 @@
     alvos.forEach(function (h) { spy.observe(h); });
   }
 
+  /* ---------------- Google Ads: conversão "Contato" (WhatsApp) ------------ */
+  /* O site não tem página de obrigado: a conversão é o clique em qualquer
+     link de WhatsApp (botão flutuante, CTAs, unidades). Usa a tag global
+     AW-18440846473 carregada no <head> de todas as páginas. */
+  document.addEventListener('click', function (ev) {
+    var a = ev.target.closest && ev.target.closest('a[href*="wa.me/"], a[href*="whatsapp.com/"]');
+    if (!a || typeof window.gtag !== 'function') return;
+    window.gtag('event', 'conversion', {
+      'send_to': 'AW-18440846473/F3hWCNyur4EdEIn5o9lE',
+      'event_callback': function () {}
+    });
+  }, true);
+
   /* Aviso de cookies: tratado por um <script> inline no HTML, isolado deste
      arquivo (assim funciona mesmo se algo aqui falhar ou se o JS estiver em
      cache antigo). */
