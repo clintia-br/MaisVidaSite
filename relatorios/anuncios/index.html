@@ -364,7 +364,7 @@
    Para um mês novo: copie o bloco de setembro, troque id/label/chip e os números.
    ========================================================= */
 var RELATORIO = {
-    versao: "v4",
+    versao: "v5",
     meses: [
         {
             id: "2026-09", label: "Setembro 2026", sub: "01 – 25/09", chip: "01 – 25 set 2026",
@@ -433,37 +433,6 @@ var RELATORIO = {
                   texto: "Google Ads voltou a rodar em <b>22/09</b>. <b>Clínico Geral</b> concentra 8 leads a <b>R$ 8,83</b>; o termo <b>“clínica médica”</b> sozinho gerou 7. Quem procura consulta geral em Nova Iguaçu encontra a clínica." },
                 { tipo: "grey", tag: "Atenção",      titulo: "Meta ficou 20 dias parado",
                   texto: "Campanhas criadas em <b>26/08</b> só entregaram a partir de <b>15/09</b> — perderam a abertura da agenda do KM 32. Também: <b>Cardiologista</b> a R$ 28,51 por lead, <b>Pediatria</b> e <b>Gastro</b> sem volume, <b>Seja Videx</b> só entrou em 24/09." }
-            ]
-        },
-        {
-            id: "2026-08", label: "Agosto 2026", sub: "26 – 31/08", chip: "26 – 31 ago 2026",
-            status: "Campanhas do Meta criadas em 26/08, sem entrega no mês · Google sem veiculação",
-            meta: {
-                periodo: "sem entrega em agosto (campanhas criadas em 26/08)", dias: 0,
-                fonte: "Meta Ads Manager · relatório diário 26/08–24/09/2026 · zero impressões de 26/08 a 14/09",
-                resultado: "cliques no link (destino: WhatsApp)",
-                semVeiculacao: "As três campanhas (Institucional KM 32, Institucional Cabuçu e Seja Videx) foram criadas em <b>26/08</b> com R$ 6/dia cada, mas o relatório diário mostra <b>zero impressões e zero gasto</b> de 26/08 a 14/09. A entrega só começou em <b>15/09</b>.",
-                campanhas: [],
-                diario: [],
-                insights: [
-                    { tipo: "warn", tag: "Criadas, mas não entregues", texto: "Vinte dias entre a criação (26/08) e a primeira impressão (15/09). A abertura da agenda do KM 32, em <b>31/08</b>, aconteceu sem mídia no ar. Vale registrar a causa (aprovação de anúncio, forma de pagamento, conjunto pausado) no ClickUp." }
-                ]
-            },
-            google: {
-                periodo: "sem veiculação em agosto", dias: 0,
-                fonte: "Google Ads · sem veiculação em agosto (conta voltou a anunciar em 22/09, após restrição no site)",
-                semVeiculacao: "O Google Ads <b>não veiculou em agosto</b>: a conta estava impedida de anunciar para o site por uma restrição da plataforma, resolvida em setembro. As campanhas de Pesquisa entraram no ar em <b>22/09</b>.",
-                campanhas: [],
-                termos: [],
-                insights: []
-            },
-            destaques: [
-                { tipo: "grey", tag: "Meta sem entrega", titulo: "Campanhas criadas, zero impressões",
-                  texto: "As campanhas de WhatsApp para <b>KM 32</b> e <b>Cabuçu</b> foram criadas em <b>26/08</b>, mas não veicularam em agosto. A entrega começou só em 15/09." },
-                { tipo: "grey", tag: "Google bloqueado", titulo: "Pesquisa ainda não rodava",
-                  texto: "A conta do Google Ads estava com <b>restrição para anunciar o site</b>. O problema foi resolvido em setembro e as campanhas entraram no ar em <b>22/09</b>." },
-                { tipo: "",     tag: "Contexto", titulo: "Agenda do KM 32 abriu em 31/08",
-                  texto: "Os médicos da unidade nova começaram em <b>31/08</b> sem nenhum anúncio no ar. O primeiro mês de mídia de verdade é setembro." }
             ]
         }
     ]

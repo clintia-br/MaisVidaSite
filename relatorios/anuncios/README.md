@@ -39,14 +39,14 @@ e o comparativo mensal são calculados na hora — nenhum número é digitado du
 
 Meta: relatório **diário** por campanha (26/08–24/09, `dados/meta-ads_diario_*.csv`).
 As campanhas foram criadas em 26/08 mas só entregaram de 15 a 24/09, então
-agosto fica como "sem entrega" (`meta.campanhas: []` + `semVeiculacao`) e
-setembro traz os totais por campanha mais a série `meta.diario` (uma linha por
-dia, só campanhas de WhatsApp) que alimenta a seção "Dia a dia". Alcance por
+agosto não tem aba (nada veiculou) e setembro traz os totais por campanha mais
+a série `meta.diario` (uma linha por dia, só campanhas de WhatsApp) que
+alimenta a seção "Dia a dia". Alcance por
 campanha vem do próprio export (pessoas únicas), não da soma dos dias.
 Google: export por palavra-chave e dia, 22–25/09.
 
-Google Ads não veiculou em agosto (`google.campanhas: []` + `semVeiculacao`);
-a página mostra a aba com o motivo em vez de tabelas vazias.
+Um canal sem veiculação num mês: `campanhas: []` + `semVeiculacao` com o
+motivo; a página mostra a aba com o texto em vez de tabelas vazias.
 
 Passos: exportar Meta (nível campanha) e Google (Pesquisa, por palavra-chave),
 salvar os CSVs em `dados/`, somar o Google por campanha, preencher o bloco,
