@@ -12,9 +12,14 @@ dados/       exports originais que alimentaram cada versão
 
 ## Como atualizar
 
-Tudo vem do bloco `RELATORIO` no começo do `<script>` do `index.html`:
+Tudo vem do bloco `RELATORIO` no começo do `<script>` do `index.html`.
+A página tem um seletor de mês e, dentro de cada mês, as abas Visão geral,
+Meta Ads, Google Ads e Comparativo mensal (variação automática entre meses).
 
-- `periodo` — datas do chip do cabeçalho.
+`meses[]` guarda um bloco por mês, o mais recente primeiro. Para um mês novo,
+copie o bloco anterior e troque `id` (AAAA-MM), `label`, `sub`, `chip`, `status`
+e os números. Dentro de cada mês:
+
 - `meta.campanhas[]` — por campanha: `cliques` (Resultados = cliques no link),
   `investido` (Valor gasto), `verbaDia`, `alcance`, `impressoes`.
   `semResultado: true` para campanha sem resultado no período (entra só no investimento).
@@ -22,12 +27,17 @@ Tudo vem do bloco `RELATORIO` no começo do `<script>` do `index.html`:
   `impressoes`, `cliques`, `investido` (Custo), `leads` (Conversões), `verbaDia`.
   `situacao: "aprendizado"` marca campanha quase sem veiculação.
 - `google.termos[]` — termos de busca que geraram lead.
+- `meta.insights[]` e `google.insights[]` — leitura por canal (`tipo`: `good`, `""`, `warn`).
 - `destaques[]` — os três cards de leitura para o cliente (`tipo`: `sky`, `""`, `grey`).
 - `selo: "hot"` destaca a campanha líder; `situacao: "pausado"` acinzenta.
 
 Números puros com ponto decimal (`58.03`). `null` = sem dado (a página mostra "—").
-KPIs, gráficos, tabelas, totais, custo por clique/lead e o parágrafo de abertura
-são calculados na hora — nenhum número é digitado duas vezes.
+KPIs, gráficos, tabelas, totais, custo por clique/lead, o parágrafo de abertura
+e o comparativo mensal são calculados na hora — nenhum número é digitado duas vezes.
+
+Atenção ao export do Meta: peça o desdobramento **por mês** no Ads Manager.
+O de setembro veio num bloco só (26/08–24/09), por isso o mês inclui os últimos
+dias de agosto.
 
 Passos: exportar Meta (nível campanha) e Google (Pesquisa, por palavra-chave),
 salvar os CSVs em `dados/`, somar o Google por campanha, preencher o bloco,

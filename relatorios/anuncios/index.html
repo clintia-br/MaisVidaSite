@@ -261,6 +261,43 @@
         .kpis { grid-template-columns: repeat(4, 1fr); }
         .kpi .k-val { font-size: clamp(30px, 3.2vw, 40px); }
     }
+
+    /* ---------- Seletor de mês + abas por canal ---------- */
+    .months { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; padding: 16px 0 0; -webkit-overflow-scrolling: touch; }
+    .months::-webkit-scrollbar { display: none; }
+    .mbtn { flex: 0 0 auto; font: inherit; font-size: 12.5px; font-weight: 700; color: var(--ink-2); background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding: 8px 14px; cursor: pointer; box-shadow: var(--shadow); white-space: nowrap; transition: background .15s ease, color .15s ease; }
+    .mbtn:hover { color: var(--celtic); }
+    .mbtn.on { color: #FFFFFF; background: var(--oxford); border-color: var(--oxford); }
+    .mbtn small { display: block; font-size: 10px; font-weight: 600; letter-spacing: .3px; opacity: .75; }
+    .tabs { display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; margin: 14px 0 0; padding: 4px; background: var(--neutral-soft); border-radius: 12px; }
+    .tabs::-webkit-scrollbar { display: none; }
+    .tab { flex: 1 0 auto; font: inherit; font-size: 12.5px; font-weight: 700; color: var(--ink-2); background: transparent; border: none; border-radius: 9px; padding: 9px 12px; cursor: pointer; white-space: nowrap; transition: background .15s ease, color .15s ease; }
+    .tab:hover { color: var(--celtic); }
+    .tab.on { color: var(--dodger); background: var(--surface); box-shadow: var(--shadow); }
+    .tab .c { display: inline-block; margin-left: 6px; font-size: 10.5px; font-weight: 800; color: var(--celtic); background: var(--sky-soft); border-radius: 999px; padding: 1px 7px; }
+    .month { display: none; }
+    .month.on { display: block; }
+    .view { display: none; }
+    .view.on { display: block; }
+    .period-note { font-size: 12.5px; color: var(--muted); margin-top: 10px; }
+    .period-note b { color: var(--ink-2); }
+    .ch-link { display: inline-block; margin-top: 12px; font-size: 12px; font-weight: 700; color: var(--dodger); background: none; border: none; padding: 0; cursor: pointer; font-family: inherit; }
+    .ch-link:hover { text-decoration: underline; }
+    .insights { display: grid; grid-template-columns: 1fr; gap: 10px; }
+    .ins { background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--celtic); border-radius: 10px; padding: 13px 14px; font-size: 13.5px; color: var(--ink-2); line-height: 1.55; box-shadow: var(--shadow); }
+    .ins b { color: var(--ink); font-weight: 700; }
+    .ins .i-tag { display: block; font-size: 10.5px; font-weight: 700; letter-spacing: 1.1px; text-transform: uppercase; color: var(--celtic); margin-bottom: 4px; }
+    .ins.warn { border-left-color: var(--warn); } .ins.warn .i-tag { color: var(--warn); }
+    .ins.good { border-left-color: var(--sky); }
+    .cmp .delta { display: block; font-size: 11px; font-weight: 700; margin-top: 2px; }
+    .cmp .delta.up { color: #047857; } .cmp .delta.down { color: #B91C1C; } .cmp .delta.flat { color: var(--muted); }
+    .cmp tbody td:first-child .u { font-weight: 600; }
+    .cmp .grp td { background: var(--dodger-soft) !important; color: var(--celtic); font-size: 11px; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase; padding: 9px 16px; }
+    @media (min-width: 720px) {
+        .insights { grid-template-columns: 1fr 1fr; }
+        .tab { flex: 0 0 auto; padding: 9px 16px; }
+        .cmp tbody tr.grp { display: table-row; }
+    }
     @media (prefers-reduced-motion: reduce) { * { transition: none !important; } html { scroll-behavior: auto; } }
     @media print {
         body { background: #fff; }
@@ -292,115 +329,8 @@
         <p class="sub">Anúncios de WhatsApp no Instagram &amp; Facebook para as unidades Cabuçu e KM 32, e campanhas de pesquisa no Google por especialidade — Nova Iguaçu/RJ.</p>
     </section>
 
-    <p class="lede" id="lede"></p>
-
-    <div class="sec"><span class="n">01</span><span class="t">Números do período</span></div>
-    <div class="kpis" id="kpis"></div>
-
-    <div class="sec"><span class="n">02</span><span class="t">Meta Ads · Instagram &amp; Facebook</span></div>
-    <div class="cols">
-        <div class="panel">
-            <div class="panel-head">
-                <h2>Cliques para o WhatsApp por campanha</h2>
-                <div class="h-note">pessoas que saíram do anúncio direto para a conversa</div>
-            </div>
-            <div class="bars" id="chart-meta-cliques"></div>
-            <div class="axis-note" id="note-meta-cliques"></div>
-        </div>
-        <div class="panel">
-            <div class="panel-head">
-                <h2>Custo por clique</h2>
-                <div class="h-note">quanto custou cada pessoa levada ao WhatsApp — menor é melhor</div>
-            </div>
-            <div class="bars" id="chart-meta-custo"></div>
-            <div class="axis-note" id="note-meta-custo"></div>
-        </div>
-    </div>
-
-    <div class="table-wrap" style="margin-top:14px">
-        <table>
-            <thead>
-                <tr>
-                    <th>Campanha</th>
-                    <th>Situação</th>
-                    <th>Cliques p/ WhatsApp</th>
-                    <th>Custo / clique</th>
-                    <th>Investido</th>
-                    <th>Verba / dia</th>
-                    <th>Alcance</th>
-                    <th>Impressões</th>
-                </tr>
-            </thead>
-            <tbody id="meta-tbody"></tbody>
-            <tfoot id="meta-tfoot"></tfoot>
-        </table>
-        <div class="table-note" id="meta-note"></div>
-    </div>
-
-    <div class="sec"><span class="n">03</span><span class="t">Google Ads · Pesquisa</span></div>
-    <div class="cols">
-        <div class="panel">
-            <div class="panel-head">
-                <h2>Leads por campanha</h2>
-                <div class="h-note">contatos gerados a partir da busca no Google</div>
-            </div>
-            <div class="bars" id="chart-g-leads"></div>
-            <div class="axis-note" id="note-g-leads"></div>
-        </div>
-        <div class="panel">
-            <div class="panel-head">
-                <h2>Custo por lead</h2>
-                <div class="h-note">só campanhas que já geraram lead — menor é melhor</div>
-            </div>
-            <div class="bars" id="chart-g-cpl"></div>
-            <div class="axis-note" id="note-g-cpl"></div>
-        </div>
-    </div>
-
-    <div class="table-wrap" style="margin-top:14px">
-        <table>
-            <thead>
-                <tr>
-                    <th>Campanha</th>
-                    <th>Verba / dia</th>
-                    <th>Impressões</th>
-                    <th>Cliques</th>
-                    <th>CTR</th>
-                    <th>Investido</th>
-                    <th>Leads</th>
-                    <th>Custo / lead</th>
-                </tr>
-            </thead>
-            <tbody id="g-tbody"></tbody>
-            <tfoot id="g-tfoot"></tfoot>
-        </table>
-        <div class="table-note" id="g-note"></div>
-    </div>
-
-    <div class="panel" style="margin-top:14px">
-        <div class="panel-head">
-            <h2>O que as pessoas buscaram</h2>
-            <div class="h-note">termos que geraram lead no período</div>
-        </div>
-        <div class="table-wrap">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Termo de busca</th>
-                        <th>Campanha</th>
-                        <th>Impressões</th>
-                        <th>Cliques</th>
-                        <th>Leads</th>
-                        <th>Custo / lead</th>
-                    </tr>
-                </thead>
-                <tbody id="kw-tbody"></tbody>
-            </table>
-        </div>
-    </div>
-
-    <div class="sec"><span class="n">04</span><span class="t">Destaques &amp; decisões</span></div>
-    <div class="highlights" id="highlights"></div>
+    <nav class="months" id="months" aria-label="Mês"></nav>
+    <div id="app"></div>
 
     <footer>
         <p><b>Clínica Mais Vida — Clínica Popular da Família</b> · Unidades Cabuçu e KM 32 · Nova Iguaçu/RJ<br>Relatório preparado por ClintIA · Programa PROClip · <span id="foot-versao">v1</span></p>
@@ -414,110 +344,125 @@
 <script>
 /* =========================================================
    DADOS DO RELATÓRIO — único lugar a editar.
-   Meta Ads Manager, nível de campanha (26/08–24/09/2026):
-     resultados = cliques no link (destino: WhatsApp) · valor gasto · alcance · impressões
-   Google Ads, campanhas de Pesquisa (veiculação 22–25/09/2026):
-     impressões · cliques · custo · conversões (leads), somados por campanha
-   Números puros com ponto decimal (58.03). `null` = ainda sem dado (a página mostra "—").
+   Um bloco por mês em `meses` (o mais recente primeiro). Cada mês tem:
+     meta.campanhas[]   Meta Ads Manager, nível campanha: cliques (Resultados = cliques
+                        no link, destino WhatsApp), investido (Valor gasto), verbaDia,
+                        alcance, impressoes. semResultado: true = só entra no investimento.
+     google.campanhas[] Google Ads, Pesquisa, somado por campanha: impressoes, cliques,
+                        investido (Custo), leads (Conversões), verbaDia.
+     google.termos[]    termos de busca que geraram lead.
+     meta.insights[] / google.insights[]  leitura por canal (tipo: "good" | "" | "warn").
+     destaques[]        três cards da visão geral (tipo: "sky" | "" | "grey").
+   Números puros com ponto decimal (58.03). null = sem dado (a página mostra "—").
+   Para um mês novo: copie o bloco de setembro, troque id/label/chip e os números.
    ========================================================= */
 var RELATORIO = {
-    periodo: { inicio: "2026-08-26", fim: "2026-09-25" },
-    versao: "v1",
-    meta: {
-        fonte: "Meta Ads Manager · 26/08–24/09/2026 · atribuição: clique de 7 dias ou visualização de 1 dia",
-        resultado: "cliques no link (destino: WhatsApp)",
-        campanhas: [
-            { nome: "Institucional KM 32",  unidade: "KM 32",  situacao: "ativo", verbaDia: 6, cliques: 343, investido: 58.03, alcance: 8457, impressoes: 10341, selo: "hot" },
-            { nome: "Institucional Cabuçu", unidade: "Cabuçu", situacao: "ativo", verbaDia: 6, cliques: 247, investido: 56.31, alcance: 9048, impressoes: 11752 },
-            { nome: "Seja Videx",           unidade: "Plano Videx", situacao: "ativo", verbaDia: 6, cliques: null, investido: 1.94, alcance: 197, impressoes: 207, semResultado: true, nota: "Objetivo de tráfego para o site; praticamente sem veiculação no período (R$ 1,94 gastos)." }
-        ]
-    },
-    google: {
-        fonte: "Google Ads · campanhas de Pesquisa · veiculação 22–25/09/2026 (4 dias)",
-        campanhas: [
-            { nome: "Clínico Geral",       verbaDia: 20,   impressoes: 314, cliques: 36, investido: 70.67, leads: 8, selo: "hot" },
-            { nome: "Institucional",       verbaDia: 5.5,  impressoes: 388, cliques: 26, investido: 50.88, leads: 4 },
-            { nome: "Cardiologista",       verbaDia: 20,   impressoes: 88,  cliques: 8,  investido: 57.02, leads: 2 },
-            { nome: "Pediatria",           verbaDia: 20,   impressoes: 11,  cliques: 1,  investido: 9.41,  leads: 0, situacao: "aprendizado" },
-            { nome: "Gastroenterologista", verbaDia: 20,   impressoes: 5,   cliques: 0,  investido: 0,     leads: 0, situacao: "aprendizado" }
-        ],
-        termos: [
-            { termo: "clínica médica",              campanha: "Clínico Geral", impressoes: 290, cliques: 35, investido: 64.73, leads: 7 },
-            { termo: "clinica medica",              campanha: "Institucional", impressoes: 275, cliques: 17, investido: 43.05, leads: 2 },
-            { termo: "cardiologista em nova iguaçu", campanha: "Cardiologista", impressoes: 46, cliques: 5, investido: 36.06, leads: 1 },
-            { termo: "cardiologista nova iguaçu",   campanha: "Cardiologista", impressoes: 16,  cliques: 3,  investido: 20.96, leads: 1 },
-            { termo: "clínica médica nova iguaçu",  campanha: "Institucional", impressoes: 43,  cliques: 3,  investido: 3.60,  leads: 1 },
-            { termo: "clínico geral nova iguaçu",   campanha: "Clínico Geral", impressoes: 10,  cliques: 1,  investido: 5.94,  leads: 1 },
-            { termo: "clínica mais vida km 32",     campanha: "Institucional", impressoes: 10,  cliques: 1,  investido: 0.59,  leads: 1 }
-        ]
-    },
-    /* Três cards de leitura para o cliente. `tipo`: "sky" | "" | "grey". <b>…</b> destaca números. */
-    destaques: [
-        { tipo: "sky",  tag: "Escalando",     titulo: "KM 32 é a campanha mais eficiente",
-          texto: "<b>343 cliques para o WhatsApp</b> a <b>R$ 0,17</b> cada, com apenas <b>R$ 6/dia</b> — a unidade nova já supera Cabuçu em volume e custo. É a primeira candidata a receber mais verba." },
-        { tipo: "",     tag: "Google no ar",  titulo: "14 leads em 4 dias de pesquisa",
-          texto: "Google Ads voltou a rodar em <b>22/09</b>. <b>Clínico Geral</b> concentra 8 leads a <b>R$ 8,83</b>; o termo <b>“clínica médica”</b> sozinho gerou 7. Quem procura consulta geral em Nova Iguaçu encontra a clínica." },
-        { tipo: "grey", tag: "Otimização",    titulo: "Três pontos para ajustar",
-          texto: "<b>Cardiologista</b> custa <b>R$ 28,51</b> por lead (clique a R$ 7,13, mais de 3× a média) — revisar termos e lances. <b>Pediatria</b> e <b>Gastro</b> quase não aparecem (11 e 5 impressões). No Meta, <b>Seja Videx</b> gastou R$ 1,94 e não entregou — reconfigurar ou pausar." }
+    versao: "v2",
+    meses: [
+        {
+            id: "2026-09", label: "Setembro 2026", sub: "26/08 – 25/09", chip: "26 ago – 25 set 2026",
+            status: "Parcial · inclui os últimos dias de agosto (26–31/08) porque o Meta reportou o período inteiro num bloco só",
+            meta: {
+                periodo: "26/08 – 24/09/2026 (30 dias)",
+                fonte: "Meta Ads Manager · 26/08–24/09/2026 · atribuição: clique de 7 dias ou visualização de 1 dia",
+                resultado: "cliques no link (destino: WhatsApp)",
+                campanhas: [
+                    { nome: "Institucional KM 32",  unidade: "KM 32",       situacao: "ativo", verbaDia: 6, cliques: 343,  investido: 58.03, alcance: 8457, impressoes: 10341, selo: "hot" },
+                    { nome: "Institucional Cabuçu", unidade: "Cabuçu",      situacao: "ativo", verbaDia: 6, cliques: 247,  investido: 56.31, alcance: 9048, impressoes: 11752 },
+                    { nome: "Seja Videx",           unidade: "Plano Videx", situacao: "ativo", verbaDia: 6, cliques: null, investido: 1.94,  alcance: 197,  impressoes: 207, semResultado: true, nota: "Objetivo de tráfego para o site; praticamente sem veiculação no período (R$ 1,94 gastos)." }
+                ],
+                insights: [
+                    { tipo: "good", tag: "Unidade nova na frente", texto: "Com a <b>mesma verba</b> (R$ 6/dia), a campanha do <b>KM 32</b> entregou <b>39% mais cliques</b> que Cabuçu (343 × 247) e <b>26% mais barato</b> (R$ 0,17 × R$ 0,23). O entorno do KM 32 ainda tem pouca disputa de atenção — é onde a verba rende mais." },
+                    { tipo: "", tag: "Alcance sem saturar", texto: "<b>17,7 mil pessoas</b> alcançadas com 22,3 mil exibições: frequência média de <b>1,3</b> — cada pessoa viu o anúncio pouco mais de uma vez. Há espaço para <b>dobrar a verba</b> das duas unidades antes de repetir demais para o mesmo público." },
+                    { tipo: "", tag: "Ritmo de gasto", texto: "As duas campanhas de WhatsApp gastaram <b>R$ 114</b> em 30 dias com verba de R$ 12/dia somada — cerca de <b>1/3 do limite</b>. O Meta está entregando abaixo do orçamento; vale revisar lances e público antes de só aumentar a verba." },
+                    { tipo: "warn", tag: "Videx parado", texto: "<b>Seja Videx</b> gastou <b>R$ 1,94</b> e teve 207 exibições no mês inteiro. Ou o conjunto está com problema de entrega (público estreito, aprovação, criativo), ou faz mais sentido <b>pausar</b> e levar o plano Videx para dentro das campanhas de WhatsApp das unidades." }
+                ]
+            },
+            google: {
+                periodo: "22 – 25/09/2026 (4 dias)",
+                fonte: "Google Ads · campanhas de Pesquisa · veiculação 22–25/09/2026 (4 dias)",
+                campanhas: [
+                    { nome: "Clínico Geral",       verbaDia: 20,  impressoes: 314, cliques: 36, investido: 70.67, leads: 8, selo: "hot" },
+                    { nome: "Institucional",       verbaDia: 5.5, impressoes: 388, cliques: 26, investido: 50.88, leads: 4 },
+                    { nome: "Cardiologista",       verbaDia: 20,  impressoes: 88,  cliques: 8,  investido: 57.02, leads: 2 },
+                    { nome: "Pediatria",           verbaDia: 20,  impressoes: 11,  cliques: 1,  investido: 9.41,  leads: 0, situacao: "aprendizado" },
+                    { nome: "Gastroenterologista", verbaDia: 20,  impressoes: 5,   cliques: 0,  investido: 0,     leads: 0, situacao: "aprendizado" }
+                ],
+                termos: [
+                    { termo: "clínica médica",               campanha: "Clínico Geral", impressoes: 290, cliques: 35, investido: 64.73, leads: 7 },
+                    { termo: "clinica medica",               campanha: "Institucional", impressoes: 275, cliques: 17, investido: 43.05, leads: 2 },
+                    { termo: "cardiologista em nova iguaçu", campanha: "Cardiologista", impressoes: 46,  cliques: 5,  investido: 36.06, leads: 1 },
+                    { termo: "cardiologista nova iguaçu",    campanha: "Cardiologista", impressoes: 16,  cliques: 3,  investido: 20.96, leads: 1 },
+                    { termo: "clínica médica nova iguaçu",   campanha: "Institucional", impressoes: 43,  cliques: 3,  investido: 3.60,  leads: 1 },
+                    { termo: "clínico geral nova iguaçu",    campanha: "Clínico Geral", impressoes: 10,  cliques: 1,  investido: 5.94,  leads: 1 },
+                    { termo: "clínica mais vida km 32",      campanha: "Institucional", impressoes: 10,  cliques: 1,  investido: 0.59,  leads: 1 }
+                ],
+                insights: [
+                    { tipo: "good", tag: "Clínico Geral puxa a conta", texto: "<b>8 dos 14 leads</b> vieram de Clínico Geral, a <b>R$ 8,83</b> cada e CTR de <b>11,5%</b> — quem busca “clínica médica” em Nova Iguaçu clica e entra em contato. É a campanha para escalar primeiro." },
+                    { tipo: "", tag: "Institucional limitada pela verba", texto: "Com só <b>R$ 5,50/dia</b>, a Institucional gerou 4 leads a R$ 12,72 e foi a campanha com <b>mais impressões</b> (388). O termo genérico “clinica medica” tem volume; a verba é o freio." },
+                    { tipo: "warn", tag: "Cardiologista cara", texto: "Clique a <b>R$ 7,13</b> — <b>3,4×</b> a média das outras campanhas (R$ 2,08) — e lead a <b>R$ 28,51</b>. Termos de cardiologia são disputados; concentrar em “cardiologista em nova iguaçu” (o que converteu) e revisar lances." },
+                    { tipo: "warn", tag: "Pediatria e Gastro sem volume", texto: "<b>11 e 5 impressões</b> em 4 dias, com R$ 20/dia disponíveis. Ou os termos exatos têm pouca busca, ou o lance não está competindo. Abrir correspondência de frase e checar o status dos anúncios." }
+                ]
+            },
+            destaques: [
+                { tipo: "sky",  tag: "Escalando",    titulo: "KM 32 é a campanha mais eficiente",
+                  texto: "<b>343 cliques para o WhatsApp</b> a <b>R$ 0,17</b> cada, com apenas <b>R$ 6/dia</b> — a unidade nova já supera Cabuçu em volume e custo. É a primeira candidata a receber mais verba." },
+                { tipo: "",     tag: "Google no ar", titulo: "14 leads em 4 dias de pesquisa",
+                  texto: "Google Ads voltou a rodar em <b>22/09</b>. <b>Clínico Geral</b> concentra 8 leads a <b>R$ 8,83</b>; o termo <b>“clínica médica”</b> sozinho gerou 7. Quem procura consulta geral em Nova Iguaçu encontra a clínica." },
+                { tipo: "grey", tag: "Otimização",   titulo: "Três pontos para ajustar",
+                  texto: "<b>Cardiologista</b> custa <b>R$ 28,51</b> por lead (clique a R$ 7,13, quase 3× a média da conta) — revisar termos e lances. <b>Pediatria</b> e <b>Gastro</b> quase não aparecem (11 e 5 impressões). No Meta, <b>Seja Videx</b> gastou R$ 1,94 e não entregou — reconfigurar ou pausar." }
+            ]
+        }
     ]
 };
 
 (function () {
-    var R = RELATORIO, M = R.meta.campanhas, G = R.google.campanhas;
+    var R = RELATORIO;
 
     /* ---------- formatação pt-BR ---------- */
     var fInt = new Intl.NumberFormat('pt-BR', { maximumFractionDigits: 0 });
     var fDec = new Intl.NumberFormat('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
     var fPct = new Intl.NumberFormat('pt-BR', { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+    var f1 = new Intl.NumberFormat('pt-BR', { minimumFractionDigits: 1, maximumFractionDigits: 1 });
     function isNum(v) { return typeof v === 'number' && isFinite(v); }
     function n(v)   { return isNum(v) ? fInt.format(v) : '—'; }
     function brl(v) { return isNum(v) ? 'R$ ' + fDec.format(v) : '—'; }
     function pct(v) { return isNum(v) ? fPct.format(v * 100) + '%' : '—'; }
     function esc(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
-    function data(iso) { var m = ['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez']; var p = iso.split('-'); return parseInt(p[2], 10) + ' ' + m[parseInt(p[1], 10) - 1]; }
     function sum(arr, k) { var t = 0, any = false; arr.forEach(function (c) { if (isNum(c[k])) { t += c[k]; any = true; } }); return any ? t : null; }
     function div(a, b) { return isNum(a) && isNum(b) && b > 0 ? a / b : null; }
+    function money(v, dec) { return isNum(v) ? '<span class="cur">R$</span>' + (dec ? fDec.format(v) : fInt.format(Math.round(v))) : '—'; }
     function tag(s) {
         if (s === 'pausado')     return '<span class="tag off"><span class="d"></span>Pausado</span>';
         if (s === 'aprendizado') return '<span class="tag warn"><span class="d"></span>Em aprendizado</span>';
         return '<span class="tag ok"><span class="d"></span>Ativo</span>';
     }
-    function selo(c, extra) {
+    function selo(c) {
         if (c.situacao === 'pausado') return '<small class="off">Pausado</small>';
-        if (c.selo === 'hot') return '<small class="hot">' + (extra || 'Alto desempenho') + '</small>';
+        if (c.selo === 'hot') return '<small class="hot">Alto desempenho</small>';
         if (c.selo === 'key') return '<small class="key">Carro-chefe</small>';
         return '';
     }
-
-    /* ---------- totais ---------- */
-    var mCli = sum(M, 'cliques'), mInv = sum(M, 'investido'), mAlc = sum(M, 'alcance'), mImp = sum(M, 'impressoes');
-    var mCpc = div(sum(M.filter(function (c) { return isNum(c.cliques); }), 'investido'), mCli);
-    var gLeads = sum(G, 'leads'), gInv = sum(G, 'investido'), gImp = sum(G, 'impressoes'), gCli = sum(G, 'cliques');
-    var gCpl = div(gInv, gLeads), gCtr = div(gCli, gImp), gCpc = div(gInv, gCli);
-    var totInv = (mInv || 0) + (gInv || 0);
-    var ano = R.periodo.fim.slice(0, 4);
-
-    /* ---------- cabeçalho, lede, rodapé ---------- */
-    document.getElementById('chip-periodo').textContent = data(R.periodo.inicio) + ' – ' + data(R.periodo.fim) + ' ' + ano;
-    document.getElementById('foot-versao').textContent = R.versao;
-    document.getElementById('foot-fonte').innerHTML = 'Fontes: ' + esc(R.meta.fonte) + '<br>' + esc(R.google.fonte) + ' · valores em R$ (BRL)';
-
-    var lede = 'No período, os anúncios no Instagram e Facebook levaram <b>' + n(mCli) + ' pessoas ao WhatsApp</b> da clínica a <b>' + brl(mCpc) + '</b> por clique, alcançando <b>~' + fInt.format(Math.round(mAlc / 1000)) + ' mil pessoas</b> de Nova Iguaçu. ';
-    lede += 'O Google Ads entrou no ar em 22/09 e, em 4 dias, gerou <b>' + n(gLeads) + ' leads</b> a <b>' + brl(gCpl) + '</b> cada. ';
-    var topM = M.filter(function (c) { return isNum(c.cliques); }).sort(function (a, b) { return b.cliques - a.cliques; })[0];
-    if (topM) lede += 'A campanha da unidade <b>' + esc(topM.unidade) + '</b> é a mais eficiente da conta.';
-    document.getElementById('lede').innerHTML = lede;
-
-    /* ---------- KPIs ---------- */
     function kpi(label, val, sub, lead) { return '<div class="kpi' + (lead ? ' lead' : '') + '"><div class="k-label">' + label + '</div><div class="k-val">' + val + '</div><div class="k-sub">' + sub + '</div></div>'; }
-    function money(v, dec) { return isNum(v) ? '<span class="cur">R$</span>' + (dec ? fDec.format(v) : fInt.format(Math.round(v))) : '—'; }
-    document.getElementById('kpis').innerHTML =
-        kpi('Cliques para o WhatsApp', n(mCli), 'Meta Ads · <b>' + brl(mCpc) + '</b> por clique', true) +
-        kpi('Leads no Google', n(gLeads), 'Pesquisa · <b>' + brl(gCpl) + '</b> por lead · 4 dias no ar') +
-        kpi('Investimento', money(totInv), 'Meta <b>' + brl(mInv) + '</b> · Google <b>' + brl(gInv) + '</b>') +
-        kpi('Pessoas alcançadas', n(mAlc), n(mImp) + ' exibições no Meta · ' + n(gImp) + ' no Google');
+    function sec(num, t) { return '<div class="sec"><span class="n">' + num + '</span><span class="t">' + t + '</span></div>'; }
+    function panel(title, note, id, noteId) { return '<div class="panel"><div class="panel-head"><h2>' + title + '</h2><div class="h-note">' + note + '</div></div><div class="bars" id="' + id + '"></div><div class="axis-note" id="' + noteId + '"></div></div>'; }
+    function insights(list) { return '<div class="insights">' + (list || []).map(function (i) { return '<div class="ins' + (i.tipo ? ' ' + esc(i.tipo) : '') + '"><span class="i-tag">' + esc(i.tag) + '</span>' + i.texto + '</div>'; }).join('') + '</div>'; }
+    var cpcM = function (c) { return div(c.investido, c.cliques); };
+    var cplG = function (c) { return div(c.investido, c.leads); };
 
-    /* ---------- barras (genérico) ---------- */
+    /* ---------- totais de um mês ---------- */
+    function totais(m) {
+        var M = m.meta.campanhas, G = m.google.campanhas, t = {};
+        t.mCli = sum(M, 'cliques'); t.mInv = sum(M, 'investido'); t.mAlc = sum(M, 'alcance'); t.mImp = sum(M, 'impressoes');
+        t.mCpc = div(sum(M.filter(function (c) { return isNum(c.cliques); }), 'investido'), t.mCli);
+        t.mFreq = div(t.mImp, t.mAlc);
+        t.gLeads = sum(G, 'leads'); t.gInv = sum(G, 'investido'); t.gImp = sum(G, 'impressoes'); t.gCli = sum(G, 'cliques');
+        t.gCpl = div(t.gInv, t.gLeads); t.gCtr = div(t.gCli, t.gImp); t.gCpc = div(t.gInv, t.gCli);
+        t.inv = (t.mInv || 0) + (t.gInv || 0);
+        return t;
+    }
+
+    /* ---------- barras ---------- */
     function bars(el, lista, valor, fmt, tipCb, seloExtra) {
         var comDado = lista.filter(function (c) { return isNum(valor(c)); });
         if (!comDado.length) { el.innerHTML = '<div class="empty">Sem dados no período ainda.</div>'; return []; }
@@ -531,79 +476,231 @@ var RELATORIO = {
         }).join('');
         return comDado;
     }
-    var cpcM = function (c) { return div(c.investido, c.cliques); };
-    var cplG = function (c) { return div(c.investido, c.leads); };
 
-    /* Meta */
-    var mByCli = M.slice().sort(function (a, b) { return (b.cliques || 0) - (a.cliques || 0); });
-    var lM = bars(document.getElementById('chart-meta-cliques'), mByCli, function (c) { return c.cliques; }, n,
-        function (c) { return '<b>' + c.nome + '</b><br>' + n(c.cliques) + ' cliques · ' + brl(cpcM(c)) + ' cada'; });
-    document.getElementById('note-meta-cliques').innerHTML = lM.length && isNum(mCli) ? esc(lM[0].nome) + ' concentrou <b>' + Math.round(lM[0].cliques / mCli * 100) + '%</b> dos cliques da conta.' : '';
-    var mByCpc = M.filter(function (c) { return isNum(cpcM(c)); }).sort(function (a, b) { return cpcM(a) - cpcM(b); });
-    bars(document.getElementById('chart-meta-custo'), mByCpc, cpcM, function (v) { return '<small>R$</small> ' + fDec.format(v); },
-        function (c) { return '<b>' + c.nome + '</b><br>' + brl(cpcM(c)) + ' por clique'; }, 'Menor custo');
-    document.getElementById('note-meta-custo').innerHTML = 'Média da conta: <b>' + brl(mCpc) + '</b> por clique.';
+    /* ---------- VISÃO GERAL ---------- */
+    function renderGeral(m, t, root) {
+        var M = m.meta.campanhas;
+        var topM = M.filter(function (c) { return isNum(c.cliques); }).sort(function (a, b) { return b.cliques - a.cliques; })[0];
+        var lede = 'No período, os anúncios no Instagram e Facebook levaram <b>' + n(t.mCli) + ' pessoas ao WhatsApp</b> da clínica a <b>' + brl(t.mCpc) + '</b> por clique' +
+            (isNum(t.mAlc) ? ', alcançando <b>~' + fInt.format(Math.round(t.mAlc / 1000)) + ' mil pessoas</b> de Nova Iguaçu' : '') + '. ' +
+            'No Google, as campanhas de pesquisa (' + esc(m.google.periodo) + ') geraram <b>' + n(t.gLeads) + ' leads</b> a <b>' + brl(t.gCpl) + '</b> cada. ' +
+            (topM ? 'A campanha da unidade <b>' + esc(topM.unidade) + '</b> é a mais eficiente da conta.' : '');
+        root.innerHTML =
+            '<p class="lede">' + lede + '</p>' +
+            sec('01', 'Números do período') +
+            '<div class="kpis">' +
+                kpi('Cliques para o WhatsApp', n(t.mCli), 'Meta Ads · <b>' + brl(t.mCpc) + '</b> por clique', true) +
+                kpi('Leads no Google', n(t.gLeads), 'Pesquisa · <b>' + brl(t.gCpl) + '</b> por lead') +
+                kpi('Investimento', money(t.inv), 'Meta <b>' + brl(t.mInv) + '</b> · Google <b>' + brl(t.gInv) + '</b>') +
+                kpi('Pessoas alcançadas', n(t.mAlc), n(t.mImp) + ' exibições no Meta · ' + n(t.gImp) + ' no Google') +
+            '</div>' +
+            sec('02', 'Por canal') +
+            '<div class="units">' +
+                '<div class="unit"><div class="u-name">Meta Ads · Instagram &amp; Facebook</div><div class="u-sub">' + esc(m.meta.periodo) + ' · ' + M.length + ' campanhas</div><div class="u-grid">' +
+                    '<div><div class="u-k">Cliques p/ WhatsApp</div><div class="u-v">' + n(t.mCli) + '</div></div>' +
+                    '<div><div class="u-k">Custo / clique</div><div class="u-v">' + (isNum(t.mCpc) ? '<small>R$</small> ' + fDec.format(t.mCpc) : '—') + '</div></div>' +
+                    '<div><div class="u-k">Investido</div><div class="u-v">' + (isNum(t.mInv) ? '<small>R$</small> ' + fInt.format(Math.round(t.mInv)) : '—') + '</div></div>' +
+                    '<div><div class="u-k">Alcance</div><div class="u-v">' + n(t.mAlc) + '</div></div>' +
+                '</div><button class="ch-link" data-go="meta">Ver análise do Meta Ads →</button></div>' +
+                '<div class="unit alt"><div class="u-name">Google Ads · Pesquisa</div><div class="u-sub">' + esc(m.google.periodo) + ' · ' + m.google.campanhas.length + ' campanhas</div><div class="u-grid">' +
+                    '<div><div class="u-k">Leads</div><div class="u-v">' + n(t.gLeads) + '</div></div>' +
+                    '<div><div class="u-k">Custo / lead</div><div class="u-v">' + (isNum(t.gCpl) ? '<small>R$</small> ' + fDec.format(t.gCpl) : '—') + '</div></div>' +
+                    '<div><div class="u-k">Investido</div><div class="u-v">' + (isNum(t.gInv) ? '<small>R$</small> ' + fInt.format(Math.round(t.gInv)) : '—') + '</div></div>' +
+                    '<div><div class="u-k">Cliques · CTR</div><div class="u-v">' + n(t.gCli) + ' <small>' + pct(t.gCtr) + '</small></div></div>' +
+                '</div><button class="ch-link" data-go="google">Ver análise do Google Ads →</button></div>' +
+            '</div>' +
+            sec('03', 'Destaques &amp; decisões') +
+            '<div class="highlights">' + (m.destaques || []).map(function (h) {
+                return '<div class="hl' + (h.tipo ? ' ' + esc(h.tipo) : '') + '"><div class="hl-tag">◆ ' + esc(h.tag) + '</div><h3>' + esc(h.titulo) + '</h3><p>' + h.texto + '</p></div>';
+            }).join('') + '</div>';
+    }
 
-    var star = lM[0];
-    document.getElementById('meta-tbody').innerHTML = M.map(function (c) {
-        var cls = c === star ? ' class="star"' : (c.situacao === 'pausado' ? ' class="off"' : '');
-        return '<tr' + cls + '><td data-label="Campanha">' + esc(c.nome) + (c.semResultado ? ' *' : '') + '<span class="u">' + esc(c.unidade) + '</span></td>' +
-            '<td data-label="Situação">' + tag(c.situacao) + '</td>' +
-            '<td class="hi" data-label="Cliques p/ WhatsApp">' + n(c.cliques) + '</td>' +
-            '<td data-label="Custo / clique">' + brl(cpcM(c)) + '</td>' +
-            '<td data-label="Investido">' + brl(c.investido) + '</td>' +
-            '<td data-label="Verba / dia">' + brl(c.verbaDia) + '</td>' +
-            '<td data-label="Alcance">' + n(c.alcance) + '</td>' +
-            '<td data-label="Impressões">' + n(c.impressoes) + '</td></tr>';
-    }).join('');
-    document.getElementById('meta-tfoot').innerHTML = '<tr><td data-label="">Total</td><td></td>' +
-        '<td data-label="Cliques p/ WhatsApp">' + n(mCli) + '</td><td data-label="Custo / clique">' + brl(mCpc) + '</td>' +
-        '<td data-label="Investido">' + brl(mInv) + '</td><td data-label="Verba / dia">' + brl(sum(M, 'verbaDia')) + '</td>' +
-        '<td data-label="Alcance">' + n(mAlc) + '</td><td data-label="Impressões">' + n(mImp) + '</td></tr>';
-    var mn = ['Resultado reportado pelo Meta: ' + esc(R.meta.resultado) + '. Alcance total é a soma das campanhas — a mesma pessoa pode ter visto mais de uma.'];
-    M.forEach(function (c) { if (c.nota) mn.push((c.semResultado ? '* ' : '') + esc(c.nome) + ': ' + esc(c.nota)); });
-    document.getElementById('meta-note').innerHTML = mn.join('<br>');
+    /* ---------- META ADS ---------- */
+    function renderMeta(m, t, root, k) {
+        var M = m.meta.campanhas;
+        root.innerHTML =
+            '<p class="period-note"><b>' + esc(m.meta.periodo) + '</b> · resultado reportado pelo Meta: ' + esc(m.meta.resultado) + '.</p>' +
+            sec('01', 'Números do Meta') +
+            '<div class="kpis">' +
+                kpi('Cliques para o WhatsApp', n(t.mCli), 'pessoas que saíram do anúncio para a conversa', true) +
+                kpi('Custo por clique', money(t.mCpc, true), 'média das campanhas de WhatsApp') +
+                kpi('Investimento', money(t.mInv), 'verba disponível: <b>' + brl(sum(M, 'verbaDia')) + '/dia</b>') +
+                kpi('Pessoas alcançadas', n(t.mAlc), n(t.mImp) + ' exibições · frequência <b>' + (isNum(t.mFreq) ? f1.format(t.mFreq) : '—') + '</b>') +
+            '</div>' +
+            sec('02', 'Desempenho por campanha') +
+            '<div class="cols">' +
+                panel('Cliques para o WhatsApp por campanha', 'pessoas que saíram do anúncio direto para a conversa', 'mc-' + k, 'mcn-' + k) +
+                panel('Custo por clique', 'quanto custou cada pessoa levada ao WhatsApp — menor é melhor', 'mk-' + k, 'mkn-' + k) +
+            '</div>' +
+            '<div class="table-wrap" style="margin-top:14px"><table><thead><tr><th>Campanha</th><th>Situação</th><th>Cliques p/ WhatsApp</th><th>Custo / clique</th><th>Investido</th><th>Verba / dia</th><th>Alcance</th><th>Impressões</th></tr></thead>' +
+            '<tbody id="mt-' + k + '"></tbody><tfoot id="mf-' + k + '"></tfoot></table><div class="table-note" id="mnote-' + k + '"></div></div>' +
+            sec('03', 'Leitura do canal') + insights(m.meta.insights);
 
-    /* Google */
-    var gByLeads = G.slice().sort(function (a, b) { return (b.leads || 0) - (a.leads || 0) || (b.cliques || 0) - (a.cliques || 0); });
-    var lG = bars(document.getElementById('chart-g-leads'), gByLeads, function (c) { return c.leads; }, n,
-        function (c) { return '<b>' + c.nome + '</b><br>' + n(c.leads) + ' leads' + (isNum(cplG(c)) ? ' · ' + brl(cplG(c)) + ' cada' : '') + ' · ' + n(c.cliques) + ' cliques'; });
-    document.getElementById('note-g-leads').innerHTML = lG.length && isNum(gLeads) && gLeads > 0 ? esc(lG[0].nome) + ' concentrou <b>' + Math.round(lG[0].leads / gLeads * 100) + '%</b> dos leads. CTR médio da conta: <b>' + pct(gCtr) + '</b>.' : '';
-    var gByCpl = G.filter(function (c) { return isNum(cplG(c)); }).sort(function (a, b) { return cplG(a) - cplG(b); });
-    bars(document.getElementById('chart-g-cpl'), gByCpl, cplG, function (v) { return '<small>R$</small> ' + fDec.format(v); },
-        function (c) { return '<b>' + c.nome + '</b><br>' + brl(cplG(c)) + ' por lead · clique a ' + brl(div(c.investido, c.cliques)); }, 'Menor custo');
-    document.getElementById('note-g-cpl').innerHTML = 'Média da conta: <b>' + brl(gCpl) + '</b> por lead · clique médio <b>' + brl(gCpc) + '</b>.';
+        var byCli = M.slice().sort(function (a, b) { return (b.cliques || 0) - (a.cliques || 0); });
+        var l = bars(root.querySelector('#mc-' + k), byCli, function (c) { return c.cliques; }, n,
+            function (c) { return '<b>' + c.nome + '</b><br>' + n(c.cliques) + ' cliques · ' + brl(cpcM(c)) + ' cada'; });
+        root.querySelector('#mcn-' + k).innerHTML = l.length && isNum(t.mCli) ? esc(l[0].nome) + ' concentrou <b>' + Math.round(l[0].cliques / t.mCli * 100) + '%</b> dos cliques da conta.' : '';
+        var byCpc = M.filter(function (c) { return isNum(cpcM(c)); }).sort(function (a, b) { return cpcM(a) - cpcM(b); });
+        bars(root.querySelector('#mk-' + k), byCpc, cpcM, function (v) { return '<small>R$</small> ' + fDec.format(v); },
+            function (c) { return '<b>' + c.nome + '</b><br>' + brl(cpcM(c)) + ' por clique'; }, 'Menor custo');
+        root.querySelector('#mkn-' + k).innerHTML = 'Média da conta: <b>' + brl(t.mCpc) + '</b> por clique.';
+        var star = l[0];
+        root.querySelector('#mt-' + k).innerHTML = M.map(function (c) {
+            var cls = c === star ? ' class="star"' : (c.situacao === 'pausado' ? ' class="off"' : '');
+            return '<tr' + cls + '><td data-label="Campanha">' + esc(c.nome) + (c.semResultado ? ' *' : '') + '<span class="u">' + esc(c.unidade) + '</span></td>' +
+                '<td data-label="Situação">' + tag(c.situacao) + '</td><td class="hi" data-label="Cliques p/ WhatsApp">' + n(c.cliques) + '</td>' +
+                '<td data-label="Custo / clique">' + brl(cpcM(c)) + '</td><td data-label="Investido">' + brl(c.investido) + '</td>' +
+                '<td data-label="Verba / dia">' + brl(c.verbaDia) + '</td><td data-label="Alcance">' + n(c.alcance) + '</td><td data-label="Impressões">' + n(c.impressoes) + '</td></tr>';
+        }).join('');
+        root.querySelector('#mf-' + k).innerHTML = '<tr><td data-label="">Total</td><td></td><td data-label="Cliques p/ WhatsApp">' + n(t.mCli) + '</td><td data-label="Custo / clique">' + brl(t.mCpc) + '</td>' +
+            '<td data-label="Investido">' + brl(t.mInv) + '</td><td data-label="Verba / dia">' + brl(sum(M, 'verbaDia')) + '</td><td data-label="Alcance">' + n(t.mAlc) + '</td><td data-label="Impressões">' + n(t.mImp) + '</td></tr>';
+        var notas = ['Alcance total é a soma das campanhas — a mesma pessoa pode ter visto mais de uma.'];
+        M.forEach(function (c) { if (c.nota) notas.push((c.semResultado ? '* ' : '') + esc(c.nome) + ': ' + esc(c.nota)); });
+        root.querySelector('#mnote-' + k).innerHTML = notas.join('<br>');
+    }
 
-    var gStar = lG[0];
-    document.getElementById('g-tbody').innerHTML = gByLeads.map(function (c) {
-        var cls = c === gStar ? ' class="star"' : '';
-        return '<tr' + cls + '><td data-label="Campanha">' + esc(c.nome) + '<span class="u">' + (c.situacao === 'aprendizado' ? 'quase sem veiculação' : 'Pesquisa · leads') + '</span></td>' +
-            '<td data-label="Verba / dia">' + brl(c.verbaDia) + '</td>' +
-            '<td data-label="Impressões">' + n(c.impressoes) + '</td>' +
-            '<td data-label="Cliques">' + n(c.cliques) + '</td>' +
-            '<td data-label="CTR">' + pct(div(c.cliques, c.impressoes)) + '</td>' +
-            '<td data-label="Investido">' + brl(c.investido) + '</td>' +
-            '<td class="hi" data-label="Leads">' + n(c.leads) + '</td>' +
-            '<td data-label="Custo / lead">' + brl(cplG(c)) + '</td></tr>';
-    }).join('');
-    document.getElementById('g-tfoot').innerHTML = '<tr><td data-label="">Total</td><td data-label="Verba / dia">' + brl(sum(G, 'verbaDia')) + '</td>' +
-        '<td data-label="Impressões">' + n(gImp) + '</td><td data-label="Cliques">' + n(gCli) + '</td><td data-label="CTR">' + pct(gCtr) + '</td>' +
-        '<td data-label="Investido">' + brl(gInv) + '</td><td data-label="Leads">' + n(gLeads) + '</td><td data-label="Custo / lead">' + brl(gCpl) + '</td></tr>';
-    document.getElementById('g-note').innerHTML = 'Lead = conversão registrada pelo Google Ads (contato a partir do anúncio). Campanhas com verba de R$ 20/dia gastaram bem menos que o limite: ainda estão ganhando volume de busca.';
+    /* ---------- GOOGLE ADS ---------- */
+    function renderGoogle(m, t, root, k) {
+        var G = m.google.campanhas;
+        root.innerHTML =
+            '<p class="period-note"><b>' + esc(m.google.periodo) + '</b> · lead = conversão registrada pelo Google Ads (contato a partir do anúncio).</p>' +
+            sec('01', 'Números do Google') +
+            '<div class="kpis">' +
+                kpi('Leads', n(t.gLeads), 'contatos gerados a partir da busca', true) +
+                kpi('Custo por lead', money(t.gCpl, true), 'média das campanhas com lead') +
+                kpi('Cliques', n(t.gCli), 'CTR <b>' + pct(t.gCtr) + '</b> · clique médio <b>' + brl(t.gCpc) + '</b>') +
+                kpi('Investimento', money(t.gInv), 'verba disponível: <b>' + brl(sum(G, 'verbaDia')) + '/dia</b>') +
+            '</div>' +
+            sec('02', 'Desempenho por campanha') +
+            '<div class="cols">' +
+                panel('Leads por campanha', 'contatos gerados a partir da busca no Google', 'gl-' + k, 'gln-' + k) +
+                panel('Custo por lead', 'só campanhas que já geraram lead — menor é melhor', 'gk-' + k, 'gkn-' + k) +
+            '</div>' +
+            '<div class="table-wrap" style="margin-top:14px"><table><thead><tr><th>Campanha</th><th>Verba / dia</th><th>Impressões</th><th>Cliques</th><th>CTR</th><th>Investido</th><th>Leads</th><th>Custo / lead</th></tr></thead>' +
+            '<tbody id="gt-' + k + '"></tbody><tfoot id="gf-' + k + '"></tfoot></table><div class="table-note">Campanhas com verba de R$ 20/dia gastaram bem menos que o limite: ainda estão ganhando volume de busca.</div></div>' +
+            sec('03', 'O que as pessoas buscaram') +
+            '<div class="panel"><div class="panel-head"><h2>Termos que geraram lead</h2><div class="h-note">busca digitada no Google que terminou em contato</div></div>' +
+            '<div class="table-wrap"><table><thead><tr><th>Termo de busca</th><th>Campanha</th><th>Impressões</th><th>Cliques</th><th>Leads</th><th>Custo / lead</th></tr></thead><tbody id="gw-' + k + '"></tbody></table></div></div>' +
+            sec('04', 'Leitura do canal') + insights(m.google.insights);
 
-    document.getElementById('kw-tbody').innerHTML = (R.google.termos || []).slice().sort(function (a, b) { return (b.leads || 0) - (a.leads || 0) || (b.cliques || 0) - (a.cliques || 0); }).map(function (t, i) {
-        return '<tr' + (i === 0 ? ' class="star"' : '') + '><td data-label="Termo de busca">“' + esc(t.termo) + '”</td>' +
-            '<td data-label="Campanha">' + esc(t.campanha) + '</td>' +
-            '<td data-label="Impressões">' + n(t.impressoes) + '</td>' +
-            '<td data-label="Cliques">' + n(t.cliques) + '</td>' +
-            '<td class="hi" data-label="Leads">' + n(t.leads) + '</td>' +
-            '<td data-label="Custo / lead">' + brl(div(t.investido, t.leads)) + '</td></tr>';
-    }).join('');
+        var byLeads = G.slice().sort(function (a, b) { return (b.leads || 0) - (a.leads || 0) || (b.cliques || 0) - (a.cliques || 0); });
+        var l = bars(root.querySelector('#gl-' + k), byLeads, function (c) { return c.leads; }, n,
+            function (c) { return '<b>' + c.nome + '</b><br>' + n(c.leads) + ' leads' + (isNum(cplG(c)) ? ' · ' + brl(cplG(c)) + ' cada' : '') + ' · ' + n(c.cliques) + ' cliques'; });
+        root.querySelector('#gln-' + k).innerHTML = l.length && isNum(t.gLeads) && t.gLeads > 0 ? esc(l[0].nome) + ' concentrou <b>' + Math.round(l[0].leads / t.gLeads * 100) + '%</b> dos leads.' : '';
+        var byCpl = G.filter(function (c) { return isNum(cplG(c)); }).sort(function (a, b) { return cplG(a) - cplG(b); });
+        bars(root.querySelector('#gk-' + k), byCpl, cplG, function (v) { return '<small>R$</small> ' + fDec.format(v); },
+            function (c) { return '<b>' + c.nome + '</b><br>' + brl(cplG(c)) + ' por lead · clique a ' + brl(div(c.investido, c.cliques)); }, 'Menor custo');
+        root.querySelector('#gkn-' + k).innerHTML = 'Média da conta: <b>' + brl(t.gCpl) + '</b> por lead · clique médio <b>' + brl(t.gCpc) + '</b>.';
+        var star = l[0];
+        root.querySelector('#gt-' + k).innerHTML = byLeads.map(function (c) {
+            return '<tr' + (c === star ? ' class="star"' : '') + '><td data-label="Campanha">' + esc(c.nome) + '<span class="u">' + (c.situacao === 'aprendizado' ? 'quase sem veiculação' : 'Pesquisa · leads') + '</span></td>' +
+                '<td data-label="Verba / dia">' + brl(c.verbaDia) + '</td><td data-label="Impressões">' + n(c.impressoes) + '</td><td data-label="Cliques">' + n(c.cliques) + '</td>' +
+                '<td data-label="CTR">' + pct(div(c.cliques, c.impressoes)) + '</td><td data-label="Investido">' + brl(c.investido) + '</td>' +
+                '<td class="hi" data-label="Leads">' + n(c.leads) + '</td><td data-label="Custo / lead">' + brl(cplG(c)) + '</td></tr>';
+        }).join('');
+        root.querySelector('#gf-' + k).innerHTML = '<tr><td data-label="">Total</td><td data-label="Verba / dia">' + brl(sum(G, 'verbaDia')) + '</td><td data-label="Impressões">' + n(t.gImp) + '</td><td data-label="Cliques">' + n(t.gCli) + '</td>' +
+            '<td data-label="CTR">' + pct(t.gCtr) + '</td><td data-label="Investido">' + brl(t.gInv) + '</td><td data-label="Leads">' + n(t.gLeads) + '</td><td data-label="Custo / lead">' + brl(t.gCpl) + '</td></tr>';
+        root.querySelector('#gw-' + k).innerHTML = (m.google.termos || []).slice().sort(function (a, b) { return (b.leads || 0) - (a.leads || 0) || (b.cliques || 0) - (a.cliques || 0); }).map(function (w, i) {
+            return '<tr' + (i === 0 ? ' class="star"' : '') + '><td data-label="Termo de busca">“' + esc(w.termo) + '”</td><td data-label="Campanha">' + esc(w.campanha) + '</td>' +
+                '<td data-label="Impressões">' + n(w.impressoes) + '</td><td data-label="Cliques">' + n(w.cliques) + '</td><td class="hi" data-label="Leads">' + n(w.leads) + '</td><td data-label="Custo / lead">' + brl(div(w.investido, w.leads)) + '</td></tr>';
+        }).join('');
+    }
 
-    /* ---------- destaques ---------- */
-    document.getElementById('highlights').innerHTML = (R.destaques || []).map(function (h) {
-        return '<div class="hl' + (h.tipo ? ' ' + esc(h.tipo) : '') + '"><div class="hl-tag">◆ ' + esc(h.tag) + '</div><h3>' + esc(h.titulo) + '</h3><p>' + h.texto + '</p></div>';
-    }).join('');
+    /* ---------- COMPARATIVO MÊS A MÊS ---------- */
+    function renderComparativo(root) {
+        var meses = R.meses.slice().reverse(); /* cronológico */
+        var T = meses.map(totais);
+        var linhas = [
+            { grp: 'Meta Ads · Instagram & Facebook' },
+            { k: 'mCli', label: 'Cliques para o WhatsApp', fmt: n, melhor: 'alto' },
+            { k: 'mCpc', label: 'Custo por clique', fmt: brl, melhor: 'baixo' },
+            { k: 'mInv', label: 'Investido', fmt: brl },
+            { k: 'mAlc', label: 'Pessoas alcançadas', fmt: n, melhor: 'alto' },
+            { k: 'mFreq', label: 'Frequência', fmt: function (v) { return isNum(v) ? f1.format(v) : '—'; } },
+            { grp: 'Google Ads · Pesquisa' },
+            { k: 'gLeads', label: 'Leads', fmt: n, melhor: 'alto' },
+            { k: 'gCpl', label: 'Custo por lead', fmt: brl, melhor: 'baixo' },
+            { k: 'gCli', label: 'Cliques', fmt: n, melhor: 'alto' },
+            { k: 'gCtr', label: 'CTR', fmt: pct, melhor: 'alto' },
+            { k: 'gCpc', label: 'Custo por clique', fmt: brl, melhor: 'baixo' },
+            { k: 'gInv', label: 'Investido', fmt: brl },
+            { grp: 'Consolidado' },
+            { k: 'inv', label: 'Investimento total', fmt: brl }
+        ];
+        function delta(cur, prev, melhor) {
+            if (!isNum(cur) || !isNum(prev) || prev === 0) return '';
+            var d = (cur - prev) / prev, cls = 'flat';
+            if (Math.abs(d) >= 0.005 && melhor) cls = ((d > 0) === (melhor === 'alto')) ? 'up' : 'down';
+            return '<span class="delta ' + cls + '">' + (d > 0 ? '+' : '') + fPct.format(d * 100) + '%</span>';
+        }
+        var thead = '<tr><th>Métrica</th>' + meses.map(function (m) { return '<th>' + esc(m.label) + '</th>'; }).join('') + '</tr>';
+        var tbody = linhas.map(function (L) {
+            if (L.grp) return '<tr class="grp"><td colspan="' + (meses.length + 1) + '">' + esc(L.grp) + '</td></tr>';
+            return '<tr><td data-label="Métrica">' + esc(L.label) + '</td>' + T.map(function (t, i) {
+                return '<td data-label="' + esc(meses[i].label) + '">' + L.fmt(t[L.k]) + (i > 0 ? delta(t[L.k], T[i - 1][L.k], L.melhor) : '') + '</td>';
+            }).join('') + '</tr>';
+        }).join('');
+        root.innerHTML =
+            '<p class="period-note">Evolução mês a mês dos indicadores principais. Verde = melhorou, vermelho = piorou em relação ao mês anterior.</p>' +
+            sec('01', 'Comparativo mensal') +
+            '<div class="table-wrap cmp"><table><thead>' + thead + '</thead><tbody>' + tbody + '</tbody></table>' +
+            '<div class="table-note">' + (meses.length < 2
+                ? 'Só há um mês fechado até aqui — <b>' + esc(meses[0].label) + '</b>. A partir do próximo relatório, esta aba mostra a variação mês a mês automaticamente.'
+                : 'Períodos: ' + meses.map(function (m) { return esc(m.label) + ' (' + esc(m.sub) + ')'; }).join(' · ') + '.') + '</div></div>' +
+            sec('02', 'Período de cada mês') +
+            '<div class="insights">' + meses.map(function (m) {
+                return '<div class="ins"><span class="i-tag">' + esc(m.label) + '</span><b>' + esc(m.sub) + '</b>' + (m.status ? ' — ' + esc(m.status) : '') + '<br>Meta: ' + esc(m.meta.periodo) + ' · Google: ' + esc(m.google.periodo) + '</div>';
+            }).join('') + '</div>';
+    }
+
+    /* ---------- montagem ---------- */
+    var app = document.getElementById('app'), nav = document.getElementById('months');
+    var TABS = [['geral', 'Visão geral'], ['meta', 'Meta Ads'], ['google', 'Google Ads'], ['comparativo', 'Comparativo mensal']];
+    document.getElementById('foot-versao').textContent = R.versao;
+
+    R.meses.forEach(function (m, k) {
+        var b = document.createElement('button');
+        b.className = 'mbtn'; b.type = 'button'; b.setAttribute('data-month', m.id);
+        b.innerHTML = esc(m.label) + '<small>' + esc(m.sub) + '</small>';
+        nav.appendChild(b);
+
+        var t = totais(m);
+        var box = document.createElement('section');
+        box.className = 'month'; box.id = 'month-' + m.id;
+        box.innerHTML = '<div class="tabs" role="tablist">' + TABS.map(function (tb) {
+            var c = tb[0] === 'meta' ? m.meta.campanhas.length : tb[0] === 'google' ? m.google.campanhas.length : 0;
+            return '<button class="tab" type="button" role="tab" data-tab="' + tb[0] + '">' + tb[1] + (c ? '<span class="c">' + c + '</span>' : '') + '</button>';
+        }).join('') + '</div>' + TABS.map(function (tb) { return '<div class="view" data-view="' + tb[0] + '"></div>'; }).join('');
+        app.appendChild(box);
+        renderGeral(m, t, box.querySelector('[data-view="geral"]'));
+        renderMeta(m, t, box.querySelector('[data-view="meta"]'), k);
+        renderGoogle(m, t, box.querySelector('[data-view="google"]'), k);
+        renderComparativo(box.querySelector('[data-view="comparativo"]'));
+    });
+
+    var cur = { month: R.meses[0].id, tab: 'geral' };
+    function apply(scroll) {
+        var m = R.meses.filter(function (x) { return x.id === cur.month; })[0] || R.meses[0];
+        cur.month = m.id;
+        nav.querySelectorAll('.mbtn').forEach(function (b) { b.classList.toggle('on', b.getAttribute('data-month') === m.id); });
+        app.querySelectorAll('.month').forEach(function (s) { s.classList.toggle('on', s.id === 'month-' + m.id); });
+        var box = document.getElementById('month-' + m.id);
+        box.querySelectorAll('.tab').forEach(function (b) { var on = b.getAttribute('data-tab') === cur.tab; b.classList.toggle('on', on); b.setAttribute('aria-selected', on ? 'true' : 'false'); });
+        box.querySelectorAll('.view').forEach(function (v) { v.classList.toggle('on', v.getAttribute('data-view') === cur.tab); });
+        document.getElementById('chip-periodo').textContent = m.chip;
+        document.getElementById('foot-fonte').innerHTML = 'Fontes: ' + esc(m.meta.fonte) + '<br>' + esc(m.google.fonte) + ' · valores em R$ (BRL)';
+        if (history.replaceState) history.replaceState(null, '', '#' + m.id + '/' + cur.tab);
+        if (scroll) window.scrollTo({ top: nav.offsetTop - 12, behavior: 'smooth' });
+    }
+    nav.addEventListener('click', function (e) { var b = e.target.closest('.mbtn'); if (!b) return; cur.month = b.getAttribute('data-month'); apply(false); });
+    app.addEventListener('click', function (e) {
+        var b = e.target.closest('.tab, .ch-link'); if (!b) return;
+        cur.tab = b.getAttribute('data-tab') || b.getAttribute('data-go'); apply(true);
+    });
+    var h = (location.hash || '').replace('#', '').split('/');
+    if (h[0] && R.meses.some(function (x) { return x.id === h[0]; })) cur.month = h[0];
+    if (h[1] && TABS.some(function (tb) { return tb[0] === h[1]; })) cur.tab = h[1];
+    apply(false);
 
     /* ---------- tooltip (só ponteiro fino; no toque os valores já estão visíveis) ---------- */
     if (!window.matchMedia || !window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
@@ -616,11 +713,9 @@ var RELATORIO = {
         tip.style.left = Math.max(8, x) + 'px'; tip.style.top = Math.max(8, y) + 'px';
     }
     function hide() { tip.classList.remove('on'); }
-    document.querySelectorAll('.bar[data-tip]').forEach(function (el) {
-        el.addEventListener('mouseenter', function (e) { show(e, el); });
-        el.addEventListener('mousemove', move);
-        el.addEventListener('mouseleave', hide);
-    });
+    app.addEventListener('mouseover', function (e) { var el = e.target.closest('.bar[data-tip]'); if (el) show(e, el); });
+    app.addEventListener('mousemove', function (e) { if (tip.classList.contains('on')) move(e); });
+    app.addEventListener('mouseout', function (e) { if (e.target.closest('.bar[data-tip]')) hide(); });
     document.addEventListener('scroll', hide, { passive: true });
 })();
 </script>
