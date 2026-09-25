@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /relatorios/
 
 Sitemap: https://www.clinicamaisvida.com/sitemap.xml
