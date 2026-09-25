@@ -35,9 +35,19 @@ Números puros com ponto decimal (`58.03`). `null` = sem dado (a página mostra 
 KPIs, gráficos, tabelas, totais, custo por clique/lead, o parágrafo de abertura
 e o comparativo mensal são calculados na hora — nenhum número é digitado duas vezes.
 
-Atenção ao export do Meta: peça o desdobramento **por mês** no Ads Manager.
-O de setembro veio num bloco só (26/08–24/09), por isso o mês inclui os últimos
-dias de agosto.
+## Estimativa do Meta (agosto e setembro de 2026)
+
+O export do Meta veio num bloco só (26/08–24/09, uma linha por campanha).
+Para separar os meses, os números foram **rateados por dia**: 6/30 em agosto
+(26–31/08) e 24/30 em setembro (01–24/09), somando exatamente o bloco original.
+Custo por clique e frequência são os do bloco; só os volumes são proporcionais.
+A página marca isso com um aviso amarelo (`meta.estimativa`) em cada mês e no
+comparativo. Para trocar por dados exatos: no Ads Manager, exporte com
+**Desdobramento → Por tempo → Mês**, substitua os números e apague o campo
+`estimativa` do mês — o aviso some sozinho.
+
+Google Ads não veiculou em agosto (`google.campanhas: []` + `semVeiculacao`);
+a página mostra a aba com o motivo em vez de tabelas vazias.
 
 Passos: exportar Meta (nível campanha) e Google (Pesquisa, por palavra-chave),
 salvar os CSVs em `dados/`, somar o Google por campanha, preencher o bloco,
