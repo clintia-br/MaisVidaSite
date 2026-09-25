@@ -37,9 +37,13 @@ e o comparativo mensal são calculados na hora — nenhum número é digitado du
 
 ## Origem dos meses de 2026
 
-Meta: o export de campanhas cobre 26/08–24/09; os meses foram contados pelos
-dias de veiculação de cada um (agosto 26–31/08, setembro 01–24/09). Google:
-export por palavra-chave e dia, 22–25/09.
+Meta: relatório **diário** por campanha (26/08–24/09, `dados/meta-ads_diario_*.csv`).
+As campanhas foram criadas em 26/08 mas só entregaram de 15 a 24/09, então
+agosto fica como "sem entrega" (`meta.campanhas: []` + `semVeiculacao`) e
+setembro traz os totais por campanha mais a série `meta.diario` (uma linha por
+dia, só campanhas de WhatsApp) que alimenta a seção "Dia a dia". Alcance por
+campanha vem do próprio export (pessoas únicas), não da soma dos dias.
+Google: export por palavra-chave e dia, 22–25/09.
 
 Google Ads não veiculou em agosto (`google.campanhas: []` + `semVeiculacao`);
 a página mostra a aba com o motivo em vez de tabelas vazias.

@@ -364,26 +364,40 @@
    Para um mês novo: copie o bloco de setembro, troque id/label/chip e os números.
    ========================================================= */
 var RELATORIO = {
-    versao: "v3",
+    versao: "v4",
     meses: [
         {
             id: "2026-09", label: "Setembro 2026", sub: "01 – 25/09", chip: "01 – 25 set 2026",
-            status: "Parcial (até 25/09) · Google em veiculação desde 22/09",
+            status: "Parcial (até 25/09) · Meta com entrega de 15 a 24/09 · Google em veiculação desde 22/09",
             meta: {
-                periodo: "01 – 24/09/2026 (24 dias)", dias: 24,
-                fonte: "Meta Ads Manager · 01–24/09/2026 · atribuição: clique de 7 dias ou visualização de 1 dia",
+                periodo: "15 – 24/09/2026 (10 dias de entrega)", dias: 10,
+                fonte: "Meta Ads Manager · relatório diário 26/08–24/09/2026 · atribuição: clique de 7 dias ou visualização de 1 dia",
                 resultado: "cliques no link (destino: WhatsApp)",
                 campanhas: [
-                    /* Meta Ads Manager, 01–24/09 (24 dias) */
-                    { nome: "Institucional KM 32",  unidade: "KM 32",       situacao: "ativo", verbaDia: 6, cliques: 274,  investido: 46.42, alcance: 6766, impressoes: 8273, selo: "hot" },
-                    { nome: "Institucional Cabuçu", unidade: "Cabuçu",      situacao: "ativo", verbaDia: 6, cliques: 198,  investido: 45.05, alcance: 7238, impressoes: 9402 },
-                    { nome: "Seja Videx",           unidade: "Plano Videx", situacao: "ativo", verbaDia: 6, cliques: null, investido: 1.55,  alcance: 158,  impressoes: 166, semResultado: true, nota: "Objetivo de tráfego para o site; praticamente sem veiculação (R$ 1,55 gastos no mês)." }
+                    { nome: "Institucional KM 32",  unidade: "KM 32",       situacao: "ativo", verbaDia: 6, cliques: 343,  investido: 58.03, alcance: 8457, impressoes: 10341, selo: "hot" },
+                    { nome: "Institucional Cabuçu", unidade: "Cabuçu",      situacao: "ativo", verbaDia: 6, cliques: 247,  investido: 56.31, alcance: 9048, impressoes: 11752 },
+                    { nome: "Seja Videx",           unidade: "Plano Videx", situacao: "ativo", verbaDia: 6, cliques: null, investido: 1.96,  alcance: 198,  impressoes: 208, semResultado: true, nota: "Objetivo de tráfego para o site; só começou a entregar em 24/09 (R$ 1,96 gastos)." }
+                ],
+                diarioCampanhas: ["KM 32", "Cabuçu"],
+                /* só as campanhas de WhatsApp (Videx fora: R$ 1,96 em 24/09) */
+                diario: [
+                    { dia: "2026-09-15", cliques: { "KM 32": 25, "Cabuçu": 27 }, investido: 4.75,  impressoes: 696,  alcance: 494 },
+                    { dia: "2026-09-16", cliques: { "KM 32": 26, "Cabuçu": 15 }, investido: 8.31,  impressoes: 974,  alcance: 798 },
+                    { dia: "2026-09-17", cliques: { "KM 32": 40, "Cabuçu": 40 }, investido: 15.32, impressoes: 2509, alcance: 2373 },
+                    { dia: "2026-09-18", cliques: { "KM 32": 24, "Cabuçu": 26 }, investido: 10.41, impressoes: 2522, alcance: 2444 },
+                    { dia: "2026-09-19", cliques: { "KM 32": 36, "Cabuçu": 22 }, investido: 12.62, impressoes: 2651, alcance: 2577 },
+                    { dia: "2026-09-20", cliques: { "KM 32": 55, "Cabuçu": 42 }, investido: 20.09, impressoes: 4268, alcance: 3929 },
+                    { dia: "2026-09-21", cliques: { "KM 32": 33, "Cabuçu": 28 }, investido: 11.89, impressoes: 2840, alcance: 2730 },
+                    { dia: "2026-09-22", cliques: { "KM 32": 34, "Cabuçu": 22 }, investido: 10.98, impressoes: 2711, alcance: 2579 },
+                    { dia: "2026-09-23", cliques: { "KM 32": 32, "Cabuçu": 14 }, investido: 9.01,  impressoes: 1478, alcance: 1448 },
+                    { dia: "2026-09-24", cliques: { "KM 32": 38, "Cabuçu": 11 }, investido: 10.96, impressoes: 1444, alcance: 1326 }
                 ],
                 insights: [
-                    { tipo: "good", tag: "Unidade nova na frente", texto: "Com a <b>mesma verba</b> (R$ 6/dia), a campanha do <b>KM 32</b> entregou <b>39% mais cliques</b> que Cabuçu (274 × 198) e <b>26% mais barato</b> (R$ 0,17 × R$ 0,23). O entorno do KM 32 ainda tem pouca disputa de atenção — é onde a verba rende mais." },
-                    { tipo: "", tag: "Alcance sem saturar", texto: "<b>14,2 mil pessoas</b> alcançadas com 17,8 mil exibições: frequência média de <b>1,3</b> — cada pessoa viu o anúncio pouco mais de uma vez. Há espaço para <b>dobrar a verba</b> das duas unidades antes de repetir demais para o mesmo público." },
-                    { tipo: "", tag: "Ritmo de gasto", texto: "As duas campanhas de WhatsApp gastaram <b>R$ 91</b> em 24 dias com verba de R$ 12/dia somada (R$ 288 no período) — cerca de <b>1/3 do limite</b>. O Meta está entregando abaixo do orçamento; vale revisar lances e público antes de só aumentar a verba." },
-                    { tipo: "warn", tag: "Videx parado", texto: "<b>Seja Videx</b> gastou <b>R$ 1,55</b> e teve 166 exibições no mês. Ou o conjunto está com problema de entrega (público estreito, aprovação, criativo), ou faz mais sentido <b>pausar</b> e levar o plano Videx para dentro das campanhas de WhatsApp das unidades." }
+                    { tipo: "good", tag: "Unidade nova na frente", texto: "Com a <b>mesma verba</b> (R$ 6/dia), a campanha do <b>KM 32</b> entregou <b>39% mais cliques</b> que Cabuçu (343 × 247) e <b>26% mais barato</b> (R$ 0,17 × R$ 0,23). Nos últimos 3 dias a distância aumentou: 104 × 47 cliques. O entorno do KM 32 ainda tem pouca disputa de atenção — é onde a verba rende mais." },
+                    { tipo: "good", tag: "Verba no limite", texto: "As duas campanhas de WhatsApp gastaram <b>R$ 114</b> dos <b>R$ 120</b> disponíveis em 10 dias (R$ 12/dia somados) — <b>95% do orçamento</b>. A verba é o freio, não a entrega: dá para subir o KM 32 para R$ 10–15/dia sem perder eficiência." },
+                    { tipo: "", tag: "Domingo foi o melhor dia", texto: "<b>20/09 (domingo)</b> concentrou <b>97 cliques</b> e R$ 20,09 — o Meta adianta verba para os dias em que o público responde mais. Frequência média de <b>1,3</b> no período: cada pessoa viu o anúncio pouco mais de uma vez, sem sinal de saturação." },
+                    { tipo: "warn", tag: "20 dias sem entrega", texto: "As campanhas foram criadas em <b>26/08</b>, mas o Meta só começou a entregar em <b>15/09</b>: 20 dias com zero impressão, incluindo a abertura da agenda do KM 32 (31/08). Verificar o que travou (aprovação, forma de pagamento, conjunto pausado) para não repetir na 3ª unidade." },
+                    { tipo: "warn", tag: "Videx só entrou em 24/09", texto: "<b>Seja Videx</b> ficou sem entrega até o último dia do período: <b>R$ 1,96</b> e 208 exibições, tudo em 24/09. Ou o conjunto tem problema de entrega (público estreito, criativo), ou faz mais sentido <b>pausar</b> e levar o plano Videx para dentro das campanhas de WhatsApp das unidades." }
                 ]
             },
             google: {
@@ -414,29 +428,25 @@ var RELATORIO = {
             },
             destaques: [
                 { tipo: "sky",  tag: "Escalando",    titulo: "KM 32 é a campanha mais eficiente",
-                  texto: "<b>274 cliques para o WhatsApp</b> a <b>R$ 0,17</b> cada, com apenas <b>R$ 6/dia</b> — a unidade nova já supera Cabuçu em volume e custo. É a primeira candidata a receber mais verba." },
+                  texto: "<b>343 cliques para o WhatsApp</b> em 10 dias a <b>R$ 0,17</b> cada, com apenas <b>R$ 6/dia</b> — e 95% da verba consumida. A unidade nova supera Cabuçu em volume e custo; é a primeira a receber mais verba." },
                 { tipo: "",     tag: "Google no ar", titulo: "14 leads em 4 dias de pesquisa",
                   texto: "Google Ads voltou a rodar em <b>22/09</b>. <b>Clínico Geral</b> concentra 8 leads a <b>R$ 8,83</b>; o termo <b>“clínica médica”</b> sozinho gerou 7. Quem procura consulta geral em Nova Iguaçu encontra a clínica." },
-                { tipo: "grey", tag: "Otimização",   titulo: "Três pontos para ajustar",
-                  texto: "<b>Cardiologista</b> custa <b>R$ 28,51</b> por lead (clique a R$ 7,13, quase 3× a média da conta) — revisar termos e lances. <b>Pediatria</b> e <b>Gastro</b> quase não aparecem (11 e 5 impressões). No Meta, <b>Seja Videx</b> gastou R$ 1,55 e não entregou — reconfigurar ou pausar." }
+                { tipo: "grey", tag: "Atenção",      titulo: "Meta ficou 20 dias parado",
+                  texto: "Campanhas criadas em <b>26/08</b> só entregaram a partir de <b>15/09</b> — perderam a abertura da agenda do KM 32. Também: <b>Cardiologista</b> a R$ 28,51 por lead, <b>Pediatria</b> e <b>Gastro</b> sem volume, <b>Seja Videx</b> só entrou em 24/09." }
             ]
         },
         {
             id: "2026-08", label: "Agosto 2026", sub: "26 – 31/08", chip: "26 – 31 ago 2026",
-            status: "Início da veiculação (26/08) · Google sem veiculação no mês",
+            status: "Campanhas do Meta criadas em 26/08, sem entrega no mês · Google sem veiculação",
             meta: {
-                periodo: "26 – 31/08/2026 (6 dias)", dias: 6,
-                fonte: "Meta Ads Manager · 26–31/08/2026 · atribuição: clique de 7 dias ou visualização de 1 dia",
+                periodo: "sem entrega em agosto (campanhas criadas em 26/08)", dias: 0,
+                fonte: "Meta Ads Manager · relatório diário 26/08–24/09/2026 · zero impressões de 26/08 a 14/09",
                 resultado: "cliques no link (destino: WhatsApp)",
-                campanhas: [
-                    /* Meta Ads Manager, 26–31/08 (6 dias) */
-                    { nome: "Institucional KM 32",  unidade: "KM 32",       situacao: "ativo", verbaDia: 6, cliques: 69,   investido: 11.61, alcance: 1691, impressoes: 2068, selo: "hot" },
-                    { nome: "Institucional Cabuçu", unidade: "Cabuçu",      situacao: "ativo", verbaDia: 6, cliques: 49,   investido: 11.26, alcance: 1810, impressoes: 2350 },
-                    { nome: "Seja Videx",           unidade: "Plano Videx", situacao: "ativo", verbaDia: 6, cliques: null, investido: 0.39,  alcance: 39,   impressoes: 41, semResultado: true, nota: "Objetivo de tráfego para o site; praticamente sem veiculação." }
-                ],
+                semVeiculacao: "As três campanhas (Institucional KM 32, Institucional Cabuçu e Seja Videx) foram criadas em <b>26/08</b> com R$ 6/dia cada, mas o relatório diário mostra <b>zero impressões e zero gasto</b> de 26/08 a 14/09. A entrega só começou em <b>15/09</b>.",
+                campanhas: [],
+                diario: [],
                 insights: [
-                    { tipo: "", tag: "Campanhas no ar em 26/08", texto: "As duas campanhas institucionais de WhatsApp subiram em <b>26/08</b>, cinco dias antes da abertura da agenda do KM 32 (31/08). Com R$ 6/dia cada, o mês fecha com cerca de <b>R$ 23</b> investidos nas unidades." },
-                    { tipo: "warn", tag: "Leitura limitada", texto: "Seis dias de veiculação, ainda em fase de aprendizado. Não use este mês para decisão de verba — a base de comparação começa em setembro." }
+                    { tipo: "warn", tag: "Criadas, mas não entregues", texto: "Vinte dias entre a criação (26/08) e a primeira impressão (15/09). A abertura da agenda do KM 32, em <b>31/08</b>, aconteceu sem mídia no ar. Vale registrar a causa (aprovação de anúncio, forma de pagamento, conjunto pausado) no ClickUp." }
                 ]
             },
             google: {
@@ -448,12 +458,12 @@ var RELATORIO = {
                 insights: []
             },
             destaques: [
-                { tipo: "sky",  tag: "Largada", titulo: "Meta Ads no ar desde 26/08",
-                  texto: "Campanhas institucionais de WhatsApp para <b>KM 32</b> e <b>Cabuçu</b> com R$ 6/dia cada. Nos 6 primeiros dias, <b>118 cliques</b> para o WhatsApp a <b>R$ 0,19</b>." },
+                { tipo: "grey", tag: "Meta sem entrega", titulo: "Campanhas criadas, zero impressões",
+                  texto: "As campanhas de WhatsApp para <b>KM 32</b> e <b>Cabuçu</b> foram criadas em <b>26/08</b>, mas não veicularam em agosto. A entrega começou só em 15/09." },
                 { tipo: "grey", tag: "Google bloqueado", titulo: "Pesquisa ainda não rodava",
                   texto: "A conta do Google Ads estava com <b>restrição para anunciar o site</b>. O problema foi resolvido em setembro e as campanhas entraram no ar em <b>22/09</b>." },
                 { tipo: "",     tag: "Contexto", titulo: "Agenda do KM 32 abriu em 31/08",
-                  texto: "Os médicos da unidade nova começaram em <b>31/08</b>. O anúncio de “agenda aberta no seu bairro” pegou só o último dia do mês — o efeito aparece em setembro." }
+                  texto: "Os médicos da unidade nova começaram em <b>31/08</b> sem nenhum anúncio no ar. O primeiro mês de mídia de verdade é setembro." }
             ]
         }
     ]
@@ -530,8 +540,9 @@ var RELATORIO = {
             (isNum(t.mAlc) ? ', alcançando <b>~' + fInt.format(Math.round(t.mAlc / 1000)) + ' mil pessoas</b> de Nova Iguaçu' : '') + '. ' +
             'No Google, as campanhas de pesquisa (' + esc(m.google.periodo) + ') geraram <b>' + n(t.gLeads) + ' leads</b> a <b>' + brl(t.gCpl) + '</b> cada. ' +
             (topM ? 'A campanha da unidade <b>' + esc(topM.unidade) + '</b> é a mais eficiente da conta.' : '');
-        var gVazio = !m.google.campanhas.length;
-        if (gVazio) lede = 'No período, os anúncios no Instagram e Facebook levaram <b>' + n(t.mCli) + ' pessoas ao WhatsApp</b> da clínica a <b>' + brl(t.mCpc) + '</b> por clique' +
+        var gVazio = !m.google.campanhas.length, mVazio = !m.meta.campanhas.length;
+        if (mVazio && gVazio) lede = 'Nenhum anúncio veiculou no mês: as campanhas do Meta foram criadas em 26/08 mas só começaram a entregar em 15/09, e o Google Ads ainda estava impedido de anunciar. O primeiro mês de mídia de verdade é setembro.';
+        else if (gVazio) lede = 'No período, os anúncios no Instagram e Facebook levaram <b>' + n(t.mCli) + ' pessoas ao WhatsApp</b> da clínica a <b>' + brl(t.mCpc) + '</b> por clique' +
             (isNum(t.mAlc) ? ', alcançando <b>~' + fInt.format(Math.round(t.mAlc / 1000)) + ' mil pessoas</b> de Nova Iguaçu' : '') + '. O Google Ads ainda não veiculava no mês.' +
             (topM ? ' A campanha da unidade <b>' + esc(topM.unidade) + '</b> é a mais eficiente da conta.' : '');
         root.innerHTML =
@@ -539,19 +550,20 @@ var RELATORIO = {
             (m.meta.estimativa ? '<div class="notice est"><b>Meta Ads · estimativa.</b> ' + m.meta.estimativa + '</div>' : '') +
             sec('01', 'Números do período') +
             '<div class="kpis">' +
-                kpi('Cliques para o WhatsApp', n(t.mCli), 'Meta Ads · <b>' + brl(t.mCpc) + '</b> por clique' + (m.meta.estimativa ? ' · <span class="est">estimativa</span>' : ''), true) +
+                kpi('Cliques para o WhatsApp', mVazio ? '—' : n(t.mCli), mVazio ? 'Meta Ads · sem entrega no mês' : 'Meta Ads · <b>' + brl(t.mCpc) + '</b> por clique', true) +
                 kpi('Leads no Google', gVazio ? '—' : n(t.gLeads), gVazio ? 'Pesquisa · sem veiculação no mês' : 'Pesquisa · <b>' + brl(t.gCpl) + '</b> por lead') +
-                kpi('Investimento', money(t.inv), 'Meta <b>' + brl(t.mInv) + '</b>' + (gVazio ? ' · Google sem gasto' : ' · Google <b>' + brl(t.gInv) + '</b>')) +
-                kpi('Pessoas alcançadas', n(t.mAlc), n(t.mImp) + ' exibições no Meta' + (gVazio ? '' : ' · ' + n(t.gImp) + ' no Google')) +
+                kpi('Investimento', money(t.inv), (mVazio ? 'Meta sem gasto' : 'Meta <b>' + brl(t.mInv) + '</b>') + (gVazio ? ' · Google sem gasto' : ' · Google <b>' + brl(t.gInv) + '</b>')) +
+                kpi('Pessoas alcançadas', mVazio ? '—' : n(t.mAlc), (mVazio ? 'nenhuma exibição no Meta' : n(t.mImp) + ' exibições no Meta') + (gVazio ? '' : ' · ' + n(t.gImp) + ' no Google')) +
             '</div>' +
             sec('02', 'Por canal') +
             '<div class="units">' +
+                (mVazio ? '<div class="unit"><div class="u-name">Meta Ads · Instagram &amp; Facebook</div><div class="u-sub">' + esc(m.meta.periodo) + '</div><p style="font-size:13.5px;color:var(--ink-2);margin-top:10px;line-height:1.5">' + m.meta.semVeiculacao + '</p><button class="ch-link" data-go="meta">Ver aba do Meta Ads →</button></div>' :
                 '<div class="unit"><div class="u-name">Meta Ads · Instagram &amp; Facebook</div><div class="u-sub">' + esc(m.meta.periodo) + ' · ' + M.length + ' campanhas</div><div class="u-grid">' +
                     '<div><div class="u-k">Cliques p/ WhatsApp</div><div class="u-v">' + n(t.mCli) + '</div></div>' +
                     '<div><div class="u-k">Custo / clique</div><div class="u-v">' + (isNum(t.mCpc) ? '<small>R$</small> ' + fDec.format(t.mCpc) : '—') + '</div></div>' +
                     '<div><div class="u-k">Investido</div><div class="u-v">' + (isNum(t.mInv) ? '<small>R$</small> ' + fInt.format(Math.round(t.mInv)) : '—') + '</div></div>' +
                     '<div><div class="u-k">Alcance</div><div class="u-v">' + n(t.mAlc) + '</div></div>' +
-                '</div><button class="ch-link" data-go="meta">Ver análise do Meta Ads →</button></div>' +
+                '</div><button class="ch-link" data-go="meta">Ver análise do Meta Ads →</button></div>') +
                 (gVazio ? '<div class="unit alt"><div class="u-name">Google Ads · Pesquisa</div><div class="u-sub">' + esc(m.google.periodo) + '</div><p style="font-size:13.5px;color:var(--ink-2);margin-top:10px;line-height:1.5">' + m.google.semVeiculacao + '</p><button class="ch-link" data-go="google">Ver aba do Google Ads →</button></div>' :
                 '<div class="unit alt"><div class="u-name">Google Ads · Pesquisa</div><div class="u-sub">' + esc(m.google.periodo) + ' · ' + m.google.campanhas.length + ' campanhas</div><div class="u-grid">' +
                     '<div><div class="u-k">Leads</div><div class="u-v">' + n(t.gLeads) + '</div></div>' +
@@ -569,6 +581,13 @@ var RELATORIO = {
     /* ---------- META ADS ---------- */
     function renderMeta(m, t, root, k) {
         var M = m.meta.campanhas;
+        if (!M.length) {
+            root.innerHTML = '<p class="period-note"><b>' + esc(m.meta.periodo) + '</b></p><div class="notice"><b>Sem entrega.</b> ' + (m.meta.semVeiculacao || 'Nenhuma campanha veiculou neste mês.') + '</div>' +
+                sec('01', 'Números do Meta') + '<div class="kpis">' + kpi('Cliques para o WhatsApp', '—', 'sem entrega no mês', true) + kpi('Custo por clique', '—', '—') + kpi('Investimento', money(0), 'nada gasto no mês') + kpi('Pessoas alcançadas', '—', 'nenhuma exibição') + '</div>' +
+                (m.meta.insights && m.meta.insights.length ? sec('02', 'Leitura do canal') + insights(m.meta.insights) : '');
+            return;
+        }
+        var D = m.meta.diario || [], DC = m.meta.diarioCampanhas || [];
         root.innerHTML =
             '<p class="period-note"><b>' + esc(m.meta.periodo) + '</b> · resultado reportado pelo Meta: ' + esc(m.meta.resultado) + '.</p>' +
             (m.meta.estimativa ? '<div class="notice est"><b>Estimativa proporcional.</b> ' + m.meta.estimativa + '</div>' : '') +
@@ -586,7 +605,11 @@ var RELATORIO = {
             '</div>' +
             '<div class="table-wrap" style="margin-top:14px"><table><thead><tr><th>Campanha</th><th>Situação</th><th>Cliques p/ WhatsApp</th><th>Custo / clique</th><th>Investido</th><th>Verba / dia</th><th>Alcance</th><th>Impressões</th></tr></thead>' +
             '<tbody id="mt-' + k + '"></tbody><tfoot id="mf-' + k + '"></tfoot></table><div class="table-note" id="mnote-' + k + '"></div></div>' +
-            sec('03', 'Leitura do canal') + insights(m.meta.insights);
+            (D.length ? sec('03', 'Dia a dia') +
+                '<div class="cols"><div class="panel"><div class="panel-head"><h2>Cliques para o WhatsApp por dia</h2><div class="h-note">as duas campanhas das unidades somadas</div></div><div class="bars" id="md-' + k + '"></div><div class="axis-note" id="mdn-' + k + '"></div></div>' +
+                '<div class="panel"><div class="panel-head"><h2>Investimento por dia</h2><div class="h-note">o Meta distribui a verba semanal pelos dias de melhor resposta</div></div><div class="bars" id="mi-' + k + '"></div><div class="axis-note" id="min-' + k + '"></div></div></div>' +
+                '<div class="table-wrap" style="margin-top:14px"><table><thead><tr><th>Dia</th>' + DC.map(function (c) { return '<th>' + esc(c) + '</th>'; }).join('') + '<th>Cliques</th><th>Custo / clique</th><th>Investido</th><th>Impressões</th></tr></thead><tbody id="mdt-' + k + '"></tbody><tfoot id="mdf-' + k + '"></tfoot></table></div>' : '') +
+            sec(D.length ? '04' : '03', 'Leitura do canal') + insights(m.meta.insights);
 
         var byCli = M.slice().sort(function (a, b) { return (b.cliques || 0) - (a.cliques || 0); });
         var l = bars(root.querySelector('#mc-' + k), byCli, function (c) { return c.cliques; }, n,
@@ -609,6 +632,29 @@ var RELATORIO = {
         var notas = ['Alcance total é a soma das campanhas — a mesma pessoa pode ter visto mais de uma.'];
         M.forEach(function (c) { if (c.nota) notas.push((c.semResultado ? '* ' : '') + esc(c.nome) + ': ' + esc(c.nota)); });
         root.querySelector('#mnote-' + k).innerHTML = notas.join('<br>');
+
+        if (D.length) {
+            var wd = ['dom', 'seg', 'ter', 'qua', 'qui', 'sex', 'sáb'];
+            function rot(d) { var dt = new Date(d.dia + 'T12:00:00'); var p = d.dia.split('-'); return wd[dt.getDay()] + ' ' + p[2] + '/' + p[1]; }
+            function cliDia(d) { var s = 0; DC.forEach(function (c) { s += d.cliques[c] || 0; }); return s; }
+            var dias = D.map(function (d) { return { nome: rot(d), d: d, cli: cliDia(d), inv: d.investido }; });
+            var best = dias.slice().sort(function (a, b) { return b.cli - a.cli; })[0];
+            bars(root.querySelector('#md-' + k), dias.map(function (x) { return { nome: x.nome, cli: x.cli, d: x.d, selo: x === best ? 'hot' : '' }; }),
+                function (x) { return x.cli; }, n,
+                function (x) { return '<b>' + x.nome + '</b><br>' + DC.map(function (c) { return c + ': ' + n(x.d.cliques[c] || 0); }).join(' · ') + '<br>' + brl(x.d.investido) + ' · ' + brl(div(x.d.investido, x.cli)) + ' por clique'; });
+            root.querySelector('#mdn-' + k).innerHTML = 'Melhor dia: <b>' + esc(best.nome) + '</b> com ' + n(best.cli) + ' cliques. Média de <b>' + f1.format(t.mCli / D.length) + '</b> cliques por dia.';
+            bars(root.querySelector('#mi-' + k), dias.map(function (x) { return { nome: x.nome, inv: x.inv, d: x.d }; }),
+                function (x) { return x.inv; }, function (v) { return '<small>R$</small> ' + fDec.format(v); },
+                function (x) { return '<b>' + x.nome + '</b><br>' + brl(x.inv) + ' · ' + n(x.d.impressoes) + ' exibições'; });
+            root.querySelector('#min-' + k).innerHTML = 'Verba diária somada das campanhas de WhatsApp: <b>' + brl(sum(M.filter(function (c) { return !c.semResultado; }), 'verbaDia')) + '</b>.';
+            root.querySelector('#mdt-' + k).innerHTML = dias.map(function (x) {
+                return '<tr' + (x === best ? ' class="star"' : '') + '><td data-label="Dia">' + esc(x.nome) + '</td>' + DC.map(function (c) { return '<td data-label="' + esc(c) + '">' + n(x.d.cliques[c] || 0) + '</td>'; }).join('') +
+                    '<td class="hi" data-label="Cliques">' + n(x.cli) + '</td><td data-label="Custo / clique">' + brl(div(x.inv, x.cli)) + '</td><td data-label="Investido">' + brl(x.inv) + '</td><td data-label="Impressões">' + n(x.d.impressoes) + '</td></tr>';
+            }).join('');
+            var tc = 0, ti = 0, tim = 0; dias.forEach(function (x) { tc += x.cli; ti += x.inv; tim += x.d.impressoes; });
+            root.querySelector('#mdf-' + k).innerHTML = '<tr><td data-label="">Total</td>' + DC.map(function (c) { var s2 = 0; D.forEach(function (d) { s2 += d.cliques[c] || 0; }); return '<td data-label="' + esc(c) + '">' + n(s2) + '</td>'; }).join('') +
+                '<td data-label="Cliques">' + n(tc) + '</td><td data-label="Custo / clique">' + brl(div(ti, tc)) + '</td><td data-label="Investido">' + brl(ti) + '</td><td data-label="Impressões">' + n(tim) + '</td></tr>';
+        }
     }
 
     /* ---------- GOOGLE ADS ---------- */
