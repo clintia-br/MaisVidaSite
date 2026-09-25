@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#051E32">
+<title>Mais Vida · Mídia paga · ClintIA</title>
+<meta name="description" content="Relatório de mídia Meta Ads + Google Ads — Clínica Mais Vida (Nova Iguaçu/RJ). Campanhas de WhatsApp por unidade e pesquisa por especialidade, 26 ago – 25 set 2026.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44.26 44.27'%3E%3Cpath fill='%233EC7F2' d='M11.06 0v11.07H0v11.07h11.06c6.12 0 11.07-4.96 11.07-11.07V0z'/%3E%3Cpath fill='%23091E31' d='M5.53 34.87V24.56H0v11.12c0 4.75 3.84 8.59 8.59 8.59h11.11v-5.53H9.39c-2.13 0-3.86-1.73-3.86-3.87zM38.73 9.4v10.31h5.53V8.6c0-4.75-3.84-8.6-8.59-8.6H24.56v5.54h10.31c2.13 0 3.86 1.73 3.86 3.86z'/%3E%3Cpath fill='%23105BAA' d='M33.2 22.14c-6.12 0-11.07 4.95-11.07 11.07v11.06H33.2V33.21h11.06V22.14z'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;600;700;800&display=swap">
+<style>
+    /* =========================================================
+       ClintIA · Brandbook v1.0 (ago/2024)
+       Paleta: Sky 05D2FF · Dodger 0578DC · Celtic 055AAA · Yale 053C73 · Oxford 051E32
+       Tipografia: Red Hat Display
+       Abordagem: mobile first (base = celular, @media min-width amplia)
+       Este arquivo é independente do site: não usa assets/css nem assets/js.
+       ========================================================= */
+    :root {
+        --sky: #05D2FF;
+        --dodger: #0578DC;
+        --celtic: #055AAA;
+        --yale: #053C73;
+        --oxford: #051E32;
+
+        --sky-soft: #E1F8FF;
+        --dodger-soft: #E6F1FC;
+        --ground: #F4F7FA;
+        --surface: #FFFFFF;
+        --line: #DCE5EE;
+        --ink: #051E32;
+        --ink-2: #3F5266;
+        --muted: #7A8A99;
+        --neutral: #9AA6B2;
+        --neutral-soft: #EDF0F3;
+        --track: #E9EEF3;
+        --warn: #B45309;
+        --warn-soft: #FEF3C7;
+        --shadow: 0 1px 2px rgba(5,30,50,.05), 0 8px 24px rgba(5,30,50,.06);
+        --radius: 14px;
+        --font: 'Red Hat Display', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { -webkit-text-size-adjust: 100%; overflow-x: hidden; scroll-behavior: smooth; }
+    body {
+        font-family: var(--font);
+        background: var(--ground);
+        color: var(--ink);
+        line-height: 1.5;
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+        min-height: 100dvh;
+    }
+
+    /* ---------- Barra superior (assinatura do brandbook) ---------- */
+    .brandbar {
+        height: 8px;
+        background: linear-gradient(90deg,
+            var(--oxford) 0 42%,
+            var(--yale) 42% 57%,
+            var(--celtic) 57% 72%,
+            var(--dodger) 72% 86%,
+            var(--sky) 86% 100%);
+    }
+
+    .wrap { width: 100%; max-width: 1120px; margin: 0 auto; padding: 18px 16px 48px; }
+
+    /* ---------- Header ---------- */
+    header.top { display: flex; flex-direction: column; gap: 14px; padding-bottom: 16px; border-bottom: 1px solid var(--line); }
+    .logo { display: inline-flex; align-items: center; }
+    .logo svg { height: 28px; width: auto; display: block; }
+    .head-meta { display: flex; flex-wrap: wrap; gap: 8px; }
+    .chip { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 600; letter-spacing: .2px; color: var(--ink-2); background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding: 7px 12px; white-space: nowrap; box-shadow: var(--shadow); }
+    .chip .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--sky); box-shadow: 0 0 0 3px var(--sky-soft); }
+    .chip.op { color: var(--muted); background: transparent; border-color: transparent; box-shadow: none; padding-left: 4px; padding-right: 4px; }
+    .chip.op b { color: var(--celtic); font-weight: 700; }
+
+    /* ---------- Título (padrão eyebrow + heading do brandbook) ---------- */
+    .title { padding: 22px 0 6px; }
+    .eyebrow { font-size: 12px; font-weight: 600; letter-spacing: 1.6px; text-transform: uppercase; color: var(--celtic); margin-bottom: 6px; }
+    .title h1 { font-weight: 800; font-size: clamp(26px, 7.4vw, 44px); line-height: 1.04; letter-spacing: -0.01em; text-transform: uppercase; color: var(--dodger); text-wrap: balance; }
+    .title .sub { font-size: 15px; color: var(--ink-2); margin-top: 10px; max-width: 52ch; }
+
+    .lede { margin: 16px 0 8px; font-size: 16px; color: var(--ink-2); max-width: 66ch; line-height: 1.6; }
+    .lede b { color: var(--ink); font-weight: 700; }
+
+
+    /* ---------- Rótulo de seção (numerado como no brandbook) ---------- */
+    .sec { margin: 34px 0 14px; display: flex; align-items: center; gap: 10px; }
+    .sec .n { font-size: 11px; font-weight: 800; color: var(--surface); background: var(--dodger); border-radius: 6px; padding: 2px 7px; letter-spacing: .5px; }
+    .sec .t { font-size: 12px; font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase; color: var(--celtic); }
+    .sec::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+
+    /* ---------- KPI hero (Oxford blue) ---------- */
+    .kpis {
+        display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
+        background: var(--yale); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow);
+    }
+    .kpi { background: var(--oxford); padding: 18px 16px 16px; position: relative; min-width: 0; }
+    .kpi.lead { background: linear-gradient(160deg, #072A47, var(--oxford)); }
+    .kpi.lead::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--sky); }
+    .kpi .k-label { font-size: 10.5px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: var(--sky); margin-bottom: 8px; }
+    .kpi .k-val { font-weight: 800; font-size: clamp(28px, 8vw, 42px); line-height: 1; color: #FFFFFF; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+    .kpi .k-val .cur { font-size: .48em; font-weight: 600; color: #8FC9F7; margin-right: 3px; vertical-align: .2em; }
+    .kpi .k-val.na { color: #5C7A96; }
+    .kpi .k-sub { font-size: 12px; color: #A9BED2; margin-top: 8px; line-height: 1.35; }
+    .kpi .k-sub b { color: #DCEBF8; font-weight: 700; }
+
+    /* ---------- Painéis / gráficos ---------- */
+    .cols { display: grid; grid-template-columns: 1fr; gap: 14px; }
+    .panel { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px 16px 16px; box-shadow: var(--shadow); min-width: 0; }
+    .panel h2 { font-size: 16px; font-weight: 800; color: var(--ink); letter-spacing: -0.005em; }
+    .panel .h-note { font-size: 12px; color: var(--muted); margin-top: 2px; }
+    .panel-head { margin-bottom: 16px; }
+    .empty { font-size: 13px; color: var(--muted); padding: 14px 0 4px; }
+
+    .bars { display: flex; flex-direction: column; gap: 13px; }
+    .bar { display: grid; grid-template-columns: 1fr auto; column-gap: 12px; row-gap: 5px; align-items: center; padding: 2px 0; }
+    .bar .b-name { grid-column: 1 / -1; font-size: 13.5px; font-weight: 600; color: var(--ink); display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    .bar .b-name small { font-size: 10px; font-weight: 700; letter-spacing: .6px; text-transform: uppercase; padding: 2px 7px; border-radius: 999px; }
+    .bar .b-name small.hot { color: var(--celtic); background: var(--sky-soft); }
+    .bar .b-name small.key { color: var(--dodger); background: var(--dodger-soft); }
+    .bar .b-name small.off { color: var(--muted); background: var(--neutral-soft); }
+    .bar .b-name small.unit { color: var(--ink-2); background: var(--neutral-soft); letter-spacing: .3px; text-transform: none; font-weight: 600; }
+    .b-track { height: 22px; background: var(--track); border-radius: 0 6px 6px 0; overflow: hidden; min-width: 0; }
+    .b-fill { height: 100%; background: var(--dodger); border-radius: 0 6px 6px 0; min-width: 4px; transition: filter .15s ease; }
+    .b-fill.muted { background: var(--neutral); }
+    .b-fill.alt { background: var(--celtic); }
+    .bar:hover .b-fill { filter: brightness(1.08); }
+    .b-val { font-weight: 800; font-size: 15px; color: var(--ink); font-variant-numeric: tabular-nums; min-width: 52px; text-align: right; }
+    .b-val small { font-weight: 600; color: var(--muted); font-size: 11px; }
+    .axis-note { font-size: 12px; color: var(--muted); margin-top: 14px; padding-top: 12px; border-top: 1px dashed var(--line); }
+    .axis-note b { color: var(--celtic); font-weight: 700; }
+
+    /* ---------- Unidades (comparativo) ---------- */
+    .units { display: grid; grid-template-columns: 1fr; gap: 12px; }
+    .unit { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px; box-shadow: var(--shadow); border-left: 4px solid var(--dodger); }
+    .unit.alt { border-left-color: var(--celtic); }
+    .unit .u-name { font-size: 12px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: var(--celtic); }
+    .unit .u-sub { font-size: 12px; color: var(--muted); margin-top: 2px; }
+    .unit .u-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 14px; margin-top: 12px; }
+    .unit .u-k { font-size: 10.5px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); }
+    .unit .u-v { font-size: 20px; font-weight: 800; color: var(--ink); font-variant-numeric: tabular-nums; line-height: 1.1; margin-top: 2px; }
+    .unit .u-v small { font-size: 11px; font-weight: 600; color: var(--muted); }
+
+    /* ---------- Tabela: cards no celular, tabela a partir de 720px ---------- */
+    .table-wrap { background: transparent; }
+    table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+    thead { display: none; }
+    tbody, tr, td, tfoot { display: block; }
+    tbody tr {
+        background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+        box-shadow: var(--shadow); padding: 6px 14px 8px; margin-bottom: 10px;
+        display: grid; grid-template-columns: 1fr; column-gap: 12px;
+    }
+    tbody tr.star { border-color: var(--sky); box-shadow: 0 0 0 2px var(--sky-soft), var(--shadow); }
+    tbody td { padding: 8px 0; border-bottom: 1px solid var(--line); color: var(--ink-2); font-variant-numeric: tabular-nums; display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+    tbody td::before { content: attr(data-label); font-size: 10.5px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
+    tbody td, tfoot td { white-space: nowrap; }
+    tbody td:first-child { grid-column: 1 / -1; font-size: 16px; font-weight: 800; color: var(--ink); padding-top: 12px; }
+    tbody td:first-child::before { content: none; }
+    tbody td:first-child .u { display: block; font-size: 11px; font-weight: 600; color: var(--muted); letter-spacing: .3px; margin-top: 2px; }
+    tbody td:nth-child(2) { grid-column: 1 / -1; }
+    tbody td:last-child { border-bottom: none; }
+    tbody td.hi { color: var(--ink); font-weight: 800; }
+    tbody tr.off td:first-child { color: var(--muted); }
+    tfoot tr { display: grid; grid-template-columns: 1fr; column-gap: 12px; background: var(--yale); color: #FFFFFF; border-radius: var(--radius); padding: 10px 14px 8px; box-shadow: var(--shadow); }
+    tfoot td { padding: 8px 0; display: flex; justify-content: space-between; gap: 10px; font-weight: 800; font-variant-numeric: tabular-nums; border-bottom: 1px solid rgba(255,255,255,.14); }
+    tfoot td::before { content: attr(data-label); font-size: 10.5px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--sky); }
+    tfoot td:first-child { grid-column: 1 / -1; font-size: 12px; letter-spacing: 1.6px; text-transform: uppercase; color: var(--sky); }
+    tfoot td:first-child::before { content: none; }
+    tfoot td:nth-child(2) { display: none; }
+    tfoot td:last-child { border-bottom: none; }
+    .tag { display: inline-flex; align-items: center; gap: 6px; font-size: 10.5px; font-weight: 700; letter-spacing: .5px; text-transform: uppercase; padding: 3px 9px; border-radius: 999px; }
+    .tag.ok { color: var(--celtic); background: var(--sky-soft); }
+    .tag.off { color: var(--muted); background: var(--neutral-soft); }
+    .tag.warn { color: var(--warn); background: var(--warn-soft); }
+    .tag .d { width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+    .table-note { font-size: 12px; color: var(--muted); margin-top: 12px; line-height: 1.55; }
+
+    /* ---------- Destaques ---------- */
+    .highlights { display: grid; grid-template-columns: 1fr; gap: 12px; }
+    .hl { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px 16px; box-shadow: var(--shadow); border-top: 4px solid var(--dodger); }
+    .hl.sky { border-top-color: var(--sky); }
+    .hl.grey { border-top-color: var(--neutral); }
+    .hl .hl-tag { font-size: 10.5px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: 8px; color: var(--dodger); }
+    .hl.sky .hl-tag { color: var(--celtic); }
+    .hl.grey .hl-tag { color: var(--muted); }
+    .hl h3 { font-weight: 800; font-size: 19px; line-height: 1.2; color: var(--ink); margin-bottom: 6px; }
+    .hl p { font-size: 14px; color: var(--ink-2); line-height: 1.55; }
+    .hl p b { color: var(--ink); font-weight: 700; }
+
+    /* ---------- Footer ---------- */
+    footer { margin-top: 36px; padding-top: 18px; border-top: 1px solid var(--line); display: flex; flex-direction: column; gap: 12px; }
+    footer p { font-size: 12px; color: var(--muted); line-height: 1.65; }
+    footer p b { color: var(--ink-2); font-weight: 700; }
+    footer .logo svg { height: 20px; opacity: .9; }
+
+    /* ---------- Tooltip (só para mouse; no toque os valores já estão na tela) ---------- */
+    #tip { position: fixed; z-index: 50; background: var(--oxford); color: #FFFFFF; font-size: 12px; padding: 8px 11px; border-radius: 8px; pointer-events: none; opacity: 0; transform: translateY(4px); transition: opacity .12s ease, transform .12s ease; max-width: 240px; box-shadow: 0 8px 24px rgba(5,30,50,.3); line-height: 1.4; }
+    #tip.on { opacity: 1; transform: translateY(0); }
+    #tip b { color: var(--sky); }
+
+    /* =========================================================
+       Breakpoints — ampliam a partir da base mobile
+       ========================================================= */
+    @media (min-width: 480px) {
+        .wrap { padding: 22px 20px 56px; }
+        .logo svg { height: 32px; }
+        tbody tr, tfoot tr { grid-template-columns: 1fr 1fr; }
+        tbody td:nth-last-child(-n+2), tfoot td:nth-last-child(-n+2) { border-bottom: none; }
+        .units { grid-template-columns: 1fr 1fr; }
+    }
+    @media (min-width: 720px) {
+        header.top { flex-direction: row; justify-content: space-between; align-items: center; }
+        .head-meta { justify-content: flex-end; }
+        .kpi { padding: 22px 20px 20px; }
+        .kpi .k-val { font-size: 40px; }
+        .bar { grid-template-columns: 170px 1fr auto; row-gap: 0; }
+        .bar .b-name { grid-column: auto; flex-direction: column; align-items: flex-start; gap: 3px; }
+        .b-val { min-width: 64px; }
+        .unit .u-grid { grid-template-columns: repeat(4, 1fr); }
+
+        /* Tabela real */
+        .table-wrap { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); overflow-x: auto; }
+        table { min-width: 760px; }
+        thead { display: table-header-group; }
+        tbody { display: table-row-group; } tfoot { display: table-footer-group; }
+        tr { display: table-row; } td, th { display: table-cell; }
+        thead th { font-size: 10.5px; letter-spacing: 1px; text-transform: uppercase; color: #FFFFFF; font-weight: 700; text-align: right; padding: 14px 16px; background: var(--yale); }
+        thead th:first-child { text-align: left; }
+        tbody tr { display: table-row; background: transparent; border: none; border-radius: 0; box-shadow: none; padding: 0; margin: 0; }
+        tbody tr.star td { background: var(--sky-soft); }
+        tbody td { display: table-cell; padding: 13px 16px; border-bottom: 1px solid var(--line); text-align: right; white-space: nowrap; }
+        tbody td::before { content: none; }
+        tbody td:first-child { text-align: left; font-size: 13.5px; font-weight: 700; padding-top: 13px; }
+        tbody tr:last-child td { border-bottom: none; }
+        tfoot tr { display: table-row; background: transparent; border-radius: 0; padding: 0; box-shadow: none; }
+        tfoot td { display: table-cell; padding: 14px 16px; text-align: right; color: var(--ink); border-top: 2px solid var(--dodger); border-bottom: none; background: var(--dodger-soft); }
+        tfoot td::before { content: none; }
+        tfoot td:first-child { text-align: left; color: var(--celtic); font-size: 11px; }
+        tfoot td:nth-child(2) { display: table-cell; }
+        .table-note { padding: 12px 16px 14px; margin-top: 0; border-top: 1px solid var(--line); }
+        .panel .table-wrap { border: none; box-shadow: none; border-radius: 0; }
+        .panel table { min-width: 620px; }
+
+        .highlights { grid-template-columns: repeat(3, 1fr); }
+        footer { flex-direction: row; justify-content: space-between; align-items: flex-end; }
+    }
+    @media (min-width: 960px) {
+        .wrap { padding: 28px 24px 72px; }
+        .logo svg { height: 36px; }
+        .title { padding-top: 30px; }
+        .cols { grid-template-columns: 1fr 1fr; gap: 16px; }
+        .panel { padding: 22px 22px 20px; }
+        .kpis { grid-template-columns: repeat(4, 1fr); }
+        .kpi .k-val { font-size: clamp(30px, 3.2vw, 40px); }
+    }
+    @media (prefers-reduced-motion: reduce) { * { transition: none !important; } html { scroll-behavior: auto; } }
+    @media print {
+        body { background: #fff; }
+        .wrap { padding: 0; max-width: none; }
+        .kpi, .panel, .hl, .table-wrap, .unit { box-shadow: none; break-inside: avoid; }
+        #tip { display: none; }
+    }
+</style>
+</head>
+<body>
+
+<div class="brandbar" aria-hidden="true"></div>
+
+<div class="wrap">
+
+    <header class="top">
+        <a class="logo" href="#" aria-label="ClintIA">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 197.67 44.27" role="img" aria-label="ClintIA"><path fill="#091E31" d="M60.86 22.16L60.86 24.64C60.86 29.31 63.67 33.16 69.54 33.16L81.89 33.16L79.70 28.84L71.67 28.84C68.89 28.84 65.46 28.39 65.46 23.90L65.46 20.42C65.46 15.93 68.86 15.50 71.67 15.50L79.70 15.50L81.89 11.16L69.54 11.16C63.67 11.16 60.86 15.01 60.86 19.68L60.86 22.16Z"/><path fill="#091E31" d="M111.78 33.16L111.78 22.12L111.78 11.16L107.18 11.16L107.18 22.12L107.18 33.16L111.78 33.16Z"/><path fill="#3EC7F2" d="M170.47 33.16L170.47 22.12L170.47 11.16L165.87 11.16L165.87 22.12L165.87 33.16L170.47 33.16Z"/><path fill="#091E31" d="M85.80 33.16L102.04 33.16L104.20 28.84L90.40 28.84L90.40 11.16L85.80 11.16L85.80 33.16Z"/><path fill="#091E31" d="M118.78 11.16C117.77 11.15 116.93 12.14 116.97 13.32L116.97 33.16L121.54 33.16L121.54 19.40C126.26 24.07 130.98 27.96 135.78 32.55C136.17 32.94 136.65 33.16 137.14 33.16C138.17 33.18 138.99 32.19 138.98 31.00L138.98 11.16L134.38 11.16L134.38 24.92C129.67 20.25 124.96 16.38 120.16 11.76C119.76 11.39 119.27 11.16 118.78 11.16Z"/><path fill="#091E31" d="M144.06 15.50L149.93 15.50L149.93 33.16L154.52 33.16L154.52 15.50L160.79 15.50L162.95 11.16L141.89 11.16L144.06 15.50Z"/><path fill="#3EC7F2" d="M197.67 33.12L187.17 12.21C186.82 11.54 186.20 11.12 185.52 11.11C184.85 11.12 184.22 11.54 183.89 12.21L173.39 33.12L178.35 33.12L185.52 18.58C187.93 23.43 190.31 28.28 192.70 33.12L197.67 33.12Z"/><path fill="#3EC7F2" d="M11.06 -0.00L11.06 11.07L0.00 11.07L0.00 22.14L11.06 22.14C17.18 22.14 22.13 17.18 22.13 11.07L22.13 -0.00L11.06 -0.00Z"/><path fill="#091E31" d="M5.53 34.87L5.53 24.56L0.00 24.56L0.00 33.21L0.00 35.68C0.00 40.43 3.84 44.27 8.59 44.27L11.06 44.27L19.70 44.27L19.70 38.74L9.39 38.74C7.26 38.74 5.53 37.01 5.53 34.87Z"/><path fill="#091E31" d="M38.73 9.40L38.73 19.71L44.26 19.71L44.26 11.07L44.26 8.60C44.26 3.85 40.42 -0.00 35.67 -0.00L33.20 -0.00L24.56 -0.00L24.56 5.54L34.87 5.54C37.00 5.54 38.73 7.27 38.73 9.40Z"/><path fill="#105BAA" d="M33.20 22.14L33.20 22.14C27.08 22.14 22.13 27.09 22.13 33.21L22.13 44.27L33.20 44.27L33.20 33.21L44.26 33.21L44.26 22.14L33.20 22.14Z"/></svg>
+        </a>
+        <div class="head-meta">
+            <span class="chip"><span class="dot"></span> <span id="chip-periodo">—</span></span>
+            <span class="chip op">Programa <b>PROClip</b></span>
+        </div>
+    </header>
+
+    <section class="title">
+        <div class="eyebrow">Relatório de mídia · Meta Ads + Google Ads</div>
+        <h1>Clínica<br>Mais Vida</h1>
+        <p class="sub">Anúncios de WhatsApp no Instagram &amp; Facebook para as unidades Cabuçu e KM 32, e campanhas de pesquisa no Google por especialidade — Nova Iguaçu/RJ.</p>
+    </section>
+
+    <p class="lede" id="lede"></p>
+
+    <div class="sec"><span class="n">01</span><span class="t">Números do período</span></div>
+    <div class="kpis" id="kpis"></div>
+
+    <div class="sec"><span class="n">02</span><span class="t">Meta Ads · Instagram &amp; Facebook</span></div>
+    <div class="cols">
+        <div class="panel">
+            <div class="panel-head">
+                <h2>Cliques para o WhatsApp por campanha</h2>
+                <div class="h-note">pessoas que saíram do anúncio direto para a conversa</div>
+            </div>
+            <div class="bars" id="chart-meta-cliques"></div>
+            <div class="axis-note" id="note-meta-cliques"></div>
+        </div>
+        <div class="panel">
+            <div class="panel-head">
+                <h2>Custo por clique</h2>
+                <div class="h-note">quanto custou cada pessoa levada ao WhatsApp — menor é melhor</div>
+            </div>
+            <div class="bars" id="chart-meta-custo"></div>
+            <div class="axis-note" id="note-meta-custo"></div>
+        </div>
+    </div>
+
+    <div class="table-wrap" style="margin-top:14px">
+        <table>
+            <thead>
+                <tr>
+                    <th>Campanha</th>
+                    <th>Situação</th>
+                    <th>Cliques p/ WhatsApp</th>
+                    <th>Custo / clique</th>
+                    <th>Investido</th>
+                    <th>Verba / dia</th>
+                    <th>Alcance</th>
+                    <th>Impressões</th>
+                </tr>
+            </thead>
+            <tbody id="meta-tbody"></tbody>
+            <tfoot id="meta-tfoot"></tfoot>
+        </table>
+        <div class="table-note" id="meta-note"></div>
+    </div>
+
+    <div class="sec"><span class="n">03</span><span class="t">Google Ads · Pesquisa</span></div>
+    <div class="cols">
+        <div class="panel">
+            <div class="panel-head">
+                <h2>Leads por campanha</h2>
+                <div class="h-note">contatos gerados a partir da busca no Google</div>
+            </div>
+            <div class="bars" id="chart-g-leads"></div>
+            <div class="axis-note" id="note-g-leads"></div>
+        </div>
+        <div class="panel">
+            <div class="panel-head">
+                <h2>Custo por lead</h2>
+                <div class="h-note">só campanhas que já geraram lead — menor é melhor</div>
+            </div>
+            <div class="bars" id="chart-g-cpl"></div>
+            <div class="axis-note" id="note-g-cpl"></div>
+        </div>
+    </div>
+
+    <div class="table-wrap" style="margin-top:14px">
+        <table>
+            <thead>
+                <tr>
+                    <th>Campanha</th>
+                    <th>Verba / dia</th>
+                    <th>Impressões</th>
+                    <th>Cliques</th>
+                    <th>CTR</th>
+                    <th>Investido</th>
+                    <th>Leads</th>
+                    <th>Custo / lead</th>
+                </tr>
+            </thead>
+            <tbody id="g-tbody"></tbody>
+            <tfoot id="g-tfoot"></tfoot>
+        </table>
+        <div class="table-note" id="g-note"></div>
+    </div>
+
+    <div class="panel" style="margin-top:14px">
+        <div class="panel-head">
+            <h2>O que as pessoas buscaram</h2>
+            <div class="h-note">termos que geraram lead no período</div>
+        </div>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Termo de busca</th>
+                        <th>Campanha</th>
+                        <th>Impressões</th>
+                        <th>Cliques</th>
+                        <th>Leads</th>
+                        <th>Custo / lead</th>
+                    </tr>
+                </thead>
+                <tbody id="kw-tbody"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="sec"><span class="n">04</span><span class="t">Destaques &amp; decisões</span></div>
+    <div class="highlights" id="highlights"></div>
+
+    <footer>
+        <p><b>Clínica Mais Vida — Clínica Popular da Família</b> · Unidades Cabuçu e KM 32 · Nova Iguaçu/RJ<br>Relatório preparado por ClintIA · Programa PROClip · <span id="foot-versao">v1</span></p>
+        <p id="foot-fonte"></p>
+    </footer>
+
+</div>
+
+<div id="tip" role="status" aria-live="polite"></div>
+
+<script>
+/* =========================================================
+   DADOS DO RELATÓRIO — único lugar a editar.
+   Meta Ads Manager, nível de campanha (26/08–24/09/2026):
+     resultados = cliques no link (destino: WhatsApp) · valor gasto · alcance · impressões
+   Google Ads, campanhas de Pesquisa (veiculação 22–25/09/2026):
+     impressões · cliques · custo · conversões (leads), somados por campanha
+   Números puros com ponto decimal (58.03). `null` = ainda sem dado (a página mostra "—").
+   ========================================================= */
+var RELATORIO = {
+    periodo: { inicio: "2026-08-26", fim: "2026-09-25" },
+    versao: "v1",
+    meta: {
+        fonte: "Meta Ads Manager · 26/08–24/09/2026 · atribuição: clique de 7 dias ou visualização de 1 dia",
+        resultado: "cliques no link (destino: WhatsApp)",
+        campanhas: [
+            { nome: "Institucional KM 32",  unidade: "KM 32",  situacao: "ativo", verbaDia: 6, cliques: 343, investido: 58.03, alcance: 8457, impressoes: 10341, selo: "hot" },
+            { nome: "Institucional Cabuçu", unidade: "Cabuçu", situacao: "ativo", verbaDia: 6, cliques: 247, investido: 56.31, alcance: 9048, impressoes: 11752 },
+            { nome: "Seja Videx",           unidade: "Plano Videx", situacao: "ativo", verbaDia: 6, cliques: null, investido: 1.94, alcance: 197, impressoes: 207, semResultado: true, nota: "Objetivo de tráfego para o site; praticamente sem veiculação no período (R$ 1,94 gastos)." }
+        ]
+    },
+    google: {
+        fonte: "Google Ads · campanhas de Pesquisa · veiculação 22–25/09/2026 (4 dias)",
+        campanhas: [
+            { nome: "Clínico Geral",       verbaDia: 20,   impressoes: 314, cliques: 36, investido: 70.67, leads: 8, selo: "hot" },
+            { nome: "Institucional",       verbaDia: 5.5,  impressoes: 388, cliques: 26, investido: 50.88, leads: 4 },
+            { nome: "Cardiologista",       verbaDia: 20,   impressoes: 88,  cliques: 8,  investido: 57.02, leads: 2 },
+            { nome: "Pediatria",           verbaDia: 20,   impressoes: 11,  cliques: 1,  investido: 9.41,  leads: 0, situacao: "aprendizado" },
+            { nome: "Gastroenterologista", verbaDia: 20,   impressoes: 5,   cliques: 0,  investido: 0,     leads: 0, situacao: "aprendizado" }
+        ],
+        termos: [
+            { termo: "clínica médica",              campanha: "Clínico Geral", impressoes: 290, cliques: 35, investido: 64.73, leads: 7 },
+            { termo: "clinica medica",              campanha: "Institucional", impressoes: 275, cliques: 17, investido: 43.05, leads: 2 },
+            { termo: "cardiologista em nova iguaçu", campanha: "Cardiologista", impressoes: 46, cliques: 5, investido: 36.06, leads: 1 },
+            { termo: "cardiologista nova iguaçu",   campanha: "Cardiologista", impressoes: 16,  cliques: 3,  investido: 20.96, leads: 1 },
+            { termo: "clínica médica nova iguaçu",  campanha: "Institucional", impressoes: 43,  cliques: 3,  investido: 3.60,  leads: 1 },
+            { termo: "clínico geral nova iguaçu",   campanha: "Clínico Geral", impressoes: 10,  cliques: 1,  investido: 5.94,  leads: 1 },
+            { termo: "clínica mais vida km 32",     campanha: "Institucional", impressoes: 10,  cliques: 1,  investido: 0.59,  leads: 1 }
+        ]
+    },
+    /* Três cards de leitura para o cliente. `tipo`: "sky" | "" | "grey". <b>…</b> destaca números. */
+    destaques: [
+        { tipo: "sky",  tag: "Escalando",     titulo: "KM 32 é a campanha mais eficiente",
+          texto: "<b>343 cliques para o WhatsApp</b> a <b>R$ 0,17</b> cada, com apenas <b>R$ 6/dia</b> — a unidade nova já supera Cabuçu em volume e custo. É a primeira candidata a receber mais verba." },
+        { tipo: "",     tag: "Google no ar",  titulo: "14 leads em 4 dias de pesquisa",
+          texto: "Google Ads voltou a rodar em <b>22/09</b>. <b>Clínico Geral</b> concentra 8 leads a <b>R$ 8,83</b>; o termo <b>“clínica médica”</b> sozinho gerou 7. Quem procura consulta geral em Nova Iguaçu encontra a clínica." },
+        { tipo: "grey", tag: "Otimização",    titulo: "Três pontos para ajustar",
+          texto: "<b>Cardiologista</b> custa <b>R$ 28,51</b> por lead (clique a R$ 7,13, mais de 3× a média) — revisar termos e lances. <b>Pediatria</b> e <b>Gastro</b> quase não aparecem (11 e 5 impressões). No Meta, <b>Seja Videx</b> gastou R$ 1,94 e não entregou — reconfigurar ou pausar." }
+    ]
+};
+
+(function () {
+    var R = RELATORIO, M = R.meta.campanhas, G = R.google.campanhas;
+
+    /* ---------- formatação pt-BR ---------- */
+    var fInt = new Intl.NumberFormat('pt-BR', { maximumFractionDigits: 0 });
+    var fDec = new Intl.NumberFormat('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    var fPct = new Intl.NumberFormat('pt-BR', { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+    function isNum(v) { return typeof v === 'number' && isFinite(v); }
+    function n(v)   { return isNum(v) ? fInt.format(v) : '—'; }
+    function brl(v) { return isNum(v) ? 'R$ ' + fDec.format(v) : '—'; }
+    function pct(v) { return isNum(v) ? fPct.format(v * 100) + '%' : '—'; }
+    function esc(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+    function data(iso) { var m = ['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez']; var p = iso.split('-'); return parseInt(p[2], 10) + ' ' + m[parseInt(p[1], 10) - 1]; }
+    function sum(arr, k) { var t = 0, any = false; arr.forEach(function (c) { if (isNum(c[k])) { t += c[k]; any = true; } }); return any ? t : null; }
+    function div(a, b) { return isNum(a) && isNum(b) && b > 0 ? a / b : null; }
+    function tag(s) {
+        if (s === 'pausado')     return '<span class="tag off"><span class="d"></span>Pausado</span>';
+        if (s === 'aprendizado') return '<span class="tag warn"><span class="d"></span>Em aprendizado</span>';
+        return '<span class="tag ok"><span class="d"></span>Ativo</span>';
+    }
+    function selo(c, extra) {
+        if (c.situacao === 'pausado') return '<small class="off">Pausado</small>';
+        if (c.selo === 'hot') return '<small class="hot">' + (extra || 'Alto desempenho') + '</small>';
+        if (c.selo === 'key') return '<small class="key">Carro-chefe</small>';
+        return '';
+    }
+
+    /* ---------- totais ---------- */
+    var mCli = sum(M, 'cliques'), mInv = sum(M, 'investido'), mAlc = sum(M, 'alcance'), mImp = sum(M, 'impressoes');
+    var mCpc = div(sum(M.filter(function (c) { return isNum(c.cliques); }), 'investido'), mCli);
+    var gLeads = sum(G, 'leads'), gInv = sum(G, 'investido'), gImp = sum(G, 'impressoes'), gCli = sum(G, 'cliques');
+    var gCpl = div(gInv, gLeads), gCtr = div(gCli, gImp), gCpc = div(gInv, gCli);
+    var totInv = (mInv || 0) + (gInv || 0);
+    var ano = R.periodo.fim.slice(0, 4);
+
+    /* ---------- cabeçalho, lede, rodapé ---------- */
+    document.getElementById('chip-periodo').textContent = data(R.periodo.inicio) + ' – ' + data(R.periodo.fim) + ' ' + ano;
+    document.getElementById('foot-versao').textContent = R.versao;
+    document.getElementById('foot-fonte').innerHTML = 'Fontes: ' + esc(R.meta.fonte) + '<br>' + esc(R.google.fonte) + ' · valores em R$ (BRL)';
+
+    var lede = 'No período, os anúncios no Instagram e Facebook levaram <b>' + n(mCli) + ' pessoas ao WhatsApp</b> da clínica a <b>' + brl(mCpc) + '</b> por clique, alcançando <b>~' + fInt.format(Math.round(mAlc / 1000)) + ' mil pessoas</b> de Nova Iguaçu. ';
+    lede += 'O Google Ads entrou no ar em 22/09 e, em 4 dias, gerou <b>' + n(gLeads) + ' leads</b> a <b>' + brl(gCpl) + '</b> cada. ';
+    var topM = M.filter(function (c) { return isNum(c.cliques); }).sort(function (a, b) { return b.cliques - a.cliques; })[0];
+    if (topM) lede += 'A campanha da unidade <b>' + esc(topM.unidade) + '</b> é a mais eficiente da conta.';
+    document.getElementById('lede').innerHTML = lede;
+
+    /* ---------- KPIs ---------- */
+    function kpi(label, val, sub, lead) { return '<div class="kpi' + (lead ? ' lead' : '') + '"><div class="k-label">' + label + '</div><div class="k-val">' + val + '</div><div class="k-sub">' + sub + '</div></div>'; }
+    function money(v, dec) { return isNum(v) ? '<span class="cur">R$</span>' + (dec ? fDec.format(v) : fInt.format(Math.round(v))) : '—'; }
+    document.getElementById('kpis').innerHTML =
+        kpi('Cliques para o WhatsApp', n(mCli), 'Meta Ads · <b>' + brl(mCpc) + '</b> por clique', true) +
+        kpi('Leads no Google', n(gLeads), 'Pesquisa · <b>' + brl(gCpl) + '</b> por lead · 4 dias no ar') +
+        kpi('Investimento', money(totInv), 'Meta <b>' + brl(mInv) + '</b> · Google <b>' + brl(gInv) + '</b>') +
+        kpi('Pessoas alcançadas', n(mAlc), n(mImp) + ' exibições no Meta · ' + n(gImp) + ' no Google');
+
+    /* ---------- barras (genérico) ---------- */
+    function bars(el, lista, valor, fmt, tipCb, seloExtra) {
+        var comDado = lista.filter(function (c) { return isNum(valor(c)); });
+        if (!comDado.length) { el.innerHTML = '<div class="empty">Sem dados no período ainda.</div>'; return []; }
+        var max = Math.max.apply(null, comDado.map(valor));
+        el.innerHTML = comDado.map(function (c, i) {
+            var v = valor(c), w = max > 0 ? Math.max(4, Math.round(v / max * 100)) : 4;
+            var cls = c.situacao === 'pausado' ? ' muted' : (c.unidade === 'KM 32' ? ' alt' : '');
+            var sub = c.unidade ? ' <small class="unit">' + esc(c.unidade) + '</small>' : '';
+            return '<div class="bar" data-tip="' + esc(tipCb(c)) + '"><div class="b-name">' + esc(c.nome) + sub + (i === 0 && seloExtra ? ' <small class="hot">' + seloExtra + '</small>' : selo(c)) + '</div>' +
+                '<div class="b-track"><div class="b-fill' + cls + '" style="width:' + w + '%"></div></div><div class="b-val">' + fmt(v) + '</div></div>';
+        }).join('');
+        return comDado;
+    }
+    var cpcM = function (c) { return div(c.investido, c.cliques); };
+    var cplG = function (c) { return div(c.investido, c.leads); };
+
+    /* Meta */
+    var mByCli = M.slice().sort(function (a, b) { return (b.cliques || 0) - (a.cliques || 0); });
+    var lM = bars(document.getElementById('chart-meta-cliques'), mByCli, function (c) { return c.cliques; }, n,
+        function (c) { return '<b>' + c.nome + '</b><br>' + n(c.cliques) + ' cliques · ' + brl(cpcM(c)) + ' cada'; });
+    document.getElementById('note-meta-cliques').innerHTML = lM.length && isNum(mCli) ? esc(lM[0].nome) + ' concentrou <b>' + Math.round(lM[0].cliques / mCli * 100) + '%</b> dos cliques da conta.' : '';
+    var mByCpc = M.filter(function (c) { return isNum(cpcM(c)); }).sort(function (a, b) { return cpcM(a) - cpcM(b); });
+    bars(document.getElementById('chart-meta-custo'), mByCpc, cpcM, function (v) { return '<small>R$</small> ' + fDec.format(v); },
+        function (c) { return '<b>' + c.nome + '</b><br>' + brl(cpcM(c)) + ' por clique'; }, 'Menor custo');
+    document.getElementById('note-meta-custo').innerHTML = 'Média da conta: <b>' + brl(mCpc) + '</b> por clique.';
+
+    var star = lM[0];
+    document.getElementById('meta-tbody').innerHTML = M.map(function (c) {
+        var cls = c === star ? ' class="star"' : (c.situacao === 'pausado' ? ' class="off"' : '');
+        return '<tr' + cls + '><td data-label="Campanha">' + esc(c.nome) + (c.semResultado ? ' *' : '') + '<span class="u">' + esc(c.unidade) + '</span></td>' +
+            '<td data-label="Situação">' + tag(c.situacao) + '</td>' +
+            '<td class="hi" data-label="Cliques p/ WhatsApp">' + n(c.cliques) + '</td>' +
+            '<td data-label="Custo / clique">' + brl(cpcM(c)) + '</td>' +
+            '<td data-label="Investido">' + brl(c.investido) + '</td>' +
+            '<td data-label="Verba / dia">' + brl(c.verbaDia) + '</td>' +
+            '<td data-label="Alcance">' + n(c.alcance) + '</td>' +
+            '<td data-label="Impressões">' + n(c.impressoes) + '</td></tr>';
+    }).join('');
+    document.getElementById('meta-tfoot').innerHTML = '<tr><td data-label="">Total</td><td></td>' +
+        '<td data-label="Cliques p/ WhatsApp">' + n(mCli) + '</td><td data-label="Custo / clique">' + brl(mCpc) + '</td>' +
+        '<td data-label="Investido">' + brl(mInv) + '</td><td data-label="Verba / dia">' + brl(sum(M, 'verbaDia')) + '</td>' +
+        '<td data-label="Alcance">' + n(mAlc) + '</td><td data-label="Impressões">' + n(mImp) + '</td></tr>';
+    var mn = ['Resultado reportado pelo Meta: ' + esc(R.meta.resultado) + '. Alcance total é a soma das campanhas — a mesma pessoa pode ter visto mais de uma.'];
+    M.forEach(function (c) { if (c.nota) mn.push((c.semResultado ? '* ' : '') + esc(c.nome) + ': ' + esc(c.nota)); });
+    document.getElementById('meta-note').innerHTML = mn.join('<br>');
+
+    /* Google */
+    var gByLeads = G.slice().sort(function (a, b) { return (b.leads || 0) - (a.leads || 0) || (b.cliques || 0) - (a.cliques || 0); });
+    var lG = bars(document.getElementById('chart-g-leads'), gByLeads, function (c) { return c.leads; }, n,
+        function (c) { return '<b>' + c.nome + '</b><br>' + n(c.leads) + ' leads' + (isNum(cplG(c)) ? ' · ' + brl(cplG(c)) + ' cada' : '') + ' · ' + n(c.cliques) + ' cliques'; });
+    document.getElementById('note-g-leads').innerHTML = lG.length && isNum(gLeads) && gLeads > 0 ? esc(lG[0].nome) + ' concentrou <b>' + Math.round(lG[0].leads / gLeads * 100) + '%</b> dos leads. CTR médio da conta: <b>' + pct(gCtr) + '</b>.' : '';
+    var gByCpl = G.filter(function (c) { return isNum(cplG(c)); }).sort(function (a, b) { return cplG(a) - cplG(b); });
+    bars(document.getElementById('chart-g-cpl'), gByCpl, cplG, function (v) { return '<small>R$</small> ' + fDec.format(v); },
+        function (c) { return '<b>' + c.nome + '</b><br>' + brl(cplG(c)) + ' por lead · clique a ' + brl(div(c.investido, c.cliques)); }, 'Menor custo');
+    document.getElementById('note-g-cpl').innerHTML = 'Média da conta: <b>' + brl(gCpl) + '</b> por lead · clique médio <b>' + brl(gCpc) + '</b>.';
+
+    var gStar = lG[0];
+    document.getElementById('g-tbody').innerHTML = gByLeads.map(function (c) {
+        var cls = c === gStar ? ' class="star"' : '';
+        return '<tr' + cls + '><td data-label="Campanha">' + esc(c.nome) + '<span class="u">' + (c.situacao === 'aprendizado' ? 'quase sem veiculação' : 'Pesquisa · leads') + '</span></td>' +
+            '<td data-label="Verba / dia">' + brl(c.verbaDia) + '</td>' +
+            '<td data-label="Impressões">' + n(c.impressoes) + '</td>' +
+            '<td data-label="Cliques">' + n(c.cliques) + '</td>' +
+            '<td data-label="CTR">' + pct(div(c.cliques, c.impressoes)) + '</td>' +
+            '<td data-label="Investido">' + brl(c.investido) + '</td>' +
+            '<td class="hi" data-label="Leads">' + n(c.leads) + '</td>' +
+            '<td data-label="Custo / lead">' + brl(cplG(c)) + '</td></tr>';
+    }).join('');
+    document.getElementById('g-tfoot').innerHTML = '<tr><td data-label="">Total</td><td data-label="Verba / dia">' + brl(sum(G, 'verbaDia')) + '</td>' +
+        '<td data-label="Impressões">' + n(gImp) + '</td><td data-label="Cliques">' + n(gCli) + '</td><td data-label="CTR">' + pct(gCtr) + '</td>' +
+        '<td data-label="Investido">' + brl(gInv) + '</td><td data-label="Leads">' + n(gLeads) + '</td><td data-label="Custo / lead">' + brl(gCpl) + '</td></tr>';
+    document.getElementById('g-note').innerHTML = 'Lead = conversão registrada pelo Google Ads (contato a partir do anúncio). Campanhas com verba de R$ 20/dia gastaram bem menos que o limite: ainda estão ganhando volume de busca.';
+
+    document.getElementById('kw-tbody').innerHTML = (R.google.termos || []).slice().sort(function (a, b) { return (b.leads || 0) - (a.leads || 0) || (b.cliques || 0) - (a.cliques || 0); }).map(function (t, i) {
+        return '<tr' + (i === 0 ? ' class="star"' : '') + '><td data-label="Termo de busca">“' + esc(t.termo) + '”</td>' +
+            '<td data-label="Campanha">' + esc(t.campanha) + '</td>' +
+            '<td data-label="Impressões">' + n(t.impressoes) + '</td>' +
+            '<td data-label="Cliques">' + n(t.cliques) + '</td>' +
+            '<td class="hi" data-label="Leads">' + n(t.leads) + '</td>' +
+            '<td data-label="Custo / lead">' + brl(div(t.investido, t.leads)) + '</td></tr>';
+    }).join('');
+
+    /* ---------- destaques ---------- */
+    document.getElementById('highlights').innerHTML = (R.destaques || []).map(function (h) {
+        return '<div class="hl' + (h.tipo ? ' ' + esc(h.tipo) : '') + '"><div class="hl-tag">◆ ' + esc(h.tag) + '</div><h3>' + esc(h.titulo) + '</h3><p>' + h.texto + '</p></div>';
+    }).join('');
+
+    /* ---------- tooltip (só ponteiro fino; no toque os valores já estão visíveis) ---------- */
+    if (!window.matchMedia || !window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+    var tip = document.getElementById('tip');
+    function show(e, el) { tip.innerHTML = el.getAttribute('data-tip'); tip.classList.add('on'); move(e); }
+    function move(e) {
+        var x = e.clientX + 14, y = e.clientY + 16, r = tip.getBoundingClientRect();
+        if (x + r.width > window.innerWidth - 8) x = e.clientX - r.width - 14;
+        if (y + r.height > window.innerHeight - 8) y = e.clientY - r.height - 16;
+        tip.style.left = Math.max(8, x) + 'px'; tip.style.top = Math.max(8, y) + 'px';
+    }
+    function hide() { tip.classList.remove('on'); }
+    document.querySelectorAll('.bar[data-tip]').forEach(function (el) {
+        el.addEventListener('mouseenter', function (e) { show(e, el); });
+        el.addEventListener('mousemove', move);
+        el.addEventListener('mouseleave', hide);
+    });
+    document.addEventListener('scroll', hide, { passive: true });
+})();
+</script>
+</body>
+</html>

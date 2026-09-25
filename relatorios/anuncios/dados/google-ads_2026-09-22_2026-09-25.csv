@@ -1,0 +1,53 @@
+Base de Dados - Relatório Ads
+9 de setembro de 2026 - 25 de setembro de 2026
+Campanha,Código da moeda,Orçamento,Dia,Pesquisar palavra-chave,Pesquisar tipo de correspondência de palavra-chave,Impr.,Cliques,CTR,CPC méd.,Custo,Conversões,Custo / conv.,Taxa de conv.
+[SEARCH][LEADS] INSTITUCIONAL,BRL,"5,50",2026-09-22,clinica medica,Correspondência de frase,17,3,"17,65%","7,82","23,47","0,00",0,"0,00%"
+[SEARCH][LEADS] INSTITUCIONAL,BRL,"5,50",2026-09-22,consultas e exames a preços populares,Correspondência de frase,1,0,"0,00%",0,"0,00","0,00",0,0
+[SEARCH][LEADS] INSTITUCIONAL,BRL,"5,50",2026-09-22,clinica medica perto de mim,Correspondência de frase,0,0,0,0,"0,00","0,00",0,0
+[SEARCH][LEADS] Clínico Geral,BRL,"20,00",2026-09-22,clínico geral nova iguaçu,Correspondência exata,1,0,"0,00%",0,"0,00","0,00",0,0
+[SEARCH][LEADS] INSTITUCIONAL,BRL,"5,50",2026-09-23,clinica medica,Correspondência de frase,15,3,"20,00%","4,07","12,21","0,00",0,"0,00%"
+[SEARCH][LEADS] INSTITUCIONAL,BRL,"5,50",2026-09-23,consultas e exames a preços populares,Correspondência de frase,4,0,"0,00%",0,"0,00","0,00",0,0
+[SEARCH][LEADS] INSTITUCIONAL,BRL,"5,50",2026-09-23,clinica medica perto de mim,Correspondência de frase,1,0,"0,00%",0,"0,00","0,00",0,0
+[SEARCH][LEADS] Cardiologista,BRL,"20,00",2026-09-23,cardiologista nova iguaçu,Correspondência exata,4,2,"50,00%","9,19","18,37","1,00","18,37","50,00%"
+[SEARCH][LEADS] Cardiologista,BRL,"20,00",2026-09-23,cardiologista em nova iguaçu,Correspondência de frase,1,0,"0,00%",0,"0,00","0,00",0,0
+[SEARCH][LEADS] Cardiologista,BRL,"20,00",2026-09-23,cardiologista nova iguaçu,Correspondência exata,1,1,"100,00%","2,59","2,59","0,00",0,"0,00%"
+[SEARCH][LEADS] Clínico Geral,BRL,"20,00",2026-09-23,clínico geral nova iguaçu,Correspondência exata,5,0,"0,00%",0,"0,00","0,00",0,0
+[SEARCH][LEADS] Clínico Geral,BRL,"20,00",2026-09-23,clínica médica,Correspondência de frase,114,13,"11,40%","2,62","34,06","1,00","34,06","7,69%"
+[SEARCH][LEADS] Clínico Geral,BRL,"20,00",2026-09-23,clinica da familia,Correspondência de frase,9,0,"0,00%",0,"0,00","0,00",0,0
+[SEARCH][LEADS] Clínico Geral,BRL,"20,00",2026-09-23,clínico geral nova iguaçu,Correspondência exata,3,1,"33,33%","5,94","5,94","1,00","5,94","100,00%"
+[SEARCH][LEADS] INSTITUCIONAL,BRL,"5,50",2026-09-24,clinica medica,Correspondência de frase,197,8,"4,06%","0,74","5,96","2,00","2,98","25,00%"
+[SEARCH][LEADS] INSTITUCIONAL,BRL,"5,50",2026-09-24,clinica medica popular,Correspondência de frase,0,0,0,0,"0,00","0,00",0,0
+[SEARCH][LEADS] INSTITUCIONAL,BRL,"5,50",2026-09-24,clinica rio de janeiro,Correspondência de frase,21,1,"4,76%","0,10","0,10","0,00",0,"0,00%"
+[SEARCH][LEADS] INSTITUCIONAL,BRL,"5,50",2026-09-24,consultas e exames a preços populares,Correspondência de frase,11,1,"9,09%","0,56","0,56","0,00",0,"0,00%"
+[SEARCH][LEADS] INSTITUCIONAL,BRL,"5,50",2026-09-24,clinica mais vida,Correspondência exata,1,1,"100,00%","1,53","1,53","0,00",0,"0,00%"
+[SEARCH][LEADS] INSTITUCIONAL,BRL,"5,50",2026-09-24,clínica médica nova iguaçu,Correspondência de frase,13,1,"7,69%","0,65","0,65","0,00",0,"0,00%"
+[SEARCH][LEADS] INSTITUCIONAL,BRL,"5,50",2026-09-24,clínica popular nova iguaçu,Correspondência de frase,3,2,"66,67%","0,73","1,45","0,00",0,"0,00%"
+[SEARCH][LEADS] INSTITUCIONAL,BRL,"5,50",2026-09-24,clínica mais vida nova iguaçu,Correspondência de frase,3,0,"0,00%",0,"0,00","0,00",0,0
+[SEARCH][LEADS] INSTITUCIONAL,BRL,"5,50",2026-09-24,clínica mais vida km 32,Correspondência de frase,8,1,"12,50%","0,59","0,59","1,00","0,59","100,00%"
+[SEARCH][LEADS] Gastroenterologista,BRL,"20,00",2026-09-24,gastroenterologia nova iguaçu,Correspondência exata,1,0,"0,00%",0,"0,00","0,00",0,0
+[SEARCH][LEADS] Gastroenterologista,BRL,"20,00",2026-09-24,gastroenterologia nova iguaçu,Correspondência exata,3,0,"0,00%",0,"0,00","0,00",0,0
+[SEARCH][LEADS] Cardiologista,BRL,"20,00",2026-09-24,cardiologista nova iguaçu,Correspondência exata,5,0,"0,00%",0,"0,00","0,00",0,0
+[SEARCH][LEADS] Cardiologista,BRL,"20,00",2026-09-24,cardiologista perto de mim,Correspondência de frase,4,0,"0,00%",0,"0,00","0,00",0,0
+[SEARCH][LEADS] Cardiologista,BRL,"20,00",2026-09-24,cardiologista em nova iguaçu,Correspondência de frase,44,3,"6,82%","5,53","16,60","1,00","16,60","33,33%"
+[SEARCH][LEADS] Cardiologista,BRL,"20,00",2026-09-24,cardiologista nova iguaçu,Correspondência exata,6,0,"0,00%",0,"0,00","0,00",0,0
+[SEARCH][LEADS] Cardiologista,BRL,"20,00",2026-09-24,consulta cardiologista nova iguaçu,Correspondência de frase,19,0,"0,00%",0,"0,00","0,00",0,0
+[SEARCH][LEADS] Clínico Geral,BRL,"20,00",2026-09-24,clínico geral nova iguaçu,Correspondência exata,1,0,"0,00%",0,"0,00","0,00",0,0
+[SEARCH][LEADS] Pediatria,BRL,"20,00",2026-09-24,pediatra nova iguaçu,Correspondência exata,5,1,"20,00%","9,41","9,41","0,00",0,"0,00%"
+[SEARCH][LEADS] Clínico Geral,BRL,"20,00",2026-09-24,clínica médica,Correspondência de frase,157,16,"10,19%","1,36","21,77","6,00","3,63","37,50%"
+[SEARCH][LEADS] Clínico Geral,BRL,"20,00",2026-09-24,clinica da familia,Correspondência de frase,1,0,"0,00%",0,"0,00","0,00",0,0
+[SEARCH][LEADS] Clínico Geral,BRL,"20,00",2026-09-24,clinico geral em nova iguaçu,Correspondência de frase,3,0,"0,00%",0,"0,00","0,00",0,0
+[SEARCH][LEADS] INSTITUCIONAL,BRL,"5,50",2026-09-25,clinica medica,Correspondência de frase,46,3,"6,52%","0,47","1,41","0,00",0,"0,00%"
+[SEARCH][LEADS] INSTITUCIONAL,BRL,"5,50",2026-09-25,clinica medica popular,Correspondência de frase,5,0,"0,00%",0,"0,00","0,00",0,0
+[SEARCH][LEADS] INSTITUCIONAL,BRL,"5,50",2026-09-25,clinica rio de janeiro,Correspondência de frase,8,0,"0,00%",0,"0,00","0,00",0,0
+[SEARCH][LEADS] INSTITUCIONAL,BRL,"5,50",2026-09-25,clinica mais vida,Correspondência exata,1,0,"0,00%",0,"0,00","0,00",0,0
+[SEARCH][LEADS] INSTITUCIONAL,BRL,"5,50",2026-09-25,clínica médica nova iguaçu,Correspondência de frase,30,2,"6,67%","1,48","2,95","1,00","2,95","50,00%"
+[SEARCH][LEADS] INSTITUCIONAL,BRL,"5,50",2026-09-25,clínica mais vida nova iguaçu,Correspondência de frase,1,0,"0,00%",0,"0,00","0,00",0,0
+[SEARCH][LEADS] INSTITUCIONAL,BRL,"5,50",2026-09-25,clínica mais vida km 32,Correspondência de frase,2,0,"0,00%",0,"0,00","0,00",0,0
+[SEARCH][LEADS] Gastroenterologista,BRL,"20,00",2026-09-25,gastroenterologia nova iguaçu,Correspondência exata,1,0,"0,00%",0,"0,00","0,00",0,0
+[SEARCH][LEADS] Cardiologista,BRL,"20,00",2026-09-25,cardiologista perto de mim,Correspondência de frase,1,0,"0,00%",0,"0,00","0,00",0,0
+[SEARCH][LEADS] Cardiologista,BRL,"20,00",2026-09-25,cardiologista em nova iguaçu,Correspondência de frase,1,2,"200,00%","9,73","19,46","0,00",0,"0,00%"
+[SEARCH][LEADS] Cardiologista,BRL,"20,00",2026-09-25,consulta cardiologista nova iguaçu,Correspondência de frase,2,0,"0,00%",0,"0,00","0,00",0,0
+[SEARCH][LEADS] Pediatria,BRL,"20,00",2026-09-25,pediatra nova iguaçu,Correspondência exata,3,0,"0,00%",0,"0,00","0,00",0,0
+[SEARCH][LEADS] Pediatria,BRL,"20,00",2026-09-25,pediatra nova iguaçu,Correspondência exata,3,0,"0,00%",0,"0,00","0,00",0,0
+[SEARCH][LEADS] Clínico Geral,BRL,"20,00",2026-09-25,clínica médica,Correspondência de frase,19,6,"31,58%","1,48","8,90","0,00",0,"0,00%"
+[SEARCH][LEADS] Clínico Geral,BRL,"20,00",2026-09-25,clinica da familia,Correspondência de frase,1,0,"0,00%",0,"0,00","0,00",0,0
