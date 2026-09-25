@@ -368,23 +368,22 @@ var RELATORIO = {
     meses: [
         {
             id: "2026-09", label: "Setembro 2026", sub: "01 – 25/09", chip: "01 – 25 set 2026",
-            status: "Parcial (até 25/09). Meta: estimativa proporcional — o export veio no bloco 26/08–24/09; Google: dados exatos, veiculação a partir de 22/09",
+            status: "Parcial (até 25/09) · Google em veiculação desde 22/09",
             meta: {
                 periodo: "01 – 24/09/2026 (24 dias)", dias: 24,
-                fonte: "Meta Ads Manager · export 26/08–24/09/2026 rateado por dias (24 de 30) · atribuição: clique de 7 dias ou visualização de 1 dia",
+                fonte: "Meta Ads Manager · 01–24/09/2026 · atribuição: clique de 7 dias ou visualização de 1 dia",
                 resultado: "cliques no link (destino: WhatsApp)",
-                estimativa: "O Meta reportou o período 26/08–24/09 num bloco só (30 dias: <b>590 cliques</b>, <b>R$ 116,28</b>, 17.702 pessoas). Os números deste mês são <b>24/30 desse bloco</b>, rateados por dia. Substituir pelo export com desdobramento por mês assim que disponível.",
                 campanhas: [
-                    /* rateio 24/30 de: KM 32 343 cliques · R$ 58,03 · 8.457 alcance · 10.341 impr. | Cabuçu 247 · R$ 56,31 · 9.048 · 11.752 | Videx R$ 1,94 · 197 · 207 */
+                    /* Meta Ads Manager, 01–24/09 (24 dias) */
                     { nome: "Institucional KM 32",  unidade: "KM 32",       situacao: "ativo", verbaDia: 6, cliques: 274,  investido: 46.42, alcance: 6766, impressoes: 8273, selo: "hot" },
                     { nome: "Institucional Cabuçu", unidade: "Cabuçu",      situacao: "ativo", verbaDia: 6, cliques: 198,  investido: 45.05, alcance: 7238, impressoes: 9402 },
-                    { nome: "Seja Videx",           unidade: "Plano Videx", situacao: "ativo", verbaDia: 6, cliques: null, investido: 1.55,  alcance: 158,  impressoes: 166, semResultado: true, nota: "Objetivo de tráfego para o site; praticamente sem veiculação (R$ 1,94 gastos em 30 dias)." }
+                    { nome: "Seja Videx",           unidade: "Plano Videx", situacao: "ativo", verbaDia: 6, cliques: null, investido: 1.55,  alcance: 158,  impressoes: 166, semResultado: true, nota: "Objetivo de tráfego para o site; praticamente sem veiculação (R$ 1,55 gastos no mês)." }
                 ],
                 insights: [
-                    { tipo: "good", tag: "Unidade nova na frente", texto: "Com a <b>mesma verba</b> (R$ 6/dia), a campanha do <b>KM 32</b> entregou <b>39% mais cliques</b> que Cabuçu (274 × 198 no mês; 343 × 247 no bloco de 30 dias) e <b>26% mais barato</b> (R$ 0,17 × R$ 0,23). O entorno do KM 32 ainda tem pouca disputa de atenção — é onde a verba rende mais." },
-                    { tipo: "", tag: "Alcance sem saturar", texto: "No bloco de 30 dias, <b>17,7 mil pessoas</b> alcançadas com 22,3 mil exibições: frequência média de <b>1,3</b> — cada pessoa viu o anúncio pouco mais de uma vez. Há espaço para <b>dobrar a verba</b> das duas unidades antes de repetir demais para o mesmo público." },
-                    { tipo: "", tag: "Ritmo de gasto", texto: "As duas campanhas de WhatsApp gastaram <b>R$ 114</b> em 30 dias com verba de R$ 12/dia somada — cerca de <b>1/3 do limite</b>. O Meta está entregando abaixo do orçamento; vale revisar lances e público antes de só aumentar a verba." },
-                    { tipo: "warn", tag: "Videx parado", texto: "<b>Seja Videx</b> gastou <b>R$ 1,94</b> e teve 207 exibições em 30 dias. Ou o conjunto está com problema de entrega (público estreito, aprovação, criativo), ou faz mais sentido <b>pausar</b> e levar o plano Videx para dentro das campanhas de WhatsApp das unidades." }
+                    { tipo: "good", tag: "Unidade nova na frente", texto: "Com a <b>mesma verba</b> (R$ 6/dia), a campanha do <b>KM 32</b> entregou <b>39% mais cliques</b> que Cabuçu (274 × 198) e <b>26% mais barato</b> (R$ 0,17 × R$ 0,23). O entorno do KM 32 ainda tem pouca disputa de atenção — é onde a verba rende mais." },
+                    { tipo: "", tag: "Alcance sem saturar", texto: "<b>14,2 mil pessoas</b> alcançadas com 17,8 mil exibições: frequência média de <b>1,3</b> — cada pessoa viu o anúncio pouco mais de uma vez. Há espaço para <b>dobrar a verba</b> das duas unidades antes de repetir demais para o mesmo público." },
+                    { tipo: "", tag: "Ritmo de gasto", texto: "As duas campanhas de WhatsApp gastaram <b>R$ 91</b> em 24 dias com verba de R$ 12/dia somada (R$ 288 no período) — cerca de <b>1/3 do limite</b>. O Meta está entregando abaixo do orçamento; vale revisar lances e público antes de só aumentar a verba." },
+                    { tipo: "warn", tag: "Videx parado", texto: "<b>Seja Videx</b> gastou <b>R$ 1,55</b> e teve 166 exibições no mês. Ou o conjunto está com problema de entrega (público estreito, aprovação, criativo), ou faz mais sentido <b>pausar</b> e levar o plano Videx para dentro das campanhas de WhatsApp das unidades." }
                 ]
             },
             google: {
@@ -415,30 +414,29 @@ var RELATORIO = {
             },
             destaques: [
                 { tipo: "sky",  tag: "Escalando",    titulo: "KM 32 é a campanha mais eficiente",
-                  texto: "<b>343 cliques para o WhatsApp</b> no bloco de 30 dias a <b>R$ 0,17</b> cada, com apenas <b>R$ 6/dia</b> — a unidade nova já supera Cabuçu em volume e custo. É a primeira candidata a receber mais verba." },
+                  texto: "<b>274 cliques para o WhatsApp</b> a <b>R$ 0,17</b> cada, com apenas <b>R$ 6/dia</b> — a unidade nova já supera Cabuçu em volume e custo. É a primeira candidata a receber mais verba." },
                 { tipo: "",     tag: "Google no ar", titulo: "14 leads em 4 dias de pesquisa",
                   texto: "Google Ads voltou a rodar em <b>22/09</b>. <b>Clínico Geral</b> concentra 8 leads a <b>R$ 8,83</b>; o termo <b>“clínica médica”</b> sozinho gerou 7. Quem procura consulta geral em Nova Iguaçu encontra a clínica." },
                 { tipo: "grey", tag: "Otimização",   titulo: "Três pontos para ajustar",
-                  texto: "<b>Cardiologista</b> custa <b>R$ 28,51</b> por lead (clique a R$ 7,13, quase 3× a média da conta) — revisar termos e lances. <b>Pediatria</b> e <b>Gastro</b> quase não aparecem (11 e 5 impressões). No Meta, <b>Seja Videx</b> gastou R$ 1,94 e não entregou — reconfigurar ou pausar." }
+                  texto: "<b>Cardiologista</b> custa <b>R$ 28,51</b> por lead (clique a R$ 7,13, quase 3× a média da conta) — revisar termos e lances. <b>Pediatria</b> e <b>Gastro</b> quase não aparecem (11 e 5 impressões). No Meta, <b>Seja Videx</b> gastou R$ 1,55 e não entregou — reconfigurar ou pausar." }
             ]
         },
         {
             id: "2026-08", label: "Agosto 2026", sub: "26 – 31/08", chip: "26 – 31 ago 2026",
-            status: "Início da veiculação (26/08). Meta: estimativa proporcional — o export veio no bloco 26/08–24/09; Google: sem veiculação no mês",
+            status: "Início da veiculação (26/08) · Google sem veiculação no mês",
             meta: {
                 periodo: "26 – 31/08/2026 (6 dias)", dias: 6,
-                fonte: "Meta Ads Manager · export 26/08–24/09/2026 rateado por dias (6 de 30) · atribuição: clique de 7 dias ou visualização de 1 dia",
+                fonte: "Meta Ads Manager · 26–31/08/2026 · atribuição: clique de 7 dias ou visualização de 1 dia",
                 resultado: "cliques no link (destino: WhatsApp)",
-                estimativa: "O Meta reportou o período 26/08–24/09 num bloco só. Os números deste mês são <b>6/30 desse bloco</b>, rateados por dia — servem como ordem de grandeza dos 6 primeiros dias, não como fechamento. Substituir pelo export com desdobramento por mês.",
                 campanhas: [
-                    /* rateio 6/30 do mesmo bloco de 30 dias */
+                    /* Meta Ads Manager, 26–31/08 (6 dias) */
                     { nome: "Institucional KM 32",  unidade: "KM 32",       situacao: "ativo", verbaDia: 6, cliques: 69,   investido: 11.61, alcance: 1691, impressoes: 2068, selo: "hot" },
                     { nome: "Institucional Cabuçu", unidade: "Cabuçu",      situacao: "ativo", verbaDia: 6, cliques: 49,   investido: 11.26, alcance: 1810, impressoes: 2350 },
                     { nome: "Seja Videx",           unidade: "Plano Videx", situacao: "ativo", verbaDia: 6, cliques: null, investido: 0.39,  alcance: 39,   impressoes: 41, semResultado: true, nota: "Objetivo de tráfego para o site; praticamente sem veiculação." }
                 ],
                 insights: [
                     { tipo: "", tag: "Campanhas no ar em 26/08", texto: "As duas campanhas institucionais de WhatsApp subiram em <b>26/08</b>, cinco dias antes da abertura da agenda do KM 32 (31/08). Com R$ 6/dia cada, o mês fecha com cerca de <b>R$ 23</b> investidos nas unidades." },
-                    { tipo: "warn", tag: "Leitura limitada", texto: "Seis dias de veiculação, ainda em fase de aprendizado, e números <b>rateados</b> do bloco de 30 dias. Não use este mês para decisão de verba — a base de comparação real começa em setembro." }
+                    { tipo: "warn", tag: "Leitura limitada", texto: "Seis dias de veiculação, ainda em fase de aprendizado. Não use este mês para decisão de verba — a base de comparação começa em setembro." }
                 ]
             },
             google: {
@@ -451,7 +449,7 @@ var RELATORIO = {
             },
             destaques: [
                 { tipo: "sky",  tag: "Largada", titulo: "Meta Ads no ar desde 26/08",
-                  texto: "Campanhas institucionais de WhatsApp para <b>KM 32</b> e <b>Cabuçu</b> com R$ 6/dia cada. Nos 6 primeiros dias, estimativa de <b>~118 cliques</b> para o WhatsApp a <b>R$ 0,19</b>." },
+                  texto: "Campanhas institucionais de WhatsApp para <b>KM 32</b> e <b>Cabuçu</b> com R$ 6/dia cada. Nos 6 primeiros dias, <b>118 cliques</b> para o WhatsApp a <b>R$ 0,19</b>." },
                 { tipo: "grey", tag: "Google bloqueado", titulo: "Pesquisa ainda não rodava",
                   texto: "A conta do Google Ads estava com <b>restrição para anunciar o site</b>. O problema foi resolvido em setembro e as campanhas entraram no ar em <b>22/09</b>." },
                 { tipo: "",     tag: "Contexto", titulo: "Agenda do KM 32 abriu em 31/08",
